@@ -1,0 +1,64 @@
+.topMargin {
+  font-family: Open Sans, Helvetica, Arial, sans-serif;
+  margin-top: 50px;
+}
+
+.text {
+  font-family: Open Sans, Helvetica, Arial, sans-serif;
+  line-height: 1.42857143;
+  font-size: 16px;
+  box-sizing: border-box;
+  min-height: 50px;
+  width: 85%;
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column-reverse;
+  padding: 30px 0;
+  justify-content: center;
+  align-items: center;
+  border-top: 2px solid #e3e3e3;
+}
+
+.copyright {
+  line-height: 1.42857143;
+  box-sizing: border-box;
+  font-size: 13px;
+  text-align: center;
+  font-family: Open Sans, Helvetica, Arial, sans-serif;
+  color: #445d6e;
+  margin: 0 0 10px;
+}
+
+.links {
+  font-family: Open Sans, Helvetica, Arial, sans-serif;
+  line-height: 1.42857143;
+  font-size: 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 10px;
+}
+
+.link {
+  line-height: 1.42857143;
+  box-sizing: border-box;
+  font-size: 14px;
+  padding: 3px 0;
+  cursor: pointer;
+  text-decoration: none !important;
+  font-family: Open Sans, Helvetica, Arial, sans-serif;
+  color: #445d6e !important;
+}
+
+.bar {
+  font-family: Open Sans, Helvetica, Arial, sans-serif;
+  line-height: 1.42857143;
+  font-size: 16px;
+  box-sizing: border-box;
+  margin: 0 15px;
+  height: 15px;
+  width: 2px;
+  background-color: rgba(68, 93, 110, 0.53);
+}

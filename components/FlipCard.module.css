@@ -1,0 +1,20 @@
+.cardFlip {
+  width: 300px !important;
+}
+
+.card {
+  border-radius: 15px !important;
+  box-shadow: rgba(0, 0, 0, 0.26) 0px 5px 15px !important;
+  height: 446px;
+}
+
+.card:hover {
+  box-shadow: rgba(0, 0, 0, 0.575) 0px 5px 15px !important;
+}
+
+.buttonFlip {
+  padding: 15px 0px !important;
+  width: 100%;
+  background-color: rgb(233, 180, 123) !important;
+  border-radius: 0px 0px 15px 15px !important;
+}

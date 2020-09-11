@@ -1,0 +1,57 @@
+.heroText {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.cardImg {
+  width: 300px !important;
+}
+
+.cardImgSocial {
+  width: 300px;
+  border-radius: 65px !important;
+  box-shadow: none !important;
+}
+
+.cardText {
+  display: flex;
+  max-width: 500px;
+  min-width: 300px;
+  align-items: center;
+  box-shadow: none !important;
+}
+
+.cardMedia {
+  height: 300px;
+}
+
+.firstTextImg {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto !important;
+  margin-bottom: 50px !important;
+}
+
+.secondTextImg {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto !important;
+  margin-bottom: 50px !important;
+}
+
+.thirdTextImg {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto !important;
+  margin-bottom: 50px !important;
+}

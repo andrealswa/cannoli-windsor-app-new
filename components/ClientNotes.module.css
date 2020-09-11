@@ -1,0 +1,23 @@
+.textBox {
+  border: 2px solid;
+  border-color: rgb(233, 180, 123) !important;
+  border-radius: 15px;
+  padding: 15px;
+  margin: 5px;
+  width: 400px;
+  height: 500px;
+  max-width: 500px;
+  box-shadow: rgba(0, 0, 0, 0.144) 0px 5px 5px !important;
+  max-height: 800px;
+  font: inherit;
+}
+
+.textBox:focus {
+  outline: none;
+  border-color: rgb(233, 180, 123) !important;
+  box-shadow: rgba(0, 0, 0, 0.281) 0px 5px 15px !important;
+}
+
+.buttonFlip {
+  background-color: rgb(233, 180, 123) !important;
+}

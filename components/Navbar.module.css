@@ -1,0 +1,47 @@
+.navImage {
+  max-width: 100%;
+  height: auto;
+  max-height: 200px;
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.drawerMenu {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+}
+
+.appbar {
+  box-shadow: 0 4px 2px -3px rgb(185, 184, 184) !important;
+}
+
+.toolbar {
+  background-color: white;
+}
+
+.toolbarBody {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.cartIcon {
+  color: rgb(233, 180, 123) !important;
+}
+
+.hamburgerButton {
+  margin-right: 25px !important;
+}
+
+@media (min-width: 1000px) {
+  .hamburgerButton {
+    display: none !important;
+  }
+}
