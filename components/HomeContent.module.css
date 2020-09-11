@@ -33,6 +33,7 @@
   max-width: 1200px;
   margin: auto !important;
   margin-bottom: 50px !important;
+  align-items: center;
 }
 
 .secondTextImg {
@@ -44,6 +45,7 @@
   max-width: 1200px;
   margin: auto !important;
   margin-bottom: 50px !important;
+  align-items: center;
 }
 
 .thirdTextImg {
@@ -54,4 +56,5 @@
   max-width: 1200px;
   margin: auto !important;
   margin-bottom: 50px !important;
+  align-items: center;
 }

@@ -1,0 +1,44 @@
+.heroText {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.cardFlip {
+  width: 300px !important;
+}
+
+.card {
+  border-radius: 15px !important;
+}
+
+.secondTextImg {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto !important;
+
+}
+
+.cardText {
+  display: flex;
+  max-width: 500px;
+  min-width: 300px;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none !important;
+}
+
+.bigCard {
+  margin-top: 20px;
+  box-shadow: rgba(0, 0, 0, 0.233) 0px 5px 15px !important;
+  width: 100%;
+  max-width: 800px;
+  border-radius: 15px !important;
+}
+
+.mainContainer {
+  display: flex;
+  justify-content: center;
+}

@@ -6,6 +6,8 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import { useRecoilValue } from 'recoil';
+import { cartCount } from '../recoil/recoil-atoms'
 
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import List from '@material-ui/core/List';
@@ -23,6 +25,7 @@ import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
 import EmojiObjectsOutlinedIcon from '@material-ui/icons/EmojiObjectsOutlined';
 import CodeRoundedIcon from '@material-ui/icons/CodeRounded';
 import ShoppingCartSharpIcon from '@material-ui/icons/ShoppingCartSharp';
+import Badge from '@material-ui/core/Badge';
 import LibraryBooksSharpIcon from '@material-ui/icons/LibraryBooksSharp';
 import LiveHelpSharpIcon from '@material-ui/icons/LiveHelpSharp';
 import PhoneIphoneSharpIcon from '@material-ui/icons/PhoneIphoneSharp';
@@ -36,6 +39,8 @@ export const Navbar = () => {
   const [state, setState] = useState({
     left: false,
   });
+
+  const localCartCount = useRecoilValue(cartCount);
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -81,7 +86,9 @@ export const Navbar = () => {
               <Link href="/cart">
                 <Button disableElevation>
                   <a>Cart</a>
-                  <ShoppingCartSharpIcon className={styles.cartIcon} />
+                  <Badge badgeContent={localCartCount} color="error">
+                    <ShoppingCartSharpIcon className={styles.cartIcon} />
+                  </Badge>
                 </Button>
               </Link>
             </div>

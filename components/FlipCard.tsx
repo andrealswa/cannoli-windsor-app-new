@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useRecoilState } from 'recoil';
 import ReactCardFlip from 'react-card-flip';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -7,52 +8,96 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import AddIcon from '@material-ui/icons/Add';
 
 import styles from './FlipCard.module.css'
+import { cart } from '../recoil/recoil-atoms'
 
 export const FlipCard = () => {
+  const [cartItems, setCartItems] = useRecoilState(cart)
   const [side, setSide] = useState(false)
   const handleCardFlip = () => { setSide(!side) }
+
+  const handleAddBox = (boxAndCannoliSize) => {
+    if (boxAndCannoliSize === 1) {
+      const cartItemsNew = { ...cartItems, small_box_mini_cannoli: cartItems.small_box_mini_cannoli + 1 }
+      setCartItems({ ...cartItemsNew })
+    }
+    else if (boxAndCannoliSize === 2) {
+      const cartItemsNew = { ...cartItems, small_box_medium_cannoli: cartItems.small_box_medium_cannoli + 1 }
+      setCartItems({ ...cartItemsNew })
+    }
+    else if (boxAndCannoliSize === 3) {
+      const cartItemsNew = { ...cartItems, small_box_large_cannoli: cartItems.small_box_large_cannoli + 1 }
+      setCartItems({ ...cartItemsNew })
+    }
+    else if (boxAndCannoliSize === 4) {
+      const cartItemsNew = { ...cartItems, big_box_mini_cannoli: cartItems.big_box_mini_cannoli + 1 }
+      setCartItems({ ...cartItemsNew })
+    }
+    else if (boxAndCannoliSize === 5) {
+      const cartItemsNew = { ...cartItems, big_box_medium_cannoli: cartItems.big_box_medium_cannoli + 1 }
+      setCartItems({ ...cartItemsNew })
+    }
+    else if (boxAndCannoliSize === 6) {
+      const cartItemsNew = { ...cartItems, big_box_large_cannoli: cartItems.big_box_large_cannoli + 1 }
+      setCartItems({ ...cartItemsNew })
+    }
+  }
 
   return (
     <div className={styles.cardFlip} >
       <ReactCardFlip isFlipped={side}>
         <div key="front">
           <Card className={styles.card}>
-            <CardActionArea>
-              <CardMedia
-                style={{ height: 300, width: 300 }}
-                image={require("../public/homeContent/cannoliHomepage1.jpg")}
-              />
-              <CardContent>
-                <Typography style={{ textAlign: "center" }} gutterBottom variant="h5" component="h2">
-                  Assorted
+            <CardMedia
+              style={{ height: 300, width: 300 }}
+              image={require("../public/homeContent/cannoliHomepage1.jpg")}
+            />
+            <CardContent>
+              <Typography style={{ textAlign: "center" }} gutterBottom variant="h5" component="h2">
+                Assorted
                 </Typography>
-                <Typography style={{ textAlign: "center" }} variant="body2" color="textSecondary" component="p">
-                  Delicious Party Pack
+              <Typography style={{ textAlign: "center" }} variant="body2" color="textSecondary" component="p">
+                Delicious Party Pack
                 </Typography>
-              </CardContent>
-            </CardActionArea>
+            </CardContent>
+
             <Button className={styles.buttonFlip} onClick={handleCardFlip}>View Options</Button>
           </Card>
 
         </div>
         <div key="back">
           <Card className={styles.card}>
-            <CardActionArea>
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="h2">
-                  Assorted
+
+            <CardContent>
+              <Typography className={styles.centerTitle} gutterBottom variant="h5" component="h2">
+                Assorted
                 </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
-                  Perfect Party Pack
+              <Typography variant="h6" color="textSecondary" component="p">
+                Small Box
                 </Typography>
-              </CardContent>
-            </CardActionArea>
+              <div className={styles.sizeChoices}>
+                <Button className={styles.sizeButton} onClick={() => handleAddBox(1)}><AddIcon />&nbsp;Mini-Sized (6)</Button>
+                <Button className={styles.sizeButton} onClick={() => handleAddBox(2)}><AddIcon />&nbsp;Medium-Sized (4)</Button>
+                <Button className={styles.sizeButton} onClick={() => handleAddBox(3)}><AddIcon />&nbsp;Large-Sized (2)</Button>
+              </div>
+              <Typography variant="h6" color="textSecondary" component="p">
+                Big Box
+                </Typography>
+              <div className={styles.sizeChoices}>
+                <Button className={styles.sizeButton} onClick={() => handleAddBox(4)}><AddIcon />&nbsp;Mini-Sized (10)</Button>
+                <Button className={styles.sizeButton} onClick={() => handleAddBox(5)}><AddIcon />&nbsp;Medium-Sized (8)</Button>
+                <Button className={styles.sizeButton} onClick={() => handleAddBox(6)}><AddIcon />&nbsp;Large-Sized (5)</Button>
+              </div>
+
+            </CardContent>
+
+            <div className={styles.grow}></div>
             <Button className={styles.buttonFlip} onClick={handleCardFlip}>View Picture</Button>
           </Card>
         </div>
       </ReactCardFlip>
-    </div>
+    </div >
   )
 }
