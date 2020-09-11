@@ -7,10 +7,10 @@ export const cart = atom({
   // the initial value
   default: {
     small_box_mini_cannoli: 1,
-    small_box_medium_cannoli: 1,
-    small_box_large_cannoli: 0,
+    small_box_medium_cannoli: 0,
+    small_box_large_cannoli: 2,
     big_box_mini_cannoli: 1,
-    big_box_medium_cannoli: 0,
+    big_box_medium_cannoli: 1,
     big_box_large_cannoli: 0,
   }
 });

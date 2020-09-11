@@ -39,3 +39,7 @@
 .sizeButton {
   justify-content: left !important;
 }
+
+.subButton {
+  min-width: 10px !important;
+}

@@ -9,6 +9,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import AddIcon from '@material-ui/icons/Add';
+import RemoveIcon from '@material-ui/icons/Remove';
 
 import styles from './FlipCard.module.css'
 import { cart } from '../recoil/recoil-atoms'
@@ -57,10 +58,10 @@ export const FlipCard = () => {
             <CardContent>
               <Typography style={{ textAlign: "center" }} gutterBottom variant="h5" component="h2">
                 Assorted
-                </Typography>
+              </Typography>
               <Typography style={{ textAlign: "center" }} variant="body2" color="textSecondary" component="p">
                 Delicious Party Pack
-                </Typography>
+              </Typography>
             </CardContent>
 
             <Button className={styles.buttonFlip} onClick={handleCardFlip}>View Options</Button>
@@ -78,17 +79,17 @@ export const FlipCard = () => {
                 Small Box
                 </Typography>
               <div className={styles.sizeChoices}>
-                <Button className={styles.sizeButton} onClick={() => handleAddBox(1)}><AddIcon />&nbsp;Mini-Sized (6)</Button>
-                <Button className={styles.sizeButton} onClick={() => handleAddBox(2)}><AddIcon />&nbsp;Medium-Sized (4)</Button>
-                <Button className={styles.sizeButton} onClick={() => handleAddBox(3)}><AddIcon />&nbsp;Large-Sized (2)</Button>
+                <div className={styles.addRemoveSizes}><Button className={styles.subButton}><RemoveIcon /></Button><Button className={styles.sizeButton} onClick={() => handleAddBox(1)}><AddIcon />&nbsp;Mini-Sized (6)</Button></div>
+                <div className={styles.addRemoveSizes}><Button className={styles.subButton}><RemoveIcon /></Button><Button className={styles.sizeButton} onClick={() => handleAddBox(2)}><AddIcon />&nbsp;Medium-Sized (4)</Button></div>
+                <div className={styles.addRemoveSizes}><Button className={styles.subButton}><RemoveIcon /></Button><Button className={styles.sizeButton} onClick={() => handleAddBox(3)}><AddIcon />&nbsp;Large-Sized (2)</Button></div>
               </div>
               <Typography variant="h6" color="textSecondary" component="p">
                 Big Box
                 </Typography>
               <div className={styles.sizeChoices}>
-                <Button className={styles.sizeButton} onClick={() => handleAddBox(4)}><AddIcon />&nbsp;Mini-Sized (10)</Button>
-                <Button className={styles.sizeButton} onClick={() => handleAddBox(5)}><AddIcon />&nbsp;Medium-Sized (8)</Button>
-                <Button className={styles.sizeButton} onClick={() => handleAddBox(6)}><AddIcon />&nbsp;Large-Sized (5)</Button>
+                <div className={styles.addRemoveSizes}><Button className={styles.subButton}><RemoveIcon /></Button><Button className={styles.sizeButton} onClick={() => handleAddBox(4)}><AddIcon />&nbsp;Mini-Sized (10)</Button></div>
+                <div className={styles.addRemoveSizes}><Button className={styles.subButton}><RemoveIcon /></Button><Button className={styles.sizeButton} onClick={() => handleAddBox(5)}><AddIcon />&nbsp;Medium-Sized (8)</Button></div>
+                <div className={styles.addRemoveSizes}><Button className={styles.subButton}><RemoveIcon /></Button><Button className={styles.sizeButton} onClick={() => handleAddBox(6)}><AddIcon />&nbsp;Large-Sized (5)</Button></div>
               </div>
 
             </CardContent>

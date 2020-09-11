@@ -36,6 +36,18 @@ export const Cart = () => {
   const localCartCount = useRecoilValue(cartCount);
   const [cart, setCart] = useRecoilState(cartState);
 
+  const totalPrice = () => {
+    let total = 0;
+    total += cart.small_box_mini_cannoli * 15;
+    total += cart.small_box_medium_cannoli * 15;
+    total += cart.small_box_large_cannoli * 10;
+    total += cart.big_box_mini_cannoli * 25;
+    total += cart.big_box_medium_cannoli * 30;
+    total += cart.big_box_large_cannoli * 25;
+
+    return total;
+  }
+
   if (localCartCount === 0) {
     return <div className={styles.mainContainer}>
       <Card className={styles.bigCard}>
@@ -60,7 +72,7 @@ export const Cart = () => {
     <motion.div variants={fadeInUp}>
       <div className={styles.mainContainer}>
         <Card className={styles.bigCard}>
-
+          <div className={styles.heroText}><h1>Cart</h1></div>
           <div className={styles.secondTextImg}>
             <motion.div variants={fadeInUp}>
               <Card className={styles.cardText}>
@@ -69,13 +81,13 @@ export const Cart = () => {
                     Small Boxes
                   </Typography>
                   {cart.small_box_mini_cannoli > 0 && <div>
-                    Mini Cannolis Box{cart.small_box_mini_cannoli > 2 && <span>es</span>}: {cart.small_box_mini_cannoli}
+                    {cart.small_box_mini_cannoli} Mini Cannoli Box{cart.small_box_mini_cannoli >= 2 && <span>es</span>}: ${15 * cart.small_box_mini_cannoli}
                   </div>}
                   {cart.small_box_medium_cannoli > 0 && <div>
-                    Medium Cannolis Box{cart.small_box_medium_cannoli > 2 && <span>es</span>}: {cart.small_box_medium_cannoli}
+                    {cart.small_box_medium_cannoli} Medium Cannoli Box{cart.small_box_medium_cannoli >= 2 && <span>es</span>}: ${15 * cart.small_box_medium_cannoli}
                   </div>}
                   {cart.small_box_large_cannoli > 0 && <div>
-                    Large Cannolis Box{cart.small_box_large_cannoli > 2 && <span>es</span>}: {cart.small_box_large_cannoli}
+                    {cart.small_box_large_cannoli} Large Cannoli Box{cart.small_box_large_cannoli >= 2 && <span>es</span>}: ${10 * cart.small_box_large_cannoli}
                   </div>}
                 </CardContent>
               </Card>
@@ -87,19 +99,19 @@ export const Cart = () => {
                     Big Boxes
                   </Typography>
                   {cart.big_box_mini_cannoli > 0 && <div>
-                    Mini Cannolis Box{cart.big_box_mini_cannoli > 2 && <span>es</span>}: {cart.big_box_mini_cannoli}
+                    {cart.big_box_mini_cannoli} Mini Cannoli Box{cart.big_box_mini_cannoli >= 2 && <span>es</span>}: ${25 * cart.big_box_mini_cannoli}
                   </div>}
                   {cart.big_box_medium_cannoli > 0 && <div>
-                    Medium Cannolis Box{cart.big_box_medium_cannoli > 2 && <span>es</span>}: {cart.big_box_medium_cannoli}
+                    {cart.big_box_medium_cannoli} Medium Cannoli Box{cart.big_box_medium_cannoli >= 2 && <span>es</span>}: ${30 * cart.big_box_medium_cannoli}
                   </div>}
                   {cart.big_box_large_cannoli > 0 && <div>
-                    Large Cannolis Box{cart.big_box_large_cannoli > 2 && <span>es</span>}: {cart.big_box_large_cannoli}
+                    {cart.big_box_large_cannoli} Large Cannolis Box{cart.big_box_large_cannoli >= 2 && <span>es</span>}: ${25 * cart.big_box_large_cannoli}
                   </div>}
                 </CardContent>
               </Card>
             </motion.div>
           </div>
-          <div className={styles.heroText}><h1>Your Total: ${99.50}</h1></div>
+          <div className={styles.heroText}><h1>Your Total: ${totalPrice().toFixed(2)}</h1></div>
         </Card>
       </div>
     </motion.div>

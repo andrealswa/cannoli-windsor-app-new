@@ -8,6 +8,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { useRecoilValue } from 'recoil';
 import { cartCount } from '../recoil/recoil-atoms'
+import { useInView } from "react-intersection-observer";
 
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import List from '@material-ui/core/List';
@@ -31,14 +32,32 @@ import LiveHelpSharpIcon from '@material-ui/icons/LiveHelpSharp';
 import PhoneIphoneSharpIcon from '@material-ui/icons/PhoneIphoneSharp';
 
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './Navbar.module.css';
 import websiteBanner from './navbar.png'
 
 export const Navbar = () => {
+  const [ref, inView, entry] = useInView({ threshold: 0.1 });
   const [state, setState] = useState({
     left: false,
   });
+
+  const [appBar, setAppBar]: any = useState("static")
+
+  useEffect(() => {
+    if (inView) {
+      setAppBar('static')
+    } else {
+      setAppBar('fixed')
+    }
+  }, [inView])
+
+  //   if (inView) {
+  //     animation.start("visible");
+  //   } else {
+  //     animation.start("hidden");
+  //   }
+  // }, [animation, inView]);
 
   const localCartCount = useRecoilValue(cartCount);
 
@@ -57,12 +76,13 @@ export const Navbar = () => {
     <div>
       <div className={styles.imageContainer}>
         <img
+          ref={ref}
           className={styles.navImage}
           src={websiteBanner}
           alt="cannoli windsor"
         />
       </div>
-      <AppBar className={styles.appbar} position="static">
+      <AppBar className={styles.appbar} position={appBar}>
         <Toolbar className={styles.toolbar}>
           <div className={styles.toolbarBody}>
             <IconButton className={styles.hamburgerButton}
