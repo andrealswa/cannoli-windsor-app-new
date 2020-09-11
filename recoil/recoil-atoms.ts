@@ -20,6 +20,11 @@ export const notes = atom({
   default: ""
 });
 
+export const pickupDelivery = atom({
+  key: 'pickupDelivery',
+  default: ""
+});
+
 export const cartCount = selector({
   key: 'cartCount',
   get: ({ get }) => {

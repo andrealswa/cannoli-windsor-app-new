@@ -5,17 +5,26 @@ import { text } from "express";
 import { Flavours } from "../components/Flavours";
 import { ClientNotes } from "../components/ClientNotes";
 import styles from './menu.module.css'
+import { PickupDelivery } from "../components/PickupDelivery";
+import { useRecoilValue } from 'recoil';
+import { pickupDelivery } from '../recoil/recoil-atoms';
 
 const Menu = () => {
+  const pickupDeliveryLocal = useRecoilValue(pickupDelivery)
   return (
     <motion.div exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-      <MenuSummary />
-      <div className={styles.superContainer}>
-        <div className={styles.container}>
-          <Flavours />
-          <ClientNotes />
+      <PickupDelivery />
+      { pickupDeliveryLocal != "" &&
+        <div>
+          <MenuSummary />
+          <div className={styles.superContainer}>
+            <div className={styles.container}>
+              <Flavours />
+              <ClientNotes />
+            </div>
+          </div>
         </div>
-      </div>
+      }
     </motion.div>
   );
 };

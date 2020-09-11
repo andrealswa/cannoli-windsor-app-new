@@ -1,0 +1,9 @@
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.selectCity {
+  padding: 0 10px !important;
+}

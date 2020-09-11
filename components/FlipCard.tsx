@@ -46,6 +46,33 @@ export const FlipCard = () => {
     }
   }
 
+  const handleRemoveBox = (boxAndCannoliSize) => {
+    if (boxAndCannoliSize === 1 && cartItems.small_box_mini_cannoli > 0) {
+      const cartItemsNew = { ...cartItems, small_box_mini_cannoli: cartItems.small_box_mini_cannoli - 1 }
+      setCartItems({ ...cartItemsNew })
+    }
+    else if (boxAndCannoliSize === 2 && cartItems.small_box_medium_cannoli > 0) {
+      const cartItemsNew = { ...cartItems, small_box_medium_cannoli: cartItems.small_box_medium_cannoli - 1 }
+      setCartItems({ ...cartItemsNew })
+    }
+    else if (boxAndCannoliSize === 3 && cartItems.small_box_large_cannoli > 0) {
+      const cartItemsNew = { ...cartItems, small_box_large_cannoli: cartItems.small_box_large_cannoli - 1 }
+      setCartItems({ ...cartItemsNew })
+    }
+    else if (boxAndCannoliSize === 4 && cartItems.big_box_mini_cannoli > 0) {
+      const cartItemsNew = { ...cartItems, big_box_mini_cannoli: cartItems.big_box_mini_cannoli - 1 }
+      setCartItems({ ...cartItemsNew })
+    }
+    else if (boxAndCannoliSize === 5 && cartItems.big_box_medium_cannoli > 0) {
+      const cartItemsNew = { ...cartItems, big_box_medium_cannoli: cartItems.big_box_medium_cannoli - 1 }
+      setCartItems({ ...cartItemsNew })
+    }
+    else if (boxAndCannoliSize === 6 && cartItems.big_box_large_cannoli > 0) {
+      const cartItemsNew = { ...cartItems, big_box_large_cannoli: cartItems.big_box_large_cannoli - 1 }
+      setCartItems({ ...cartItemsNew })
+    }
+  }
+
   return (
     <div className={styles.cardFlip} >
       <ReactCardFlip isFlipped={side}>
@@ -79,17 +106,17 @@ export const FlipCard = () => {
                 Small Box
                 </Typography>
               <div className={styles.sizeChoices}>
-                <div className={styles.addRemoveSizes}><Button className={styles.subButton}><RemoveIcon /></Button><Button className={styles.sizeButton} onClick={() => handleAddBox(1)}><AddIcon />&nbsp;Mini-Sized (6)</Button></div>
-                <div className={styles.addRemoveSizes}><Button className={styles.subButton}><RemoveIcon /></Button><Button className={styles.sizeButton} onClick={() => handleAddBox(2)}><AddIcon />&nbsp;Medium-Sized (4)</Button></div>
-                <div className={styles.addRemoveSizes}><Button className={styles.subButton}><RemoveIcon /></Button><Button className={styles.sizeButton} onClick={() => handleAddBox(3)}><AddIcon />&nbsp;Large-Sized (2)</Button></div>
+                <div className={styles.addRemoveSizes}><Button className={styles.subButton} onClick={() => handleRemoveBox(1)}><RemoveIcon /></Button><Button className={styles.sizeButton} onClick={() => handleAddBox(1)}><AddIcon />&nbsp;Mini-Sized (6)</Button></div>
+                <div className={styles.addRemoveSizes}><Button className={styles.subButton} onClick={() => handleRemoveBox(2)}><RemoveIcon /></Button><Button className={styles.sizeButton} onClick={() => handleAddBox(2)}><AddIcon />&nbsp;Medium-Sized (4)</Button></div>
+                <div className={styles.addRemoveSizes}><Button className={styles.subButton} onClick={() => handleRemoveBox(3)}><RemoveIcon /></Button><Button className={styles.sizeButton} onClick={() => handleAddBox(3)}><AddIcon />&nbsp;Large-Sized (2)</Button></div>
               </div>
               <Typography variant="h6" color="textSecondary" component="p">
                 Big Box
                 </Typography>
               <div className={styles.sizeChoices}>
-                <div className={styles.addRemoveSizes}><Button className={styles.subButton}><RemoveIcon /></Button><Button className={styles.sizeButton} onClick={() => handleAddBox(4)}><AddIcon />&nbsp;Mini-Sized (10)</Button></div>
-                <div className={styles.addRemoveSizes}><Button className={styles.subButton}><RemoveIcon /></Button><Button className={styles.sizeButton} onClick={() => handleAddBox(5)}><AddIcon />&nbsp;Medium-Sized (8)</Button></div>
-                <div className={styles.addRemoveSizes}><Button className={styles.subButton}><RemoveIcon /></Button><Button className={styles.sizeButton} onClick={() => handleAddBox(6)}><AddIcon />&nbsp;Large-Sized (5)</Button></div>
+                <div className={styles.addRemoveSizes}><Button className={styles.subButton} onClick={() => handleRemoveBox(4)}><RemoveIcon /></Button><Button className={styles.sizeButton} onClick={() => handleAddBox(4)}><AddIcon />&nbsp;Mini-Sized (10)</Button></div>
+                <div className={styles.addRemoveSizes}><Button className={styles.subButton} onClick={() => handleRemoveBox(5)}><RemoveIcon /></Button><Button className={styles.sizeButton} onClick={() => handleAddBox(5)}><AddIcon />&nbsp;Medium-Sized (8)</Button></div>
+                <div className={styles.addRemoveSizes}><Button className={styles.subButton} onClick={() => handleRemoveBox(6)}><RemoveIcon /></Button><Button className={styles.sizeButton} onClick={() => handleAddBox(6)}><AddIcon />&nbsp;Large-Sized (5)</Button></div>
               </div>
 
             </CardContent>
