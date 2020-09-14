@@ -12,7 +12,7 @@ import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
 
 import styles from './FlipCard.module.css'
-import { cart } from '../recoil/recoil-atoms'
+import { cart } from '../../recoil/recoil-atoms'
 
 export const FlipCard = () => {
   const [cartItems, setCartItems] = useRecoilState(cart)

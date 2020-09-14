@@ -9,7 +9,7 @@ import FormControl from '@material-ui/core/FormControl';
 import { useRecoilState } from 'recoil'
 
 import styles from './PickupDelivery.module.css'
-import { pickupDelivery } from '../recoil/recoil-atoms'
+import { pickupDelivery } from '../../recoil/recoil-atoms'
 
 export const PickupDelivery = () => {
   const [pickupDeliveryLocal, setPickupDeliveryLocal] = useRecoilState(pickupDelivery)

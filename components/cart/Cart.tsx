@@ -9,8 +9,8 @@ import Typography from '@material-ui/core/Typography';
 
 import { useRecoilValue } from 'recoil';
 import { useRecoilState } from 'recoil';
-import { cart as cartState } from '../recoil/recoil-atoms';
-import { cartCount } from '../recoil/recoil-atoms';
+import { cart as cartState } from '../../recoil/recoil-atoms';
+import { cartCount } from '../../recoil/recoil-atoms';
 
 import styles from './Cart.module.css'
 import { motion } from 'framer-motion';

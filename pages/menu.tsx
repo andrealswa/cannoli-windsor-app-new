@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
-import { FlipCard } from "../components/FlipCard";
-import { MenuSummary } from "../components/MenuSummary";
+import { FlipCard } from "../components/menu/FlipCard";
+import { MenuSummary } from "../components/menu/MenuSummary";
 import { text } from "express";
-import { Flavours } from "../components/Flavours";
-import { ClientNotes } from "../components/ClientNotes";
+import { Flavours } from "../components/menu/Flavours";
+import { ClientNotes } from "../components/menu/ClientNotes";
 import styles from './menu.module.css'
-import { PickupDelivery } from "../components/PickupDelivery";
+import { PickupDelivery } from "../components/menu/PickupDelivery";
 import { useRecoilValue } from 'recoil';
 import { pickupDelivery } from '../recoil/recoil-atoms';
 

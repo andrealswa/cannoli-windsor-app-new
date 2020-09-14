@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { motion } from 'framer-motion'
-import { HomeContent } from '../components/HomeContent'
+import { HomeContent } from '../components/home/HomeContent'
 
 const Home = () => {
   return (

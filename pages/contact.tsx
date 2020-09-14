@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Contact } from "../components/Contact";
+import { Contact } from "../components/contact/Contact";
 
 const ContactPage = () => {
   return (
