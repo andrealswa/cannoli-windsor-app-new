@@ -85,7 +85,7 @@ export const HomeContent = () => {
                   transition={{ delay: .5 }}>
                   <CardMedia
                     className={styles.cardMedia}
-                    image={require("../public/homeContent/cannoliHomepage1.jpg")}
+                    image={require("../../public/homeContent/cannoliHomepage1.jpg")}
                     title="Contemplative Reptile"
                   />
                 </motion.div>
@@ -119,7 +119,7 @@ export const HomeContent = () => {
                   transition={{ delay: .5 }}>
                   <CardMedia
                     style={{ height: 300, width: 300 }}
-                    image={require("../public/homeContent/cannoliHomepage2.jpg")}
+                    image={require("../../public/homeContent/cannoliHomepage2.jpg")}
                     title="Contemplative Reptile"
                   />
                 </motion.div>
@@ -160,7 +160,7 @@ export const HomeContent = () => {
                     variants={variants}>
                     <CardMedia
                       style={{ height: 300, width: 300 }}
-                      image={require("../public/homeContent/instagram.svg")}
+                      image={require("../../public/homeContent/instagram.svg")}
                     />
                   </motion.div>
                 </CardActionArea>

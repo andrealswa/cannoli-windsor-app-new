@@ -80,7 +80,7 @@ export const FlipCard = () => {
           <Card className={styles.card}>
             <CardMedia
               style={{ height: 300, width: 300 }}
-              image={require("../public/homeContent/cannoliHomepage1.jpg")}
+              image={require("../../public/homeContent/cannoliHomepage1.jpg")}
             />
             <CardContent>
               <Typography style={{ textAlign: "center" }} gutterBottom variant="h5" component="h2">

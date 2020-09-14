@@ -125,40 +125,50 @@ export const Navbar = () => {
           className={styles.drawerShadowBackground}
         >
           <div className={styles.drawerMenu}>
-            <ListItem button>
-              <ListItemIcon>
-                <HomeRoundedIcon />
-              </ListItemIcon>
-              <ListItemText primary="Cannoli Windsor" />
-            </ListItem>
+            <Link href="/">
+              <ListItem button onClick={toggleDrawer('left', false)}>
+                <ListItemIcon>
+                  <HomeRoundedIcon />
+                </ListItemIcon>
+                <ListItemText primary="Cannoli Windsor" />
+              </ListItem>
+            </Link>
 
-            <ListItem button>
-              <ListItemIcon>
-                <LibraryBooksSharpIcon />
-              </ListItemIcon>
-              <ListItemText primary="Menu" />
-            </ListItem>
+            <Link href="/menu">
+              <ListItem button onClick={toggleDrawer('left', false)}>
+                <ListItemIcon>
+                  <LibraryBooksSharpIcon />
+                </ListItemIcon>
+                <ListItemText primary="Menu" />
+              </ListItem>
+            </Link>
 
-            <ListItem button>
-              <ListItemIcon>
-                <ShoppingCartSharpIcon />
-              </ListItemIcon>
-              <ListItemText primary="Cart" />
-            </ListItem>
+            <Link href="/cart">
+              <ListItem button onClick={toggleDrawer('left', false)}>
+                <ListItemIcon>
+                  <ShoppingCartSharpIcon />
+                </ListItemIcon>
+                <ListItemText primary="Cart" />
+              </ListItem>
+            </Link>
 
-            <ListItem button>
-              <ListItemIcon>
-                <LiveHelpSharpIcon />
-              </ListItemIcon>
-              <ListItemText primary="FAQ" />
-            </ListItem>
+            <Link href="/faq">
+              <ListItem button onClick={toggleDrawer('left', false)}>
+                <ListItemIcon>
+                  <LiveHelpSharpIcon />
+                </ListItemIcon>
+                <ListItemText primary="FAQ" />
+              </ListItem>
+            </Link>
 
-            <ListItem button>
-              <ListItemIcon>
-                <PhoneIphoneSharpIcon />
-              </ListItemIcon>
-              <ListItemText primary="Contact Us" />
-            </ListItem>
+            <Link href="/contact">
+              <ListItem button onClick={toggleDrawer('left', false)}>
+                <ListItemIcon>
+                  <PhoneIphoneSharpIcon />
+                </ListItemIcon>
+                <ListItemText primary="Contact Us" />
+              </ListItem>
+            </Link>
           </div>
         </SwipeableDrawer>
       </div>
