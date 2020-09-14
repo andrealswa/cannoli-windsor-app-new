@@ -11,6 +11,7 @@ import { useRecoilValue } from 'recoil';
 import { useRecoilState } from 'recoil';
 import { cart as cartState } from '../../recoil/recoil-atoms';
 import { cartCount } from '../../recoil/recoil-atoms';
+import { notes } from '../../recoil/recoil-atoms';
 
 import styles from './Cart.module.css'
 import { motion } from 'framer-motion';
@@ -34,6 +35,7 @@ const fadeInUp = {
 
 export const Cart = () => {
   const localCartCount = useRecoilValue(cartCount);
+  const localNotes = useRecoilValue(notes);
   const [cart, setCart] = useRecoilState(cartState);
 
   const totalPrice = () => {
@@ -111,8 +113,16 @@ export const Cart = () => {
               </Card>
             </motion.div>
           </div>
+          {localNotes != "" && <div>
+            <h2>Your Note</h2>
+            {localNotes}
+          </div>}
           <div className={styles.heroText}><h1>Your Total: ${totalPrice().toFixed(2)}</h1></div>
         </Card>
+        <h2>Choose Method Of Payment</h2>
+        <div className={styles.payment}>
+          <Button className={styles.paymentButton}>Cash</Button><Button className={styles.paymentButton}>Debit / Credit</Button>
+        </div>
       </div>
     </motion.div>
   )
