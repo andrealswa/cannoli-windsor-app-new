@@ -46,7 +46,7 @@ export const PickupDelivery = () => {
           >
             <MenuItem value={"windsor"}>Windsor</MenuItem>
             <MenuItem value={"lasalle"}>LaSalle</MenuItem>
-            <MenuItem value={"amherstburg"}>Amherstburg</MenuItem>
+            <MenuItem value={"tecumseh"}>Tecumseh</MenuItem>
           </Select>
         </FormControl>
       </form>}

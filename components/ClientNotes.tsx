@@ -4,7 +4,7 @@ import { Button } from '@material-ui/core';
 
 export const ClientNotes = () => {
   return (
-    <div>
+    <div className={styles.notesContainer}>
       <h1>Notes</h1>
       <TextareaAutosize
         className={styles.textBox}
@@ -13,8 +13,7 @@ export const ClientNotes = () => {
         rowsMax={50}
         placeholder="ie. Please substitute extra cherry cannolis in place of vanilla."
       />
-      <Button className={styles.buttonFlip}>Submit</Button>
-
+      <Button className={styles.buttonSubmit}>Submit</Button>
     </div>
   );
 }
