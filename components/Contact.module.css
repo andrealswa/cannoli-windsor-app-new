@@ -1,0 +1,72 @@
+.mainContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.bigCard {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  margin-top: 20px;
+  box-shadow: rgba(0, 0, 0, 0.233) 0px 5px 15px !important;
+  width: 100%;
+  max-width: 800px;
+  height: 100%;
+  border-radius: 15px !important;
+}
+
+.heroText {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.contactContainer {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+
+  flex-wrap: wrap;
+
+}
+
+.contactUnit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  padding: 10px;
+}
+
+.cardText {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 500px;
+  min-width: 300px;
+  align-items: center;
+  box-shadow: none !important;
+}
+
+.iconsPhone {
+  height: 50px !important;
+  width: 50px !important;
+  color: rgb(228, 62, 95)
+}
+
+.iconsEmail {
+  height: 50px !important;
+  width: 50px !important;
+  color: rgb(67, 181, 129)
+}
+
+.iconsFB {
+  height: 50px !important;
+  width: 50px !important;
+  color: rgb(66, 103, 178);
+}
+
+.iconsIG {
+  height: 50px !important;
+  width: 50px !important;
+  color: rgb(204, 46, 149);
+}
