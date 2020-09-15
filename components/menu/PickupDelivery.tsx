@@ -31,8 +31,8 @@ export const PickupDelivery = () => {
   return (
     <div className={styles.container}>
       <div>
-        <Button onClick={handlePickup}>Pickup</Button>
-        <Button onClick={handleDelivery}>Delivery</Button>
+        <Button className={pickupDeliveryLocal === 'pickup' ? styles.pickupDeliveryButtonSelected : styles.pickupDeliveryButton} onClick={handlePickup}>Pickup</Button>
+        <Button className={pickupDeliveryLocal === 'delivery' ? styles.pickupDeliveryButtonSelected : styles.pickupDeliveryButton} onClick={handleDelivery}>Delivery</Button>
       </div>
       {pickupDeliveryLocal === "delivery" && <form noValidate autoComplete="off">
         <TextField id="standard-basic" label="Enter Address" />

@@ -7,3 +7,12 @@
 .selectCity {
   padding: 0 10px !important;
 }
+
+.pickupDeliveryButtonSelected {
+  background-color: rgb(233, 180, 123) !important;
+  margin: 15px !important;
+}
+
+.pickupDeliveryButton {
+  margin: 15px !important;
+}
