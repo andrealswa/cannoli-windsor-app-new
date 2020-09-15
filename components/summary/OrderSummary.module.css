@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  margin-top: 100px;
+  box-shadow: rgba(0, 0, 0, 0.233) 0px 5px 15px !important;
+  width: 100%;
+  max-width: 800px;
+  border-radius: 15px !important;
+  padding-bottom: 20px !important;
+}
+
+.secondTextImg {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto !important;
+}
+
+.heroText {
+  text-align: center;
+}
+
+.paymentMethod {
+  display: flex;
+  align-items: flex-end;
+}

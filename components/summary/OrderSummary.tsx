@@ -1,28 +1,109 @@
+import { useRecoilValue } from 'recoil'
+import { emailAtom, phoneAtom, pickupDelivery as pickupDeliveryAtom, city as cityAtom, address as addressAtom, notes as notesAtom, paymentMethod as paymentMethodAtom, cart as cartAtom } from '../../recoil/recoil-atoms';
+import styles from './OrderSummary.module.css'
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import { motion } from 'framer-motion';
+
+const easing = [.6, -.05, .01, .99];
+
+const fadeInUp = {
+  initial: {
+    y: 60,
+    opacity: 0
+  },
+  animate: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: .6,
+      ease: easing
+    }
+  }
+}
+
+
+
 export const OrderSummary = () => {
+  const email = useRecoilValue(emailAtom);
+  const phone = useRecoilValue(phoneAtom);
+  const pickupDelivery = useRecoilValue(pickupDeliveryAtom);
+  const cart = useRecoilValue(cartAtom);
+  const address = useRecoilValue(addressAtom);
+  const city = useRecoilValue(cityAtom);
+  const notes = useRecoilValue(notesAtom);
+  const paymentMethod = useRecoilValue(paymentMethodAtom);
+
+
+  const displayCartContents = () => {
+
+  }
+
   return (
-    <div>
-      <h1>Order Confirmation</h1>
+    <Card className={styles.container}>
+      <h1>Order Confirmation: {email !== "" ? email : phone}</h1>
+
       <div>
-        <h2>Your Email</h2>
-        <p>user@email.com</p>
+        {pickupDelivery === 'pickup' && <h2>Pick up at: 555 Farmers Market, Windsor, Ontario, CA</h2>}
+        {pickupDelivery === 'delivery' && <h2>Deliver to: {address}, {city}, Ontario, CA</h2>}
       </div>
       <div>
-        <h2>Pickup / Delivery</h2>
-        <p>Pickup: Vic's address</p>
-        <p>Delivery: Person's address</p>
+        <div className={styles.secondTextImg}>
+          <motion.div variants={fadeInUp}>
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="h2">
+                Small Boxes
+                  </Typography>
+              {cart.small_box_mini_cannoli > 0 && <div>
+                {cart.small_box_mini_cannoli} Mini Cannoli Box{cart.small_box_mini_cannoli >= 2 && <span>es</span>}: ${15 * cart.small_box_mini_cannoli}
+              </div>}
+              {cart.small_box_medium_cannoli > 0 && <div>
+                {cart.small_box_medium_cannoli} Medium Cannoli Box{cart.small_box_medium_cannoli >= 2 && <span>es</span>}: ${15 * cart.small_box_medium_cannoli}
+              </div>}
+              {cart.small_box_large_cannoli > 0 && <div>
+                {cart.small_box_large_cannoli} Large Cannoli Box{cart.small_box_large_cannoli >= 2 && <span>es</span>}: ${10 * cart.small_box_large_cannoli}
+              </div>}
+            </CardContent>
+          </motion.div>
+          <motion.div variants={fadeInUp}>
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="h2">
+                Big Boxes
+              </Typography>
+              {cart.big_box_mini_cannoli > 0 && <div>
+                {cart.big_box_mini_cannoli} Mini Cannoli Box{cart.big_box_mini_cannoli >= 2 && <span>es</span>}: ${25 * cart.big_box_mini_cannoli}
+              </div>}
+              {cart.big_box_medium_cannoli > 0 && <div>
+                {cart.big_box_medium_cannoli} Medium Cannoli Box{cart.big_box_medium_cannoli >= 2 && <span>es</span>}: ${30 * cart.big_box_medium_cannoli}
+              </div>}
+              {cart.big_box_large_cannoli > 0 && <div>
+                {cart.big_box_large_cannoli} Large Cannolis Box{cart.big_box_large_cannoli >= 2 && <span>es</span>}: ${25 * cart.big_box_large_cannoli}
+              </div>}
+            </CardContent>
+          </motion.div>
+        </div>
       </div>
-      <div>
-        <h2>Your Order</h2>
-        <p>16 cannolis blah blah blah and price</p>
+      {notes !== "" && <div><h2>Notes</h2>
+        <p>{notes}</p>
+      </div>}
+      <div className={styles.paymentMethod}>
+        <Typography gutterBottom variant="h5" component="h2">
+          <b>Method of Payment: &nbsp;</b>
+        </Typography>
+        {paymentMethod === 'cash' &&
+          <Typography gutterBottom variant="h5" component="h2">
+            Cash
+        </Typography>}
+        {paymentMethod === 'card' &&
+          <Typography gutterBottom variant="h5" component="h2">
+            Debit / Credit
+          </Typography>}
       </div>
-      <div>
-        <h2>Notes</h2>
-        <p>"Notes"</p>
-      </div>
-      <div>
-        <h2>Cash or Card</h2>
-        <p>Cash</p>
-      </div>
-    </div>
+    </Card>
   )
 }
