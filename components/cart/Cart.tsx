@@ -124,6 +124,14 @@ export const Cart = () => {
       <div className={styles.mainContainer}>
         <Card className={styles.bigCard}>
           <div className={styles.heroText}><h1>Cart</h1></div>
+          <div>
+            <CardContent className={styles.pickupOrDelivery}>
+              Pickup at: 555 Farmers Market Windsor, Ontario
+            </CardContent>
+            <CardContent className={styles.pickupOrDelivery}>
+              Delivered to:
+            </CardContent>
+          </div>
           <div className={styles.secondTextImg}>
             <motion.div variants={fadeInUp}>
               <Card className={styles.cardText}>
