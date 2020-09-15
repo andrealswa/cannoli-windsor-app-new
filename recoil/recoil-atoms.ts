@@ -15,6 +15,16 @@ export const cart = atom({
   }
 });
 
+export const submit = atom({
+  key: 'submit',
+  default: true
+})
+
+export const paymentMethod = atom({
+  key: 'paymentMethod',
+  default: ""
+})
+
 export const notes = atom({
   key: 'notes',
   default: ""

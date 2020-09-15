@@ -12,6 +12,8 @@ import { useRecoilState } from 'recoil';
 import { cart as cartState } from '../../recoil/recoil-atoms';
 import { cartCount } from '../../recoil/recoil-atoms';
 import { notes } from '../../recoil/recoil-atoms';
+import { submit } from '../../recoil/recoil-atoms';
+import { paymentMethod } from '../../recoil/recoil-atoms';
 
 import styles from './Cart.module.css'
 import { motion } from 'framer-motion';
@@ -37,6 +39,8 @@ export const Cart = () => {
   const localCartCount = useRecoilValue(cartCount);
   const localNotes = useRecoilValue(notes);
   const [cart, setCart] = useRecoilState(cartState);
+  const [submitButton, setSubmitButton] = useRecoilState(submit);
+  const [paymentOption, setPaymentOption] = useRecoilState(paymentMethod);
 
   const totalPrice = () => {
     let total = 0;
@@ -48,6 +52,17 @@ export const Cart = () => {
     total += cart.big_box_large_cannoli * 25;
 
     return total;
+  }
+
+  const handlePayment = (buttonType) => {
+    if (buttonType === 'cash') {
+      setSubmitButton(false)
+      setPaymentOption('cash')
+    }
+    else if (buttonType === 'card') {
+      setSubmitButton(false)
+      setPaymentOption('card')
+    }
   }
 
   if (localCartCount === 0) {
@@ -121,8 +136,10 @@ export const Cart = () => {
         </Card>
         <h2>Choose Method Of Payment</h2>
         <div className={styles.payment}>
-          <Button className={styles.paymentButton}>Cash</Button><Button className={styles.paymentButton}>Debit / Credit</Button>
+          <Button className={paymentOption === 'cash' ? styles.paymentButtonSelected : styles.paymentButton} onClick={() => handlePayment('cash')}>Cash</Button>
+          <Button className={paymentOption === 'card' ? styles.paymentButtonSelected : styles.paymentButton} onClick={() => handlePayment('card')}>Debit / Credit</Button>
         </div>
+        <Link href="/summary"><Button className={submitButton === true ? styles.submitButtonDisabled : styles.submitButton} disabled={submitButton}>Submit Your Order</Button></Link>
       </div>
     </motion.div>
   )

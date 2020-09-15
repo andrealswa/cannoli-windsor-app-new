@@ -52,6 +52,16 @@
 }
 
 .paymentButton {
+  margin: 15px !important;
+}
+
+.paymentButtonSelected {
   background-color: rgb(233, 180, 123) !important;
   margin: 15px !important;
+}
+
+.submitButton {
+  background-color: rgb(67, 181, 129) !important;
+  margin: 15px !important;
+  padding: 15px !important;
 }
