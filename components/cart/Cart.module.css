@@ -70,3 +70,22 @@
   margin: 15px !important;
   padding: 15px !important;
 }
+
+.emailPhoneContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.emailPhone {
+  padding: 10px !important;
+}
+
+.orPadding {
+  padding-bottom: 5px;
+  margin: 0 10px;
+}
+
+.submitButtonContainer {
+  margin-top: 50px;
+}

@@ -9,9 +9,10 @@ import Typography from '@material-ui/core/Typography';
 import confetti from 'canvas-confetti';
 
 import { useRecoilValue, useRecoilState } from 'recoil';
-import { cart as cartState, cartCount, notes, submit, paymentMethod, address as addressAtom, city as cityAtom, pickupDelivery as pickupDeliveryAtom } from '../../recoil/recoil-atoms';
+import { cart as cartState, cartCount, notes, submit, paymentMethod, address as addressAtom, city as cityAtom, pickupDelivery as pickupDeliveryAtom, emailAtom, phoneAtom } from '../../recoil/recoil-atoms';
 import styles from './Cart.module.css'
 import { motion } from 'framer-motion';
+import { TextField } from '@material-ui/core';
 
 const easing = [.6, -.05, .01, .99];
 
@@ -39,6 +40,8 @@ export const Cart = () => {
   const address = useRecoilValue(addressAtom);
   const city = useRecoilValue(cityAtom);
   const pickupDelivery = useRecoilValue(pickupDeliveryAtom);
+  const [email, setEmail] = useRecoilState(emailAtom);
+  const [phone, setPhone] = useRecoilState(phoneAtom);
 
 
 
@@ -96,6 +99,14 @@ export const Cart = () => {
       setSubmitButton(false)
       setPaymentOption('card')
     }
+  }
+
+  const handleChangeEmail = (event) => {
+    setEmail(event.target.value)
+  }
+
+  const handleChangePhone = (event) => {
+    setPhone(event.target.value)
   }
 
   if (localCartCount === 0) {
@@ -180,7 +191,39 @@ export const Cart = () => {
           <Button className={paymentOption === 'cash' ? styles.paymentButtonSelected : styles.paymentButton} onClick={() => handlePayment('cash')}>Cash</Button>
           <Button className={paymentOption === 'card' ? styles.paymentButtonSelected : styles.paymentButton} onClick={() => handlePayment('card')}>Debit / Credit</Button>
         </div>
-        <Link href="/summary"><Button onClick={handleSubmit} className={submitButton === true || city === "" || address === "" ? styles.submitButtonDisabled : styles.submitButton} disabled={submitButton || city === "" || address === ""}>Submit Your Order</Button></Link>
+
+        <h1>Enter Email or Phone Number</h1>
+
+        <div className={styles.emailPhoneContainer}>
+          <div className={styles.emailPhone}><TextField onChange={(event) => handleChangeEmail(event)} value={email} label="Email" /></div>
+          <div className={styles.orPadding}>or</div>
+          <div className={styles.emailPhone}><TextField onChange={(event) => handleChangePhone(event)} value={phone} label="Phone" /></div>
+        </div>
+
+        <div className={styles.submitButtonContainer}>
+          {(email !== '' || phone !== '') && <div>
+            {pickupDelivery === "delivery" && <Link href="/summary">
+              <Button onClick={handleSubmit}
+                className={submitButton === true || city === "" || address === "" ? styles.submitButtonDisabled : styles.submitButton}
+                disabled={submitButton || city === "" || address === ""}>Submit Your Order</Button>
+            </Link>}
+
+            {pickupDelivery === "pickup" && <Link href="/summary">
+              <Button onClick={handleSubmit}
+                className={submitButton === true ? styles.submitButtonDisabled : styles.submitButton}
+                disabled={submitButton}>Submit Your Order</Button>
+            </Link>}
+
+            {pickupDelivery === "" && <Link href="/summary">
+              <Button onClick={handleSubmit}
+                disabled={true}>Submit Your Order</Button>
+            </Link>}
+          </div>}
+          {(email === '' && phone === '') && <Link href="/summary">
+            <Button onClick={handleSubmit}
+              disabled={true}>Submit Your Order</Button>
+          </Link>}
+        </div>
       </div>
     </motion.div >
   )

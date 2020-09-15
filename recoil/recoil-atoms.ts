@@ -45,6 +45,16 @@ export const pickupDelivery = atom({
   default: ""
 });
 
+export const emailAtom = atom({
+  key: 'emailAtom',
+  default: ""
+});
+
+export const phoneAtom = atom({
+  key: "phoneAtom",
+  default: ""
+});
+
 export const cartCount = selector({
   key: 'cartCount',
   get: ({ get }) => {
