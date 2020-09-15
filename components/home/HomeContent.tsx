@@ -140,8 +140,7 @@ export const HomeContent = () => {
             <Card className={styles.cardText}>
               <CardContent>
                 <Typography gutterBottom variant="h5" component="h2">
-                  Find us at the Downtown Windsor Farmers Market every Saturday or
-                  at East Valley Pizza. We are on Instagram and appreciate
+                  Find us at the Downtown Windsor Farmers Market every Saturday! We are also on Instagram and appreciate
                   everyone who has been sharing everything we deliver on social
                   media.
                   </Typography>

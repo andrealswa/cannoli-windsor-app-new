@@ -6,6 +6,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import confetti from 'canvas-confetti';
 
 import { useRecoilValue } from 'recoil';
 import { useRecoilState } from 'recoil';
@@ -52,6 +53,39 @@ export const Cart = () => {
     total += cart.big_box_large_cannoli * 25;
 
     return total;
+  }
+  const handleSubmit = () => {
+    var count = 200;
+    var defaults = {
+      origin: { y: 0.7 }
+    };
+
+    function fire(particleRatio, opts) {
+      confetti(Object.assign({}, defaults, opts, {
+        particleCount: Math.floor(count * particleRatio)
+      }));
+    }
+
+    fire(0.25, {
+      spread: 26,
+      startVelocity: 55,
+    });
+    fire(0.2, {
+      spread: 60,
+    });
+    fire(0.35, {
+      spread: 100,
+      decay: 0.91,
+    });
+    fire(0.1, {
+      spread: 120,
+      startVelocity: 25,
+      decay: 0.92,
+    });
+    fire(0.1, {
+      spread: 120,
+      startVelocity: 45,
+    });
   }
 
   const handlePayment = (buttonType) => {
@@ -139,7 +173,7 @@ export const Cart = () => {
           <Button className={paymentOption === 'cash' ? styles.paymentButtonSelected : styles.paymentButton} onClick={() => handlePayment('cash')}>Cash</Button>
           <Button className={paymentOption === 'card' ? styles.paymentButtonSelected : styles.paymentButton} onClick={() => handlePayment('card')}>Debit / Credit</Button>
         </div>
-        <Link href="/summary"><Button className={submitButton === true ? styles.submitButtonDisabled : styles.submitButton} disabled={submitButton}>Submit Your Order</Button></Link>
+        <Link href="/summary"><Button onClick={handleSubmit} className={submitButton === true ? styles.submitButtonDisabled : styles.submitButton} disabled={submitButton}>Submit Your Order</Button></Link>
       </div>
     </motion.div>
   )
