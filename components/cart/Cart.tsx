@@ -98,11 +98,11 @@ export const Cart = () => {
         cartString = cartString.replace("cannoli", "cannolis");
         const xPos = cartString.indexOf("x");
         cartString = cartString.substring(0, xPos + 1) + " of " + cartString.substring(xPos + 1);
+        cartStringList.push(cartString);
       }
-      cartStringList.push(cartString);
     }
     if (cartStringList.length >= 1) {
-      cartStringList[cartStringList.length - 1] = cartStringList[cartStringList.length - 2].replace(", ", "");
+      cartStringList[cartStringList.length - 1] = cartStringList[cartStringList.length - 1].replace(", ", "");
     }
     const finalString = cartStringList.join(" ");
 
