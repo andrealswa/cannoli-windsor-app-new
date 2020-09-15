@@ -7,6 +7,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import confetti from 'canvas-confetti';
+import emailjs from 'emailjs-com';
 
 import { useRecoilValue, useRecoilState } from 'recoil';
 import { cart as cartState, cartCount, notes, submit, paymentMethod, address as addressAtom, city as cityAtom, pickupDelivery as pickupDeliveryAtom, emailAtom, phoneAtom } from '../../recoil/recoil-atoms';
@@ -88,6 +89,38 @@ export const Cart = () => {
       spread: 120,
       startVelocity: 45,
     });
+
+    const cartStringList = [];
+    for (const [key, value] of Object.entries(cart)) {
+      let cartString = "";
+      if (value > 0) {
+        cartString = cartString + key.split("_").join(" ") + ": " + value + ", ";
+        cartString = cartString.replace("cannoli", "cannolis");
+        const xPos = cartString.indexOf("x");
+        cartString = cartString.substring(0, xPos + 1) + " of " + cartString.substring(xPos + 1);
+      }
+      cartStringList.push(cartString);
+    }
+    if (cartStringList.length >= 1) {
+      cartStringList[cartStringList.length - 1] = cartStringList[cartStringList.length - 2].replace(", ", "");
+    }
+    const finalString = cartStringList.join(" ");
+
+    const templateParams = {
+      email: email,
+      phone: phone,
+      pickupDelivery: pickupDelivery,
+      cart: finalString,
+      notes: localNotes,
+      paymentMethod: paymentOption
+    };
+
+    emailjs.send('service_q5i423d', 'template_2xmrios', templateParams, 'user_qePnePrgB1FYHUjsYaUhJ')
+      .then((response) => {
+        console.log('SUCCESS!', response.status, response.text);
+      }, (err) => {
+        console.log('FAILED...', err);
+      });
   }
 
   const handlePayment = (buttonType) => {
@@ -221,7 +254,8 @@ export const Cart = () => {
           </div>}
           {(email === '' && phone === '') && <Link href="/summary">
             <Button onClick={handleSubmit}
-              disabled={true}>Submit Your Order</Button>
+              disabled={true}>Submit Your Order
+            </Button>
           </Link>}
         </div>
       </div>
