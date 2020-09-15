@@ -46,19 +46,20 @@ export const OrderSummary = () => {
 
   return (
     <Card className={styles.container}>
-      <h1>Order Confirmation: {email !== "" ? email : phone}</h1>
+      <h1>Order Confirmation: </h1>
+      <h3>{email !== "" ? email : phone}</h3>
 
-      <div>
-        {pickupDelivery === 'pickup' && <h2>Pick up at: 555 Farmers Market, Windsor, Ontario, CA</h2>}
-        {pickupDelivery === 'delivery' && <h2>Deliver to: {address}, {city}, Ontario, CA</h2>}
+      <div className={styles.pickupDelivery}>
+        {pickupDelivery === 'pickup' && <h3>Pick up at: 555 Farmers Market, Windsor, Ontario, CA</h3>}
+        {pickupDelivery === 'delivery' && <h3>Deliver to: {address}, {city}, Ontario, CA</h3>}
       </div>
       <div>
         <div className={styles.secondTextImg}>
           <motion.div variants={fadeInUp}>
             <CardContent>
-              <Typography gutterBottom variant="h5" component="h2">
+              {cart.small_box_large_cannoli + cart.small_box_medium_cannoli + cart.small_box_mini_cannoli > 0 && <Typography gutterBottom variant="h5" component="h2">
                 Small Boxes
-                  </Typography>
+                  </Typography>}
               {cart.small_box_mini_cannoli > 0 && <div>
                 {cart.small_box_mini_cannoli} Mini Cannoli Box{cart.small_box_mini_cannoli >= 2 && <span>es</span>}: ${15 * cart.small_box_mini_cannoli}
               </div>}
@@ -72,9 +73,9 @@ export const OrderSummary = () => {
           </motion.div>
           <motion.div variants={fadeInUp}>
             <CardContent>
-              <Typography gutterBottom variant="h5" component="h2">
+              {cart.big_box_large_cannoli + cart.big_box_medium_cannoli + cart.big_box_mini_cannoli > 0 && <Typography gutterBottom variant="h5" component="h2">
                 Big Boxes
-              </Typography>
+              </Typography>}
               {cart.big_box_mini_cannoli > 0 && <div>
                 {cart.big_box_mini_cannoli} Mini Cannoli Box{cart.big_box_mini_cannoli >= 2 && <span>es</span>}: ${25 * cart.big_box_mini_cannoli}
               </div>}
