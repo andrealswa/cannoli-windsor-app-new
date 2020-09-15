@@ -15,6 +15,16 @@ export const cart = atom({
   }
 });
 
+export const address = atom({
+  key: 'address',
+  default: ""
+})
+
+export const city = atom({
+  key: 'city',
+  default: ""
+})
+
 export const submit = atom({
   key: 'submit',
   default: true

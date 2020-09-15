@@ -8,14 +8,8 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import confetti from 'canvas-confetti';
 
-import { useRecoilValue } from 'recoil';
-import { useRecoilState } from 'recoil';
-import { cart as cartState } from '../../recoil/recoil-atoms';
-import { cartCount } from '../../recoil/recoil-atoms';
-import { notes } from '../../recoil/recoil-atoms';
-import { submit } from '../../recoil/recoil-atoms';
-import { paymentMethod } from '../../recoil/recoil-atoms';
-
+import { useRecoilValue, useRecoilState } from 'recoil';
+import { cart as cartState, cartCount, notes, submit, paymentMethod, address as addressAtom, city as cityAtom, pickupDelivery as pickupDeliveryAtom } from '../../recoil/recoil-atoms';
 import styles from './Cart.module.css'
 import { motion } from 'framer-motion';
 
@@ -42,6 +36,11 @@ export const Cart = () => {
   const [cart, setCart] = useRecoilState(cartState);
   const [submitButton, setSubmitButton] = useRecoilState(submit);
   const [paymentOption, setPaymentOption] = useRecoilState(paymentMethod);
+  const address = useRecoilValue(addressAtom);
+  const city = useRecoilValue(cityAtom);
+  const pickupDelivery = useRecoilValue(pickupDeliveryAtom);
+
+
 
   const totalPrice = () => {
     let total = 0;
@@ -125,12 +124,12 @@ export const Cart = () => {
         <Card className={styles.bigCard}>
           <div className={styles.heroText}><h1>Cart</h1></div>
           <div>
-            <CardContent className={styles.pickupOrDelivery}>
-              Pickup at: 555 Farmers Market Windsor, Ontario
-            </CardContent>
-            <CardContent className={styles.pickupOrDelivery}>
-              Delivered to:
-            </CardContent>
+            {pickupDelivery === 'pickup' && <CardContent className={styles.pickupOrDelivery}>
+              Pickup at: 555 Farmers Market, Windsor, Ontario, CA
+            </CardContent>}
+            {pickupDelivery === 'delivery' && < CardContent className={styles.pickupOrDelivery}>
+              Delivered to: {address}, {city}, Ontario, CA
+            </CardContent>}
           </div>
           <div className={styles.secondTextImg}>
             <motion.div variants={fadeInUp}>
@@ -174,15 +173,15 @@ export const Cart = () => {
             <h2>Your Note</h2>
             {localNotes}
           </div>}
-          <div className={styles.heroText}><h1>Your Total: ${totalPrice().toFixed(2)}</h1></div>
+          <div className={styles.heroText}><h2>Your Total: ${totalPrice().toFixed(2)}</h2></div>
         </Card>
-        <h2>Choose Method Of Payment</h2>
+        <h1>Choose Method Of Payment</h1>
         <div className={styles.payment}>
           <Button className={paymentOption === 'cash' ? styles.paymentButtonSelected : styles.paymentButton} onClick={() => handlePayment('cash')}>Cash</Button>
           <Button className={paymentOption === 'card' ? styles.paymentButtonSelected : styles.paymentButton} onClick={() => handlePayment('card')}>Debit / Credit</Button>
         </div>
-        <Link href="/summary"><Button onClick={handleSubmit} className={submitButton === true ? styles.submitButtonDisabled : styles.submitButton} disabled={submitButton}>Submit Your Order</Button></Link>
+        <Link href="/summary"><Button onClick={handleSubmit} className={submitButton === true || city === "" || address === "" ? styles.submitButtonDisabled : styles.submitButton} disabled={submitButton || city === "" || address === ""}>Submit Your Order</Button></Link>
       </div>
-    </motion.div>
+    </motion.div >
   )
 }

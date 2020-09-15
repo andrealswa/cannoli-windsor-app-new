@@ -8,17 +8,21 @@ import FormControl from '@material-ui/core/FormControl';
 
 import { useRecoilState } from 'recoil'
 
+import { pickupDelivery, address as addressAtom, city as cityAtom } from '../../recoil/recoil-atoms'
 import styles from './PickupDelivery.module.css'
-import { pickupDelivery } from '../../recoil/recoil-atoms'
 
 export const PickupDelivery = () => {
   const [pickupDeliveryLocal, setPickupDeliveryLocal] = useRecoilState(pickupDelivery)
+  const [address, setAddress] = useRecoilState(addressAtom);
+  const [city, setCity] = useRecoilState(cityAtom);
 
-  const [city, setCity] = useState('');
-
-  const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
-    setCity(event.target.value as string);
-  };
+  // Handle Recoil address and city states.
+  const handleChangeAddress = (event) => {
+    setAddress(event.target.value)
+  }
+  const handleChangeCity = (event) => {
+    setCity(event.target.value)
+  }
 
   const handlePickup = () => {
     setPickupDeliveryLocal("pickup")
@@ -35,18 +39,19 @@ export const PickupDelivery = () => {
         <Button className={pickupDeliveryLocal === 'delivery' ? styles.pickupDeliveryButtonSelected : styles.pickupDeliveryButton} onClick={handleDelivery}>Delivery</Button>
       </div>
       {pickupDeliveryLocal === "delivery" && <form noValidate autoComplete="off">
-        <TextField id="standard-basic" label="Enter Address" />
+        <TextField id="standard-basic" label="Enter Address" value={address} onChange={(event) => handleChangeAddress(event)} />
+
         <FormControl>
           <InputLabel>City</InputLabel>
           <Select
             className={styles.selectCity}
             placeholder="City"
             value={city}
-            onChange={handleChange}
+            onChange={(event) => handleChangeCity(event)}
           >
-            <MenuItem value={"windsor"}>Windsor</MenuItem>
-            <MenuItem value={"lasalle"}>LaSalle</MenuItem>
-            <MenuItem value={"tecumseh"}>Tecumseh</MenuItem>
+            <MenuItem value={"Windsor"}>Windsor</MenuItem>
+            <MenuItem value={"LaSalle"}>LaSalle</MenuItem>
+            <MenuItem value={"Tecumseh"}>Tecumseh</MenuItem>
           </Select>
         </FormControl>
       </form>}
