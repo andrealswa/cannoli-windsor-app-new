@@ -171,14 +171,17 @@ export const Cart = () => {
             {pickupDelivery === 'pickup' && <CardContent className={styles.pickupOrDelivery}>
               Curbside Pickup location is at: 1356 Wyandotte Street East, Windsor, Ontario, CA
             </CardContent>}
-            {pickupDelivery === 'delivery' && < CardContent className={styles.pickupOrDelivery}>
+            {pickupDelivery === 'delivery' && address !== "" && city !== "" && < CardContent className={styles.pickupOrDelivery}>
               Delivered to: {address}, {city}, Ontario, CA
+            </CardContent>}
+            {pickupDelivery === 'delivery' && (address === "" || city === "") && < CardContent className={styles.pickupOrDelivery}>
+              Please enter your address in <Link href="/menu"><a className={styles.linkBlue}>menu</a></Link> to continue
             </CardContent>}
           </div>
           <div className={styles.secondTextImg}>
-            <motion.div variants={fadeInUp}>
+            {cart.small_box_mini_cannoli + cart.small_box_medium_cannoli + cart.small_box_large_cannoli > 0 && <motion.div variants={fadeInUp}>
               <Card className={styles.cardText}>
-                <CardContent>
+                <CardContent className={styles.cardContent}>
                   <Typography gutterBottom variant="h5" component="h2">
                     Small Boxes
                   </Typography>
@@ -193,13 +196,13 @@ export const Cart = () => {
                   </div>}
                 </CardContent>
               </Card>
-            </motion.div>
-            <motion.div variants={fadeInUp}>
+            </motion.div>}
+            {cart.big_box_mini_cannoli + cart.big_box_medium_cannoli + cart.big_box_large_cannoli > 0 && <motion.div variants={fadeInUp}>
               <Card className={styles.cardText}>
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="h2">
+                <CardContent className={styles.cardContent}>
+                  {<Typography gutterBottom variant="h5" component="h2">
                     Big Boxes
-                  </Typography>
+                  </Typography>}
                   {cart.big_box_mini_cannoli > 0 && <div>
                     {cart.big_box_mini_cannoli} Mini Cannoli Box{cart.big_box_mini_cannoli >= 2 && <span>es</span>}: ${25 * cart.big_box_mini_cannoli}
                   </div>}
@@ -211,7 +214,7 @@ export const Cart = () => {
                   </div>}
                 </CardContent>
               </Card>
-            </motion.div>
+            </motion.div>}
           </div>
           {localNotes != "" && <div className={styles.centerNote}>
             <h2>Your Note</h2>
@@ -219,13 +222,13 @@ export const Cart = () => {
           </div>}
           <div className={styles.heroText}><h2>Your Total: ${totalPrice().toFixed(2)}</h2></div>
         </Card>
-        <h1>Choose Method Of Payment</h1>
+        <h1 className={styles.textCenter}>Choose Method Of Payment</h1>
         <div className={styles.payment}>
           <Button className={paymentOption === 'cash' ? styles.paymentButtonSelected : styles.paymentButton} onClick={() => handlePayment('cash')}>Cash</Button>
           <Button className={paymentOption === 'card' ? styles.paymentButtonSelected : styles.paymentButton} onClick={() => handlePayment('card')}>Debit / Credit</Button>
         </div>
 
-        <h1>Enter Email or Phone Number</h1>
+        <h1 className={styles.textCenter}>Enter Email or Phone Number</h1>
 
         <div className={styles.emailPhoneContainer}>
           <div className={styles.emailPhone}><TextField onChange={(event) => handleChangeEmail(event)} value={email} label="Email" /></div>

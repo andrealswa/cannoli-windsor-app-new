@@ -37,6 +37,10 @@
   box-shadow: none !important;
 }
 
+.cardContent {
+  text-align: center;
+}
+
 .bigCard {
   margin-top: 20px;
   box-shadow: rgba(0, 0, 0, 0.233) 0px 5px 15px !important;
@@ -91,5 +95,14 @@
 }
 
 .centerNote {
+  text-align: center;
+}
+
+.linkBlue {
+  color: blue;
+  text-decoration: underline;
+}
+
+.textCenter {
   text-align: center;
 }
