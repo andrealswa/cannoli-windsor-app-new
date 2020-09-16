@@ -9,7 +9,8 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
-import styles from './TopStepper.module.css';
+import styles from './Stepper.module.css';
+
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
@@ -62,7 +63,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const TopStepper = () => {
+export const Stepper = () => {
   const classes = useStyles();
   const theme = useTheme();
   const [activeStep, setActiveStep] = useState(0);
