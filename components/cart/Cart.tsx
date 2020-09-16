@@ -213,7 +213,7 @@ export const Cart = () => {
               </Card>
             </motion.div>
           </div>
-          {localNotes != "" && <div>
+          {localNotes != "" && <div className={styles.centerNote}>
             <h2>Your Note</h2>
             {localNotes}
           </div>}
