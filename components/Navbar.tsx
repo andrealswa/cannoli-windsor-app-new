@@ -152,15 +152,6 @@ export const Navbar = () => {
               </ListItem>
             </Link>
 
-            <Link href="/faq">
-              <ListItem button onClick={toggleDrawer('left', false)}>
-                <ListItemIcon>
-                  <LiveHelpSharpIcon />
-                </ListItemIcon>
-                <ListItemText primary="FAQ" />
-              </ListItem>
-            </Link>
-
             <Link href="/contact">
               <ListItem button onClick={toggleDrawer('left', false)}>
                 <ListItemIcon>
