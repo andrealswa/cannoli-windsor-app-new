@@ -1,11 +1,16 @@
 .centerStepper {
   display: none;
+
 }
 
-@media(max-width: 850px) {
+@media(max-width: 950px) {
   .centerStepper {
     display: flex;
     justify-content: center;
     margin-top: 50px;
   }
+}
+
+.centerBottom {
+  max-width: 300px;
 }

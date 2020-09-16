@@ -43,13 +43,15 @@ const stagger = {
 export const HomeContent = () => {
   return (
     <motion.div variants={stagger}>
-      <div className={styles.containerWrapper}>
-        <div className={styles.textCenter}>
-          <Typography>Our Sicilian Cannoli starts with homemade vanilla sugar, imported Sicilian shells, and local ricotta cheese. Cannoli Windsor uses the freshest and highest quality ingredients, guaranteed. Cannoli Windsor values quality, supporting local, and engaging with the Windsor-Essex community.</Typography>
-          <Typography>Find us at the Downtown Windsor Farmer’s Market or for updates be sure to follow us on Instagram
+      <motion.div variants={fadeInUp}>
+        <div className={styles.containerWrapper}>
+          <div className={styles.textCenter}>
+            <Typography>Our Sicilian Cannoli starts with homemade vanilla sugar, imported Sicilian shells, and local ricotta cheese. Cannoli Windsor uses the freshest and highest quality ingredients, guaranteed. Cannoli Windsor values quality, supporting local, and engaging with the Windsor-Essex community.</Typography>
+            <Typography>Find us at the Downtown Windsor Farmer’s Market or for updates be sure to follow us on Instagram
           and Facebook.</Typography>
+          </div>
         </div>
-      </div>
+      </motion.div>
     </motion.div>
   )
 }

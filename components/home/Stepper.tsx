@@ -8,44 +8,17 @@ import { autoPlay } from 'react-swipeable-views-utils';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import CardMedia from '@material-ui/core/CardMedia';
 
 import styles from './Stepper.module.css';
 
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
-const tutorialSteps = [
-  {
-    label: 'San Francisco – Oakland Bay Bridge, United States',
-    imgPath:
-      'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
-  },
-  {
-    label: 'Bird',
-    imgPath:
-      'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60',
-  },
-  {
-    label: 'Bali, Indonesia',
-    imgPath:
-      'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250&q=80',
-  },
-  {
-    label: 'NeONBRAND Digital Marketing, Las Vegas, United States',
-    imgPath:
-      'https://images.unsplash.com/photo-1518732714860-b62714ce0c59?auto=format&fit=crop&w=400&h=250&q=60',
-  },
-  {
-    label: 'Goč, Serbia',
-    imgPath:
-      'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60',
-  },
-];
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 400,
-    flexGrow: 1,
+    maxWidth: 300,
   },
   header: {
     display: 'flex',
@@ -57,17 +30,17 @@ const useStyles = makeStyles((theme) => ({
   img: {
     height: 255,
     display: 'block',
-    maxWidth: 400,
+    maxWidth: 300,
     overflow: 'hidden',
     width: '100%',
   },
 }));
 
-export const Stepper = () => {
+export const Stepper = ({ images }) => {
   const classes = useStyles();
   const theme = useTheme();
   const [activeStep, setActiveStep] = useState(0);
-  const maxSteps = tutorialSteps.length;
+  const maxSteps = images.length;
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -84,27 +57,29 @@ export const Stepper = () => {
     <div>
       <div className={styles.centerStepper}>
         <div className={classes.root}>
-          <Paper square elevation={0}>
-            <Typography>{tutorialSteps[activeStep].label}</Typography>
-          </Paper>
           <AutoPlaySwipeableViews
             axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
             index={activeStep}
             onChangeIndex={handleStepChange}
             enableMouseEvents
           >
-            {tutorialSteps.map((step, index) => (
-              <div key={step.label}>
+            {images.map((step, index) => (
+              <div key={step}>
                 {Math.abs(activeStep - index) <= 2 ? (
-                  <img src={step.imgPath} alt={step.label} />
+                  <CardMedia
+                    style={{ height: 300, width: 300 }}
+                    image={step}
+                    title="Cannolis"
+                  />
                 ) : null}
               </div>
             ))}
           </AutoPlaySwipeableViews>
           <MobileStepper
+            className={styles.centerBottom}
             steps={maxSteps}
             position="static"
-            variant="text"
+            variant="dots"
             activeStep={activeStep}
             nextButton={
               <Button size="small" onClick={handleNext} disabled={activeStep === maxSteps - 1}>

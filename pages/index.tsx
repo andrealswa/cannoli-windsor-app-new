@@ -14,10 +14,10 @@ const Home = () => {
   return (
     <motion.div exit={{ opacity: 0 }} initial="initial" animate="animate">
       <Images images={pictureSet1} />
-      <Stepper />
+      <Stepper images={pictureSet1} />
       <HomeContent />
       <Images images={pictureSet2} />
-      <Stepper />
+      <Stepper images={pictureSet2} />
     </motion.div>
   )
 }
