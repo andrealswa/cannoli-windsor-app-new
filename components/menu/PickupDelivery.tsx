@@ -35,7 +35,7 @@ export const PickupDelivery = () => {
   return (
     <div className={styles.container}>
       <div>
-        <Button className={pickupDeliveryLocal === 'pickup' ? styles.pickupDeliveryButtonSelected : styles.pickupDeliveryButton} onClick={handlePickup}>Pickup</Button>
+        <Button className={pickupDeliveryLocal === 'pickup' ? styles.pickupDeliveryButtonSelected : styles.pickupDeliveryButton} onClick={handlePickup}>Curbside Pick up</Button>
         <Button className={pickupDeliveryLocal === 'delivery' ? styles.pickupDeliveryButtonSelected : styles.pickupDeliveryButton} onClick={handleDelivery}>Delivery</Button>
       </div>
       {pickupDeliveryLocal === "delivery" && <form noValidate autoComplete="off">

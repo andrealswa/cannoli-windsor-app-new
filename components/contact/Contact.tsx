@@ -37,19 +37,10 @@ export const Contact = () => {
       <Card className={styles.bigCard}>
         <div className={styles.heroText}><h1>Contact Us</h1></div>
         <div className={styles.contactContainer}>
-
-          <a href="tel:1-519-123-4567">
-            <Typography className={styles.contactUnit} gutterBottom variant="h6" component="h2">
-              <PhoneIphoneIcon className={styles.iconsPhone} />
-            519-123-4567
-          </Typography>
-          </a>
-
           <a href="mailto:cannoliwindsor@gmail.com">
             <Typography className={styles.contactUnit} gutterBottom variant="h6" component="h2">
               <MailOutlineIcon className={styles.iconsEmail} />
-            cannoliwindsor@gmail.com
-          </Typography>
+            </Typography>
           </a>
 
           <a href="https://www.facebook.com/cannoliwindsor/">

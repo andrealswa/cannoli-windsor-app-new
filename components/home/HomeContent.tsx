@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
@@ -9,7 +10,10 @@ import { useInView } from "react-intersection-observer";
 import { useEffect } from 'react'
 import { motion, useAnimation } from 'framer-motion';
 
-import styles from './HomeContent.module.css'
+
+import styles from './HomeContent.module.css';
+import { TopStepper } from './TopStepper';
+
 
 const easing = [.6, -.05, .01, .99];
 
@@ -36,9 +40,11 @@ const stagger = {
   }
 }
 
+
 export const HomeContent = () => {
   const animation = useAnimation();
   const [ref, inView, entry] = useInView({ threshold: 0.1 });
+
 
   useEffect(() => {
     if (inView) {
@@ -61,8 +67,8 @@ export const HomeContent = () => {
   }
   return (
     <motion.div variants={stagger}>
+      <TopStepper />
       <div>
-        <div className={styles.heroText}><h1>Fresh Filled Sicilian Cannoli</h1></div>
         <div className={styles.firstTextImg}>
           <motion.div variants={fadeInUp}>
             <Card className={styles.cardText}>

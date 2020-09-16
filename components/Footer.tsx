@@ -15,8 +15,12 @@ export const Footer = () => {
               <a>Contact Us</a>
             </Link>
             <div className={styles.bar}></div>
-            <Link className={styles.link} href="/faq">
-              <a>FAQ</a>
+            <Link className={styles.link} href="https://www.facebook.com/cannoliwindsor/">
+              <a>Facebook</a>
+            </Link>
+            <div className={styles.bar}></div>
+            <Link className={styles.link} href="https://www.instagram.com/cannoliwindsor/">
+              <a>Instagram</a>
             </Link>
           </div>
         </div>

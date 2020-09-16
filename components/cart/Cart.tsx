@@ -169,7 +169,7 @@ export const Cart = () => {
           <div className={styles.heroText}><h1>Cart</h1></div>
           <div>
             {pickupDelivery === 'pickup' && <CardContent className={styles.pickupOrDelivery}>
-              Pickup at: 555 Farmers Market, Windsor, Ontario, CA
+              Curbside Pickup location is at: 1356 Wyandotte Street East, Windsor, Ontario, CA
             </CardContent>}
             {pickupDelivery === 'delivery' && < CardContent className={styles.pickupOrDelivery}>
               Delivered to: {address}, {city}, Ontario, CA
