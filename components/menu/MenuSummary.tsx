@@ -46,7 +46,7 @@ export const MenuSummary = () => {
                     Medium (4): &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className={styles.shiftRight}><b>$15</b></span>
                   </Typography>
                   <Typography variant="body2" color="textSecondary" component="p">
-                    Large (2): <span className={styles.shiftRight}><b>$15</b></span>
+                    Large (2): <span className={styles.shiftRight}><b>$10</b></span>
                   </Typography>
                 </div>
               </CardContent>
