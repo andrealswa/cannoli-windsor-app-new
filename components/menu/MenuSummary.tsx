@@ -40,13 +40,13 @@ export const MenuSummary = () => {
                 </Typography>
                 <div>
                   <Typography variant="body2" color="textSecondary" component="p">
-                    Mini-Sized Cannolis (6): <span className={styles.shiftRight}><b>$15</b></span>
+                    Mini (6): <span className={styles.shiftRight}><b>$15</b></span>
                   </Typography>
                   <Typography variant="body2" color="textSecondary" component="p">
-                    Medium-Sized Cannolis (4): &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className={styles.shiftRight}><b>$15</b></span>
+                    Medium (4): &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className={styles.shiftRight}><b>$15</b></span>
                   </Typography>
                   <Typography variant="body2" color="textSecondary" component="p">
-                    Large-Sized Cannolis (2): <span className={styles.shiftRight}><b>$15</b></span>
+                    Large (2): <span className={styles.shiftRight}><b>$15</b></span>
                   </Typography>
                 </div>
               </CardContent>
@@ -59,13 +59,13 @@ export const MenuSummary = () => {
                   Big Boxes
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                  Mini-Sized Cannolis (10):<span className={styles.shiftRight}> <b>$25</b> </span>
+                  Mini (10):<span className={styles.shiftRight}> <b>$25</b> </span>
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                  Medium-Sized Cannolis (8): &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className={styles.shiftRight}> <b>$30</b></span>
+                  Medium (8): &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className={styles.shiftRight}> <b>$30</b></span>
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                  Large-Sized Cannolis (5):<span className={styles.shiftRight}> <b>$25</b></span>
+                  Large (5):<span className={styles.shiftRight}> <b>$25</b></span>
                 </Typography>
               </CardContent>
             </Card>
@@ -76,9 +76,9 @@ export const MenuSummary = () => {
               <Typography style={{ textAlign: "center" }} gutterBottom variant="h5" component="h2">
                 Flavours
                 </Typography>
-              <div>
+              <div className={styles.flavoursText}>
                 <Typography variant="body2" color="textSecondary" component="p">
-                  <span><b>Cherry</b></span>&nbsp;&bull;&nbsp;<span><b>Vanilla</b></span>&nbsp;&bull;&nbsp;<span><b>Chocolate Chip</b></span>&nbsp;&bull;&nbsp;<span><b>Cinnamon</b></span>
+                  <span><b>Chocolate Chip</b></span>&nbsp;&bull;&nbsp;<span><b>Vanilla Sugar</b></span>&nbsp;&bull;&nbsp;<span><b>Toasted Almond</b></span>&nbsp;&bull;&nbsp;<span><b>Glacé Cherry</b></span>&nbsp;&bull;&nbsp;<span><b>Candied Orange</b></span>
                 </Typography>
               </div>
             </CardContent>

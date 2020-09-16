@@ -7,6 +7,7 @@ import { notes } from '../../recoil/recoil-atoms'
 export const ClientNotes = () => {
   const [note, setNote] = useRecoilState(notes);
   const handleChange = (text) => {
+    console.log(text)
     setNote(() => text)
   }
   return (
@@ -19,7 +20,7 @@ export const ClientNotes = () => {
         aria-label="minimum height"
         rowsMin={10}
         rowsMax={50}
-        placeholder="ie. Please substitute extra cherry cannolis in place of vanilla."
+        placeholder={"ie.\nNo Toasted Almond \n2 Vanilla Sugar \n1 Glacé Cherry \n2 Chocolate Chip \n1 Candied Orange"}
       />
       <Button className={styles.buttonSubmit}>Save</Button>
     </div>

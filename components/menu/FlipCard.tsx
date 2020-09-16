@@ -87,7 +87,7 @@ export const FlipCard = () => {
                 Assorted
               </Typography>
               <Typography style={{ textAlign: "center" }} variant="body2" color="textSecondary" component="p">
-                Delicious Party Pack
+                All boxes are assorted by default. For custom orders, please request preferred flavours in notes
               </Typography>
             </CardContent>
 
