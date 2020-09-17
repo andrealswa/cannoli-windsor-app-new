@@ -106,17 +106,17 @@ export const FlipCard = () => {
                 Small Box
                 </Typography>
               <div className={styles.sizeChoices}>
-                <div className={styles.addRemoveSizes}><Button className={styles.subButton} onClick={() => handleRemoveBox(1)}><RemoveIcon /></Button><Button className={styles.sizeButton} onClick={() => handleAddBox(1)}><AddIcon />&nbsp;Mini-Sized (6)</Button></div>
-                <div className={styles.addRemoveSizes}><Button className={styles.subButton} onClick={() => handleRemoveBox(2)}><RemoveIcon /></Button><Button className={styles.sizeButton} onClick={() => handleAddBox(2)}><AddIcon />&nbsp;Medium-Sized (4)</Button></div>
-                <div className={styles.addRemoveSizes}><Button className={styles.subButton} onClick={() => handleRemoveBox(3)}><RemoveIcon /></Button><Button className={styles.sizeButton} onClick={() => handleAddBox(3)}><AddIcon />&nbsp;Large-Sized (2)</Button></div>
+                <div className={styles.addRemoveSizes}><Button className={styles.subButton} onClick={() => handleRemoveBox(1)}><RemoveIcon /></Button><Button className={styles.sizeButton} onClick={() => handleAddBox(1)}><AddIcon />&nbsp;Mini (6)</Button></div>
+                <div className={styles.addRemoveSizes}><Button className={styles.subButton} onClick={() => handleRemoveBox(2)}><RemoveIcon /></Button><Button className={styles.sizeButton} onClick={() => handleAddBox(2)}><AddIcon />&nbsp;Medium (4)</Button></div>
+                <div className={styles.addRemoveSizes}><Button className={styles.subButton} onClick={() => handleRemoveBox(3)}><RemoveIcon /></Button><Button className={styles.sizeButton} onClick={() => handleAddBox(3)}><AddIcon />&nbsp;Large (2)</Button></div>
               </div>
               <Typography variant="h6" color="textSecondary" component="p">
                 Big Box
                 </Typography>
               <div className={styles.sizeChoices}>
-                <div className={styles.addRemoveSizes}><Button className={styles.subButton} onClick={() => handleRemoveBox(4)}><RemoveIcon /></Button><Button className={styles.sizeButton} onClick={() => handleAddBox(4)}><AddIcon />&nbsp;Mini-Sized (10)</Button></div>
-                <div className={styles.addRemoveSizes}><Button className={styles.subButton} onClick={() => handleRemoveBox(5)}><RemoveIcon /></Button><Button className={styles.sizeButton} onClick={() => handleAddBox(5)}><AddIcon />&nbsp;Medium-Sized (8)</Button></div>
-                <div className={styles.addRemoveSizes}><Button className={styles.subButton} onClick={() => handleRemoveBox(6)}><RemoveIcon /></Button><Button className={styles.sizeButton} onClick={() => handleAddBox(6)}><AddIcon />&nbsp;Large-Sized (5)</Button></div>
+                <div className={styles.addRemoveSizes}><Button className={styles.subButton} onClick={() => handleRemoveBox(4)}><RemoveIcon /></Button><Button className={styles.sizeButton} onClick={() => handleAddBox(4)}><AddIcon />&nbsp;Mini (10)</Button></div>
+                <div className={styles.addRemoveSizes}><Button className={styles.subButton} onClick={() => handleRemoveBox(5)}><RemoveIcon /></Button><Button className={styles.sizeButton} onClick={() => handleAddBox(5)}><AddIcon />&nbsp;Medium (8)</Button></div>
+                <div className={styles.addRemoveSizes}><Button className={styles.subButton} onClick={() => handleRemoveBox(6)}><RemoveIcon /></Button><Button className={styles.sizeButton} onClick={() => handleAddBox(6)}><AddIcon />&nbsp;Large (5)</Button></div>
               </div>
 
             </CardContent>
