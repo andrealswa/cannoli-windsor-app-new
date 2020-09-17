@@ -84,7 +84,7 @@ export const OrderSummary = () => {
             </motion.div>
           </div>
         </div>
-        {notes !== "" && <div><h2>Notes</h2>
+        {notes !== "" && <div><h2 className={styles.centerNotes}>Notes</h2>
           <p>{notes}</p>
         </div>}
         <div className={styles.paymentMethod}>
