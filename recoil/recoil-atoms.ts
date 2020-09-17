@@ -12,47 +12,47 @@ export const cart = atom({
     big_box_mini_cannoli: 0,
     big_box_medium_cannoli: 0,
     big_box_large_cannoli: 0,
-  }
+  },
 });
 
 export const address = atom({
   key: 'address',
-  default: ""
-})
+  default: '',
+});
 
 export const city = atom({
   key: 'city',
-  default: ""
-})
+  default: '',
+});
 
 export const submit = atom({
   key: 'submit',
-  default: true
-})
+  default: true,
+});
 
 export const paymentMethod = atom({
   key: 'paymentMethod',
-  default: ""
-})
+  default: '',
+});
 
 export const notes = atom({
   key: 'notes',
-  default: ""
+  default: '',
 });
 
 export const pickupDelivery = atom({
   key: 'pickupDelivery',
-  default: ""
+  default: '',
 });
 
 export const emailAtom = atom({
   key: 'emailAtom',
-  default: ""
+  default: '',
 });
 
 export const phoneAtom = atom({
-  key: "phoneAtom",
-  default: ""
+  key: 'phoneAtom',
+  default: '',
 });
 
 export const cartCount = selector({

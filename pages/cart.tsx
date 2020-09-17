@@ -1,11 +1,15 @@
-import { motion } from "framer-motion";
-import { Cart } from "../components/cart/Cart";
+import { motion } from 'framer-motion';
+import { Cart } from '../components/cart/Cart';
 
 const CartPage = () => {
   return (
-    <motion.div exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+    <motion.div
+      exit={{ opacity: 0 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+    >
       <Cart />
     </motion.div>
   );
 };
-export default CartPage
+export default CartPage;

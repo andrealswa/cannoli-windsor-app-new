@@ -62,3 +62,14 @@
   width: 2px;
   background-color: rgba(68, 93, 110, 0.53);
 }
+
+.iconGithub {
+  width: 15px !important;
+  margin-bottom: -6px !important;
+  margin-left: 5px;
+}
+
+.iconLinkedIn {
+  margin-bottom: -6px !important;
+  width: 20px !important;
+}

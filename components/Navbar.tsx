@@ -7,8 +7,8 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { useRecoilValue } from 'recoil';
-import { cartCount } from '../recoil/recoil-atoms'
-import { useInView } from "react-intersection-observer";
+import { cartCount } from '../recoil/recoil-atoms';
+import { useInView } from 'react-intersection-observer';
 
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import List from '@material-ui/core/List';
@@ -31,10 +31,9 @@ import LibraryBooksSharpIcon from '@material-ui/icons/LibraryBooksSharp';
 import LiveHelpSharpIcon from '@material-ui/icons/LiveHelpSharp';
 import PhoneIphoneSharpIcon from '@material-ui/icons/PhoneIphoneSharp';
 
-
 import { useEffect, useState } from 'react';
 import styles from './Navbar.module.css';
-import websiteBanner from './navbar.png'
+import websiteBanner from './navbar.png';
 
 export const Navbar = () => {
   const [ref, inView, entry] = useInView({ threshold: 0.1 });
@@ -42,15 +41,15 @@ export const Navbar = () => {
     left: false,
   });
 
-  const [appBar, setAppBar]: any = useState("static")
+  const [appBar, setAppBar]: any = useState('static');
 
   useEffect(() => {
     if (inView) {
-      setAppBar('static')
+      setAppBar('static');
     } else {
-      setAppBar('fixed')
+      setAppBar('fixed');
     }
-  }, [inView])
+  }, [inView]);
 
   //   if (inView) {
   //     animation.start("visible");
@@ -85,7 +84,8 @@ export const Navbar = () => {
       <AppBar className={styles.appbar} position={appBar}>
         <Toolbar className={styles.toolbar}>
           <div className={styles.toolbarBody}>
-            <IconButton className={styles.hamburgerButton}
+            <IconButton
+              className={styles.hamburgerButton}
               onClick={toggleDrawer('left', true)}
               edge="start"
               aria-label="menu"

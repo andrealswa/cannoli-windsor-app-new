@@ -12,9 +12,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 
 import styles from './Stepper.module.css';
 
-
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -82,20 +80,36 @@ export const Stepper = ({ images }) => {
             variant="dots"
             activeStep={activeStep}
             nextButton={
-              <Button size="small" onClick={handleNext} disabled={activeStep === maxSteps - 1}>
+              <Button
+                size="small"
+                onClick={handleNext}
+                disabled={activeStep === maxSteps - 1}
+              >
                 Next
-            {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
+                {theme.direction === 'rtl' ? (
+                  <KeyboardArrowLeft />
+                ) : (
+                  <KeyboardArrowRight />
+                )}
               </Button>
             }
             backButton={
-              <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
-                {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
-            Back
-          </Button>
+              <Button
+                size="small"
+                onClick={handleBack}
+                disabled={activeStep === 0}
+              >
+                {theme.direction === 'rtl' ? (
+                  <KeyboardArrowRight />
+                ) : (
+                  <KeyboardArrowLeft />
+                )}
+                Back
+              </Button>
             }
           />
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
