@@ -106,3 +106,8 @@
 .textCenter {
   text-align: center;
 }
+
+.deliveryChargeContainer {
+  text-align: center;
+  padding-top: 0 !important;
+}

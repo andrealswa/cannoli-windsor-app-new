@@ -1,10 +1,11 @@
 import { useState } from 'react'
-import { Button } from "@material-ui/core"
+import { Button, CardContent } from "@material-ui/core"
 import TextField from '@material-ui/core/TextField';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
+import Typography from '@material-ui/core/Typography';
 
 import { useRecoilState } from 'recoil'
 
@@ -38,6 +39,9 @@ export const PickupDelivery = () => {
         <Button className={pickupDeliveryLocal === 'pickup' ? styles.pickupDeliveryButtonSelected : styles.pickupDeliveryButton} onClick={handlePickup}>Curbside Pick up</Button>
         <Button className={pickupDeliveryLocal === 'delivery' ? styles.pickupDeliveryButtonSelected : styles.pickupDeliveryButton} onClick={handleDelivery}>Delivery</Button>
       </div>
+      {pickupDeliveryLocal === 'delivery' && <Typography variant="body2" color="textSecondary" component="p">
+        $7 Delivery Charge will apply*
+        </Typography>}
       {pickupDeliveryLocal === "delivery" && <form noValidate autoComplete="off">
         <TextField id="standard-basic" label="Enter Address" value={address} onChange={(event) => handleChangeAddress(event)} />
 

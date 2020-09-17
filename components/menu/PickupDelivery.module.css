@@ -10,9 +10,9 @@
 
 .pickupDeliveryButtonSelected {
   background-color: rgb(233, 180, 123) !important;
-  margin: 15px !important;
+  margin: 15px 15px 2px 15px !important;
 }
 
 .pickupDeliveryButton {
-  margin: 15px !important;
+  margin: 15px 15px 2px 15px !important;
 }

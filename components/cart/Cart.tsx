@@ -55,6 +55,10 @@ export const Cart = () => {
     total += cart.big_box_medium_cannoli * 30;
     total += cart.big_box_large_cannoli * 25;
 
+    if (pickupDelivery === 'delivery') {
+      total += 7;
+    }
+
     return total;
   }
   const handleSubmit = () => {
@@ -216,6 +220,9 @@ export const Cart = () => {
               </Card>
             </motion.div>}
           </div>
+          <CardContent className={styles.deliveryChargeContainer}>
+            Delivery Fee: $7
+            </CardContent>
           {localNotes != "" && <div className={styles.centerNote}>
             <h2>Your Note</h2>
             {localNotes}
