@@ -357,7 +357,7 @@ export const Cart = () => {
               {localNotes}
             </div>
           )}
-          <div>HST: ${hst}</div>
+          <div className={styles.deliveryChargeContainer}>HST: ${hst}</div>
           <div className={styles.heroText}>
             <h2>Your Total: ${total}</h2>
           </div>
