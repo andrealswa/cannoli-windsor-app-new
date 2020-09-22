@@ -6,7 +6,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
-import styles from './MenuSummary.module.css';
+import styles from './OrderSummary.module.css';
 import { motion } from 'framer-motion';
 
 const easing = [0.6, -0.05, 0.01, 0.99];
@@ -26,7 +26,7 @@ const fadeInUp = {
   },
 };
 
-export const MenuSummary = () => {
+export const OrderSummary = () => {
   return (
     <div className={styles.mainContainer}>
       <Card className={styles.bigCard}>

@@ -1,13 +1,15 @@
 import { motion } from 'framer-motion';
+import { FlipCard } from '../components/order/FlipCard';
+import { OrderSummary } from '../components/order/OrderSummary';
+import { text } from 'express';
 import { Flavours } from '../components/order/Flavours';
 import { ClientNotes } from '../components/order/ClientNotes';
 import styles from './order.module.css';
 import { PickupDelivery } from '../components/order/PickupDelivery';
 import { useRecoilValue } from 'recoil';
 import { pickupDelivery } from '../recoil/recoil-atoms';
-import { MenuPicture } from '../components/menu/MenuPicture';
 
-const Menu = () => {
+const Order = () => {
   const pickupDeliveryLocal = useRecoilValue(pickupDelivery);
   return (
     <motion.div
@@ -15,8 +17,19 @@ const Menu = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
     >
-      <MenuPicture />
+      <PickupDelivery />
+      {pickupDeliveryLocal != '' && (
+        <div>
+          <OrderSummary />
+          <div className={styles.superContainer}>
+            <div className={styles.container}>
+              <Flavours />
+              <ClientNotes />
+            </div>
+          </div>
+        </div>
+      )}
     </motion.div>
   );
 };
-export default Menu;
+export default Order;

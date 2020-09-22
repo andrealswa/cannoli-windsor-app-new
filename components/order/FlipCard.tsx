@@ -126,7 +126,7 @@ export const FlipCard = () => {
                 variant="h5"
                 component="h2"
               >
-                Assorted
+                Boxes
               </Typography>
               <Typography
                 style={{ textAlign: 'center' }}
@@ -140,7 +140,7 @@ export const FlipCard = () => {
             </CardContent>
 
             <Button className={styles.buttonFlip} onClick={handleCardFlip}>
-              View Options
+              Click Here To View Options
             </Button>
           </Card>
         </div>
@@ -153,7 +153,7 @@ export const FlipCard = () => {
                 variant="h5"
                 component="h2"
               >
-                Assorted
+                Boxes
               </Typography>
               <Typography variant="h6" color="textSecondary" component="p">
                 Small Box
