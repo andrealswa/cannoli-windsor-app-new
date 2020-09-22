@@ -31,7 +31,7 @@ export const OrderSummary = () => {
     <div className={styles.mainContainer}>
       <Card className={styles.bigCard}>
         <div className={styles.heroText}>
-          <h1>Menu</h1>
+          <h1>Prices</h1>
         </div>
         <div className={styles.secondTextImg}>
           <motion.div variants={fadeInUp}>

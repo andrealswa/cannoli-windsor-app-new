@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { FlipCard } from '../components/order/FlipCard';
 import { OrderSummary } from '../components/order/OrderSummary';
+import { OrderTime } from '../components/order/OrderTime';
 import { text } from 'express';
 import { Flavours } from '../components/order/Flavours';
 import { ClientNotes } from '../components/order/ClientNotes';
@@ -21,6 +22,7 @@ const Order = () => {
       {pickupDeliveryLocal != '' && (
         <div>
           <OrderSummary />
+          <OrderTime />
           <div className={styles.superContainer}>
             <div className={styles.container}>
               <Flavours />

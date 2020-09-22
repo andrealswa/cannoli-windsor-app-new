@@ -1,3 +1,4 @@
+import { Random } from 'random-js';
 import Link from 'next/link';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -11,6 +12,7 @@ import emailjs from 'emailjs-com';
 
 import { useRecoilValue, useRecoilState } from 'recoil';
 import {
+  confirmationCodeAtom,
   cart as cartState,
   cartCount,
   notes,
@@ -19,6 +21,8 @@ import {
   address as addressAtom,
   city as cityAtom,
   pickupDelivery as pickupDeliveryAtom,
+  todayLater as todayLaterAtom,
+  time as timeAtom,
   emailAtom,
   phoneAtom,
 } from '../../recoil/recoil-atoms';
@@ -44,6 +48,9 @@ const fadeInUp = {
 };
 
 export const Cart = () => {
+  const [confirmationCode, setConfirmationCode] = useRecoilState(
+    confirmationCodeAtom
+  );
   const localCartCount = useRecoilValue(cartCount);
   const localNotes = useRecoilValue(notes);
   const [cart, setCart] = useRecoilState(cartState);
@@ -54,6 +61,8 @@ export const Cart = () => {
   const pickupDelivery = useRecoilValue(pickupDeliveryAtom);
   const [email, setEmail] = useRecoilState(emailAtom);
   const [phone, setPhone] = useRecoilState(phoneAtom);
+  const todayLater = useRecoilValue(todayLaterAtom);
+  const time = useRecoilValue(timeAtom);
 
   const totalPrice = () => {
     let total = 0;
@@ -127,9 +136,29 @@ export const Cart = () => {
     }
     const finalString = cartStringList.join(' ');
 
+    const confirmationChars = '0123456789abcdefghijklmnopqrstuvwxyz';
+    const random = new Random(); // uses the nativeMath engine
+    let confirmationCode = '';
+
+    for (let i = 0; i < 5; i++) {
+      let value = 0;
+
+      if (i % 2 == 0) {
+        value = random.integer(0, confirmationChars.length);
+      } else {
+        value = random.integer(0, 9);
+      }
+
+      confirmationCode += confirmationChars[value];
+    }
+
+    setConfirmationCode(confirmationCode);
+
     const templateParams = {
+      confirmationCode: confirmationCode,
       email: email,
       phone: phone,
+      time: time,
       pickupDelivery: pickupDelivery,
       cart: finalString,
       notes: localNotes,
@@ -183,8 +212,8 @@ export const Cart = () => {
             <motion.div variants={fadeInUp}>
               <Card className={styles.cardText}>
                 <CardContent>
-                  <Link href="/menu">
-                    <Button>View Menu</Button>
+                  <Link href="/order">
+                    <Button>Order Now</Button>
                   </Link>
                 </CardContent>
               </Card>
@@ -216,10 +245,22 @@ export const Cart = () => {
             {pickupDelivery === 'delivery' && (address === '' || city === '') && (
               <CardContent className={styles.pickupOrDelivery}>
                 Please enter your address in{' '}
-                <Link href="/menu">
-                  <a className={styles.linkBlue}>menu</a>
+                <Link href="/order">
+                  <a className={styles.linkBlue}>order</a>
                 </Link>{' '}
                 to continue
+              </CardContent>
+            )}
+          </div>
+          <div>
+            {time === '' && (
+              <CardContent className={styles.pickupOrDelivery}>
+                Please enter a time to receive cannoli
+              </CardContent>
+            )}
+            {time !== '' && (
+              <CardContent className={styles.pickupOrDelivery}>
+                Time: {time}
               </CardContent>
             )}
           </div>
@@ -297,9 +338,11 @@ export const Cart = () => {
               </motion.div>
             )}
           </div>
-          <CardContent className={styles.deliveryChargeContainer}>
-            Delivery Fee: $7
-          </CardContent>
+          {pickupDelivery === 'delivery' && (
+            <CardContent className={styles.deliveryChargeContainer}>
+              Delivery Fee: $7
+            </CardContent>
+          )}
           {localNotes != '' && (
             <div className={styles.centerNote}>
               <h2>Your Note</h2>

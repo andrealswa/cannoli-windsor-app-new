@@ -15,6 +15,11 @@ export const cart = atom({
   },
 });
 
+export const confirmationCodeAtom = atom({
+  key: 'confirmationCodeAtom',
+  default: '',
+});
+
 export const address = atom({
   key: 'address',
   default: '',
@@ -42,6 +47,16 @@ export const notes = atom({
 
 export const pickupDelivery = atom({
   key: 'pickupDelivery',
+  default: '',
+});
+
+export const time = atom({
+  key: 'time',
+  default: '',
+});
+
+export const todayLater = atom({
+  key: 'todayLater',
   default: '',
 });
 

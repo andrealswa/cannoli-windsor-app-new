@@ -1,11 +1,13 @@
 import { useRecoilState } from 'recoil';
 import { useState, useEffect } from 'react';
 import {
+  confirmationCodeAtom,
   emailAtom,
   phoneAtom,
   pickupDelivery as pickupDeliveryAtom,
   city as cityAtom,
   address as addressAtom,
+  time as timeAtom,
   notes as notesAtom,
   paymentMethod as paymentMethodAtom,
   cart as cartAtom,
@@ -38,6 +40,9 @@ const fadeInUp = {
 };
 
 export const OrderSummary = () => {
+  const [confirmationCode, setConfirmationCode] = useRecoilState(
+    confirmationCodeAtom
+  );
   const [email, setEmail] = useRecoilState(emailAtom);
   const [phone, setPhone] = useRecoilState(phoneAtom);
   const [pickupDelivery, setPickupDelivery] = useRecoilState(
@@ -48,11 +53,12 @@ export const OrderSummary = () => {
   const [city, setCity] = useRecoilState(cityAtom);
   const [notes, setNotes] = useRecoilState(notesAtom);
   const [paymentMethod, setPaymentMethod] = useRecoilState(paymentMethodAtom);
+  const [time, setTime] = useRecoilState(timeAtom);
 
   return (
     <div>
       <Card className={styles.container}>
-        <h1>Order Confirmation: </h1>
+        <h1>Order Confirmation: {confirmationCode}</h1>
         <h3>{email !== '' ? email : phone}</h3>
 
         <div className={styles.pickupDelivery}>
@@ -64,6 +70,9 @@ export const OrderSummary = () => {
               Deliver to: {address}, {city}, Ontario, CA
             </h3>
           )}
+        </div>
+        <div>
+          <h3>Time: {time}</h3>
         </div>
         <div>
           <div className={styles.secondTextImg}>
