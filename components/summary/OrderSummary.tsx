@@ -11,6 +11,8 @@ import {
   notes as notesAtom,
   paymentMethod as paymentMethodAtom,
   cart as cartAtom,
+  totalAtom,
+  hstAtom,
 } from '../../recoil/recoil-atoms';
 import styles from './OrderSummary.module.css';
 import Card from '@material-ui/core/Card';
@@ -54,6 +56,8 @@ export const OrderSummary = () => {
   const [notes, setNotes] = useRecoilState(notesAtom);
   const [paymentMethod, setPaymentMethod] = useRecoilState(paymentMethodAtom);
   const [time, setTime] = useRecoilState(timeAtom);
+  const [hst, setHst] = useRecoilState(hstAtom);
+  const [total, setTotal] = useRecoilState(totalAtom);
 
   return (
     <div>
@@ -165,6 +169,8 @@ export const OrderSummary = () => {
             </Typography>
           )}
         </div>
+        <h2>HST: ${hst}</h2>
+        <h2>Total: ${total}</h2>
       </Card>
       <Button>Back to Home Page</Button>
     </div>

@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Random } from 'random-js';
 import Link from 'next/link';
 import Card from '@material-ui/core/Card';
@@ -17,6 +18,7 @@ import {
   cartCount,
   notes,
   submit,
+  hstAtom,
   paymentMethod,
   address as addressAtom,
   city as cityAtom,
@@ -25,6 +27,7 @@ import {
   time as timeAtom,
   emailAtom,
   phoneAtom,
+  totalAtom,
 } from '../../recoil/recoil-atoms';
 import styles from './Cart.module.css';
 import { motion } from 'framer-motion';
@@ -61,10 +64,12 @@ export const Cart = () => {
   const pickupDelivery = useRecoilValue(pickupDeliveryAtom);
   const [email, setEmail] = useRecoilState(emailAtom);
   const [phone, setPhone] = useRecoilState(phoneAtom);
+  const [hst, setHst] = useRecoilState(hstAtom);
+  const [total, setTotal] = useRecoilState(totalAtom);
   const todayLater = useRecoilValue(todayLaterAtom);
   const time = useRecoilValue(timeAtom);
 
-  const totalPrice = () => {
+  useEffect(() => {
     let total = 0;
     total += cart.small_box_mini_cannoli * 15;
     total += cart.small_box_medium_cannoli * 15;
@@ -77,8 +82,11 @@ export const Cart = () => {
       total += 7;
     }
 
-    return total;
-  };
+    // Calculate taxes
+    setHst(parseFloat((total * 0.13).toFixed(2)));
+    setTotal(parseFloat((total * 1.13).toFixed(2)));
+  }, []);
+
   const handleSubmit = () => {
     var count = 200;
     var defaults = {
@@ -144,7 +152,7 @@ export const Cart = () => {
       let value = 0;
 
       if (i % 2 == 0) {
-        value = random.integer(0, confirmationChars.length);
+        value = random.integer(0, confirmationChars.length - 1);
       } else {
         value = random.integer(0, 9);
       }
@@ -349,8 +357,9 @@ export const Cart = () => {
               {localNotes}
             </div>
           )}
+          <div>HST: ${hst}</div>
           <div className={styles.heroText}>
-            <h2>Your Total: ${totalPrice().toFixed(2)}</h2>
+            <h2>Your Total: ${total}</h2>
           </div>
         </Card>
         <h1 className={styles.textCenter}>Choose Method Of Payment</h1>

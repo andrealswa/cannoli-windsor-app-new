@@ -20,6 +20,16 @@ export const confirmationCodeAtom = atom({
   default: '',
 });
 
+export const totalAtom = atom({
+  key: 'totalAtom',
+  default: 0,
+});
+
+export const hstAtom = atom({
+  key: 'hstAtom',
+  default: 0,
+});
+
 export const address = atom({
   key: 'address',
   default: '',
