@@ -114,7 +114,7 @@ export const OrderSummary = () => {
                 variant="h5"
                 component="h2"
               >
-                Flavours
+                Classic Flavours
               </Typography>
               <div className={styles.flavoursText}>
                 <Typography variant="body2" color="textSecondary" component="p">
@@ -136,6 +136,10 @@ export const OrderSummary = () => {
                   &nbsp;&bull;&nbsp;
                   <span>
                     <b>Candied Orange</b>
+                  </span>
+                  &nbsp;&bull;&nbsp;
+                  <span>
+                    <b>Pumpkin Spice</b>
                   </span>
                 </Typography>
               </div>
