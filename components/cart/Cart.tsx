@@ -424,40 +424,42 @@ export const Cart = () => {
         </div>
 
         {paymentOption === 'etransfer' && (
-          <div>
+          <div className={styles.etransferContainer}>
             <Typography gutterBottom variant="h6" component="h2">
               Send to: cannoliwindsor@gmail.com
             </Typography>
-            <a
-              href="https://onlinebanking.tdbank.com/#/authentication/login"
-              target="_blank"
-            >
-              <Button>TD Bank</Button>
-            </a>
-            <a
-              href="https://www.cibc.com/en/personal-banking.html"
-              target="_blank"
-            >
-              <Button>CIBC</Button>
-            </a>
-            <a
-              href="https://www1.royalbank.com/cgi-bin/rbaccess/rbcgi3m01?F6=1&F7=IB&F21=IB&F22=IB&REQUEST=ClientSignin&LANGUAGE=ENGLISH&_ga=2.133365070.1117616078.1600969508-1718389869.1600969508"
-              target="_blank"
-            >
-              <Button>RBC</Button>
-            </a>
-            <a
-              href="https://www1.bmo.com/onlinebanking/cgi-bin/netbnx/NBmain?product=5"
-              target="_blank"
-            >
-              <Button>BMO</Button>
-            </a>
-            <a
-              href="https://auth.scotiaonline.scotiabank.com/online?oauth_key=3cBMuknxe7c&oauth_key_signature=eyJraWQiOiJrUFVqdlNhT25GWUVDakpjMmV1MXJvNGxnb2VFeXJJb2tCbU1oX3BiZXNVIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYifQ.eyJvYXV0aF9rZXkiOiIzY0JNdWtueGU3YyIsImNvbnNlbnRfcmVxdWlyZWQiOmZhbHNlLCJyZWRpcmVjdF91cmkiOiJodHRwczpcL1wvd3d3LnNjb3RpYW9ubGluZS5zY290aWFiYW5rLmNvbVwvb25saW5lXC9sYW5kaW5nXC9vYXV0aGxhbmRpbmcuYm5zIiwiZXhwIjoxNjAwOTcxMDQ1LCJpYXQiOjE2MDA5Njk4NDUsImp0aSI6IjExMjEzZGQ3LWUwNGEtNDg0Ni04ZTBmLTU2MmVlZDVhOWY4MiIsImNsaWVudF9pZCI6IjhlZTkwYzM5LTFjNTItNGZmNC04YWU2LWE3YjU0YzUzOTkzMyIsImNsaWVudF9tZXRhZGF0YSI6eyJDaGFubmVsSUQiOiJTT0wiLCJBcHBsaWNhdGlvbkNvZGUiOiJINyJ9fQ.s1W4Rtu-ogbPXuP8L5XiKEwJ4gmMMW7WJk9jYXCUUiwsDQnQGwI2KGOjShXxtMLlKxpjRXrcPqPh82baONRzYx1g4sj4Z-XIFTQBBA8Goihpr9OaP4s9D6YuSfqOCFhMZSWTvedpKDjiQb1Rbk628exENI4FCnvSOTj9_BUxZV7V-Uh13MArd6JTSvLQmmJvxUezrj73s6yHboDHSsS0JGHL2L-GVNAL-WJ-Cg3w_5Aw-5_8SaZzB37soRXfLkcsCNJ2lRRTYapBpgpN4vjLO9vqqKXEI6GH9QNOeVkgmlIXm3UOMNfYj3rWMO0Uhyzs-yhCJFcpCJOixV451DSIBg&preferred_environment="
-              target="_blank"
-            >
-              <Button>Scotiabank</Button>
-            </a>
+            <div className={styles.banksContainer}>
+              <a
+                href="https://onlinebanking.tdbank.com/#/authentication/login"
+                target="_blank"
+              >
+                <Button>TD Bank</Button>
+              </a>
+              <a
+                href="https://www.cibc.com/en/personal-banking.html"
+                target="_blank"
+              >
+                <Button>CIBC</Button>
+              </a>
+              <a
+                href="https://www1.royalbank.com/cgi-bin/rbaccess/rbcgi3m01?F6=1&F7=IB&F21=IB&F22=IB&REQUEST=ClientSignin&LANGUAGE=ENGLISH&_ga=2.133365070.1117616078.1600969508-1718389869.1600969508"
+                target="_blank"
+              >
+                <Button>RBC</Button>
+              </a>
+              <a
+                href="https://www1.bmo.com/onlinebanking/cgi-bin/netbnx/NBmain?product=5"
+                target="_blank"
+              >
+                <Button>BMO</Button>
+              </a>
+              <a
+                href="https://auth.scotiaonline.scotiabank.com/online?oauth_key=3cBMuknxe7c&oauth_key_signature=eyJraWQiOiJrUFVqdlNhT25GWUVDakpjMmV1MXJvNGxnb2VFeXJJb2tCbU1oX3BiZXNVIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYifQ.eyJvYXV0aF9rZXkiOiIzY0JNdWtueGU3YyIsImNvbnNlbnRfcmVxdWlyZWQiOmZhbHNlLCJyZWRpcmVjdF91cmkiOiJodHRwczpcL1wvd3d3LnNjb3RpYW9ubGluZS5zY290aWFiYW5rLmNvbVwvb25saW5lXC9sYW5kaW5nXC9vYXV0aGxhbmRpbmcuYm5zIiwiZXhwIjoxNjAwOTcxMDQ1LCJpYXQiOjE2MDA5Njk4NDUsImp0aSI6IjExMjEzZGQ3LWUwNGEtNDg0Ni04ZTBmLTU2MmVlZDVhOWY4MiIsImNsaWVudF9pZCI6IjhlZTkwYzM5LTFjNTItNGZmNC04YWU2LWE3YjU0YzUzOTkzMyIsImNsaWVudF9tZXRhZGF0YSI6eyJDaGFubmVsSUQiOiJTT0wiLCJBcHBsaWNhdGlvbkNvZGUiOiJINyJ9fQ.s1W4Rtu-ogbPXuP8L5XiKEwJ4gmMMW7WJk9jYXCUUiwsDQnQGwI2KGOjShXxtMLlKxpjRXrcPqPh82baONRzYx1g4sj4Z-XIFTQBBA8Goihpr9OaP4s9D6YuSfqOCFhMZSWTvedpKDjiQb1Rbk628exENI4FCnvSOTj9_BUxZV7V-Uh13MArd6JTSvLQmmJvxUezrj73s6yHboDHSsS0JGHL2L-GVNAL-WJ-Cg3w_5Aw-5_8SaZzB37soRXfLkcsCNJ2lRRTYapBpgpN4vjLO9vqqKXEI6GH9QNOeVkgmlIXm3UOMNfYj3rWMO0Uhyzs-yhCJFcpCJOixV451DSIBg&preferred_environment="
+                target="_blank"
+              >
+                <Button>Scotiabank</Button>
+              </a>
+            </div>
           </div>
         )}
 
