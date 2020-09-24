@@ -27,7 +27,6 @@
   justify-content: center;
   height: 100%;
   flex-wrap: wrap;
-
 }
 
 .contactUnit {
@@ -50,13 +49,21 @@
 .iconsPhone {
   height: 50px !important;
   width: 50px !important;
-  color: rgb(233, 180, 123)
+  color: rgb(233, 180, 123);
 }
 
 .iconsEmail {
   height: 50px !important;
   width: 50px !important;
-  color: rgb(67, 181, 129)
+  color: rgb(67, 181, 129);
+}
+
+.email {
+  display: none;
+}
+
+.contactUnit:hover .email {
+  display: block;
 }
 
 .iconsFB {

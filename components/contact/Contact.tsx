@@ -46,6 +46,11 @@ export const Contact = () => {
               component="h2"
             >
               <MailOutlineIcon className={styles.iconsEmail} />
+              <div className={styles.email}>
+                <Typography gutterBottom variant="h6" component="h2">
+                  cannoliwindsor@gmail.com
+                </Typography>
+              </div>
             </Typography>
           </a>
 
