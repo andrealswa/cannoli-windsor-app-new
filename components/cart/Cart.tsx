@@ -87,25 +87,7 @@ export const Cart = () => {
     setTotal(parseFloat((total * 1.13).toFixed(2)));
   }, []);
 
-  useEffect(
-    () => () => {
-      useResetRecoilState(confirmationCodeAtom);
-      useResetRecoilState(cartState);
-      useResetRecoilState(notes);
-      useResetRecoilState(submit);
-      useResetRecoilState(hstAtom);
-      useResetRecoilState(paymentMethod);
-      useResetRecoilState(addressAtom);
-      useResetRecoilState(cityAtom);
-      useResetRecoilState(pickupDeliveryAtom);
-      useResetRecoilState(todayLaterAtom);
-      useResetRecoilState(timeAtom);
-      useResetRecoilState(emailAtom);
-      useResetRecoilState(phoneAtom);
-      useResetRecoilState(totalAtom);
-    },
-    []
-  );
+  useEffect(() => () => {}, []);
 
   const handleSubmit = () => {
     var count = 200;
