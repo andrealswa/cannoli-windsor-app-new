@@ -11,7 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import confetti from 'canvas-confetti';
 import emailjs from 'emailjs-com';
 
-import { useRecoilValue, useRecoilState } from 'recoil';
+import { useRecoilValue, useRecoilState, useResetRecoilState } from 'recoil';
 import {
   confirmationCodeAtom,
   cart as cartState,
@@ -86,6 +86,27 @@ export const Cart = () => {
     setHst(parseFloat((total * 0.13).toFixed(2)));
     setTotal(parseFloat((total * 1.13).toFixed(2)));
   }, []);
+
+  useEffect(
+    () => () => {
+      console.log('Reset Cart');
+      useResetRecoilState(confirmationCodeAtom);
+      useResetRecoilState(cartState);
+      useResetRecoilState(notes);
+      useResetRecoilState(submit);
+      useResetRecoilState(hstAtom);
+      useResetRecoilState(paymentMethod);
+      useResetRecoilState(addressAtom);
+      useResetRecoilState(cityAtom);
+      useResetRecoilState(pickupDeliveryAtom);
+      useResetRecoilState(todayLaterAtom);
+      useResetRecoilState(timeAtom);
+      useResetRecoilState(emailAtom);
+      useResetRecoilState(phoneAtom);
+      useResetRecoilState(totalAtom);
+    },
+    []
+  );
 
   const handleSubmit = () => {
     var count = 200;

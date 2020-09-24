@@ -1,5 +1,6 @@
 import { count } from 'console';
 import { atom, selector } from 'recoil';
+import { OrderSummary } from '../components/order/OrderSummary';
 
 export const cart = atom({
   // a unique id among the other atoms/selectors
