@@ -37,17 +37,6 @@ const stagger = {
 export const MenuPicture = () => {
   return (
     <motion.div variants={fadeInUp}>
-      <Typography
-        style={{ textAlign: 'center' }}
-        gutterBottom
-        variant="h5"
-        component="h2"
-      >
-        For large orders please{' '}
-        <Link href="/contact">
-          <a className={styles.blueLink}>Contact Us</a>
-        </Link>
-      </Typography>
       <div className={styles.imgContainer}>
         <Card>
           <CardActionArea>
@@ -65,6 +54,18 @@ export const MenuPicture = () => {
           </CardActionArea>
         </Card>
       </div>
+      <Typography
+        className={styles.largeOrders}
+        style={{ textAlign: 'center' }}
+        gutterBottom
+        variant="h5"
+        component="h2"
+      >
+        For large orders please{' '}
+        <Link href="/contact">
+          <a className={styles.blueLink}>Contact Us</a>
+        </Link>
+      </Typography>
     </motion.div>
   );
 };
