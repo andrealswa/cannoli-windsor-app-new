@@ -1,4 +1,5 @@
 import { useRecoilState } from 'recoil';
+import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import {
   confirmationCodeAtom,
@@ -23,6 +24,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { motion } from 'framer-motion';
+import { Link } from '@material-ui/core';
 
 const easing = [0.6, -0.05, 0.01, 0.99];
 
@@ -42,6 +44,7 @@ const fadeInUp = {
 };
 
 export const OrderSummary = () => {
+  const router = useRouter();
   const [confirmationCode, setConfirmationCode] = useRecoilState(
     confirmationCodeAtom
   );
@@ -59,9 +62,23 @@ export const OrderSummary = () => {
   const [hst, setHst] = useRecoilState(hstAtom);
   const [total, setTotal] = useRecoilState(totalAtom);
 
+  useEffect(() => {
+    () => {
+      setEmail('');
+    };
+  }, []);
+
   return (
     <div>
       <Card className={styles.container}>
+        <Typography
+          className={styles.screenshotWarning}
+          gutterBottom
+          variant="h5"
+          component="h2"
+        >
+          Please screenshot this page for your records
+        </Typography>
         <h1>Order Confirmation: {confirmationCode}</h1>
         <h3>{email !== '' ? email : phone}</h3>
 
@@ -75,46 +92,48 @@ export const OrderSummary = () => {
             </h3>
           )}
         </div>
+
         <div>
           <h3>Time: {time}</h3>
         </div>
         <div>
           <div className={styles.secondTextImg}>
             <motion.div variants={fadeInUp}>
-              <CardContent>
-                {cart.small_box_large_cannoli +
-                  cart.small_box_medium_cannoli +
-                  cart.small_box_mini_cannoli >
-                  0 && (
+              {cart.small_box_large_cannoli +
+                cart.small_box_medium_cannoli +
+                cart.small_box_mini_cannoli >
+                0 && (
+                <CardContent className={styles.orderSmall}>
                   <Typography gutterBottom variant="h5" component="h2">
                     Small Boxes
                   </Typography>
-                )}
-                {cart.small_box_mini_cannoli > 0 && (
-                  <div>
-                    {cart.small_box_mini_cannoli} Mini Cannoli Box
-                    {cart.small_box_mini_cannoli >= 2 && <span>es</span>}: $
-                    {15 * cart.small_box_mini_cannoli}
-                  </div>
-                )}
-                {cart.small_box_medium_cannoli > 0 && (
-                  <div>
-                    {cart.small_box_medium_cannoli} Medium Cannoli Box
-                    {cart.small_box_medium_cannoli >= 2 && <span>es</span>}: $
-                    {15 * cart.small_box_medium_cannoli}
-                  </div>
-                )}
-                {cart.small_box_large_cannoli > 0 && (
-                  <div>
-                    {cart.small_box_large_cannoli} Large Cannoli Box
-                    {cart.small_box_large_cannoli >= 2 && <span>es</span>}: $
-                    {10 * cart.small_box_large_cannoli}
-                  </div>
-                )}
-              </CardContent>
+
+                  {cart.small_box_mini_cannoli > 0 && (
+                    <div>
+                      {cart.small_box_mini_cannoli} Mini Cannoli Box
+                      {cart.small_box_mini_cannoli >= 2 && <span>es</span>}: $
+                      {15 * cart.small_box_mini_cannoli}
+                    </div>
+                  )}
+                  {cart.small_box_medium_cannoli > 0 && (
+                    <div>
+                      {cart.small_box_medium_cannoli} Medium Cannoli Box
+                      {cart.small_box_medium_cannoli >= 2 && <span>es</span>}: $
+                      {15 * cart.small_box_medium_cannoli}
+                    </div>
+                  )}
+                  {cart.small_box_large_cannoli > 0 && (
+                    <div>
+                      {cart.small_box_large_cannoli} Large Cannoli Box
+                      {cart.small_box_large_cannoli >= 2 && <span>es</span>}: $
+                      {10 * cart.small_box_large_cannoli}
+                    </div>
+                  )}
+                </CardContent>
+              )}
             </motion.div>
             <motion.div variants={fadeInUp}>
-              <CardContent>
+              <CardContent className={styles.order}>
                 {cart.big_box_large_cannoli +
                   cart.big_box_medium_cannoli +
                   cart.big_box_mini_cannoli >
@@ -148,6 +167,7 @@ export const OrderSummary = () => {
             </motion.div>
           </div>
         </div>
+
         {notes !== '' && (
           <div>
             <h2 className={styles.centerNotes}>Notes</h2>
@@ -169,10 +189,16 @@ export const OrderSummary = () => {
             </Typography>
           )}
         </div>
-        <h2>HST: ${hst}</h2>
-        <h2>Total: ${total}</h2>
+        <h2>HST: ${hst.toFixed(2)}</h2>
+        <h2>Total: ${total.toFixed(2)}</h2>
       </Card>
-      <Button>Back to Home Page</Button>
+      <div className={styles.refreshButton}>
+        <Link href="/">
+          <a>
+            <Button onClick={() => router.reload()}>Back to Home Page</Button>
+          </a>
+        </Link>
+      </div>
     </div>
   );
 };

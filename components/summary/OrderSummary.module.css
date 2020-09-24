@@ -13,6 +13,12 @@
   padding-bottom: 20px !important;
 }
 
+.screenshotWarning {
+  color: rgba(85, 82, 82, 0.774) !important;
+  margin-top: 15px !important;
+  margin-bottom: 0px !important;
+}
+
 .secondTextImg {
   display: flex;
   justify-content: space-around;
@@ -26,6 +32,15 @@
   text-align: center;
 }
 
+.orderSmall {
+  padding: 0px !important;
+  margin-right: 30px !important;
+}
+
+.order {
+  padding: 0px !important;
+}
+
 .paymentMethod {
   display: flex;
   align-items: flex-end;
@@ -37,4 +52,15 @@
 
 .centerNotes {
   text-align: center;
+}
+
+.refreshButton {
+  display: flex;
+  justify-content: center;
+}
+
+.bottomContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }

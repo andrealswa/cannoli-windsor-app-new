@@ -11,7 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import confetti from 'canvas-confetti';
 import emailjs from 'emailjs-com';
 
-import { useRecoilValue, useRecoilState, useResetRecoilState } from 'recoil';
+import { useRecoilValue, useRecoilState } from 'recoil';
 import {
   confirmationCodeAtom,
   cart as cartState,
@@ -83,11 +83,9 @@ export const Cart = () => {
     }
 
     // Calculate taxes
-    setHst(parseFloat((total * 0.13).toFixed(2)));
-    setTotal(parseFloat((total * 1.13).toFixed(2)));
+    setHst(total * 0.13);
+    setTotal(total * 1.13);
   }, []);
-
-  useEffect(() => () => {}, []);
 
   const handleSubmit = () => {
     var count = 200;
@@ -359,9 +357,11 @@ export const Cart = () => {
               {localNotes}
             </div>
           )}
-          <div className={styles.deliveryChargeContainer}>HST: ${hst}</div>
+          <div className={styles.deliveryChargeContainer}>
+            HST: ${hst.toFixed(2)}
+          </div>
           <div className={styles.heroText}>
-            <h2>Your Total: ${total}</h2>
+            <h2>Your Total: ${total.toFixed(2)}</h2>
           </div>
         </Card>
         <h1 className={styles.textCenter}>Choose Method Of Payment</h1>
