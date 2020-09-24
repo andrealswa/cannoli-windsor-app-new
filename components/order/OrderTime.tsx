@@ -41,10 +41,6 @@ export const OrderTime = () => {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Select Your Time</h1>
-      <MuiPickersUtilsProvider utils={DateFnsUtils}>
-        <TimePicker value={selectedDate} onChange={handleDateChange} />
-        <DateTimePicker value={selectedDate} onChange={handleDateChange} />
-      </MuiPickersUtilsProvider>
 
       <div>
         <Button
@@ -68,30 +64,21 @@ export const OrderTime = () => {
           Later Date
         </Button>
       </div>
+
       {todayLaterLocal === 'today' && (
         <Typography variant="body2" color="textSecondary" component="p">
           Please allow up to 2 hours for us to prepare*
         </Typography>
       )}
       {todayLaterLocal === 'today' && (
-        <form noValidate autoComplete="off">
-          <TextField
-            id="standard-basic"
-            label="Enter Time"
-            value={time}
-            onChange={(event) => handleChangeTime(event)}
-          />
-        </form>
+        <MuiPickersUtilsProvider utils={DateFnsUtils}>
+          <TimePicker value={selectedDate} onChange={handleDateChange} />
+        </MuiPickersUtilsProvider>
       )}
       {todayLaterLocal === 'later' && (
-        <form noValidate autoComplete="off">
-          <TextField
-            id="standard-basic"
-            label="Enter Date and Time"
-            value={time}
-            onChange={(event) => handleChangeTime(event)}
-          />
-        </form>
+        <MuiPickersUtilsProvider utils={DateFnsUtils}>
+          <DateTimePicker value={selectedDate} onChange={handleDateChange} />
+        </MuiPickersUtilsProvider>
       )}
     </div>
   );
