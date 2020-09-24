@@ -128,7 +128,6 @@ export const Cart = () => {
       if (value > 0) {
         cartString =
           cartString + key.split('_').join(' ') + ': ' + value + ', ';
-        cartString = cartString.replace('cannoli', 'cannolis');
         const xPos = cartString.indexOf('x');
         cartString =
           cartString.substring(0, xPos + 1) +
