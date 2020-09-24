@@ -67,7 +67,7 @@ export const Stepper = ({ images }) => {
                   <CardMedia
                     style={{ height: 300, width: 300 }}
                     image={step}
-                    title="Cannolis"
+                    title="Cannoli"
                   />
                 ) : null}
               </div>

@@ -46,7 +46,7 @@ export const MenuPicture = () => {
               <CardMedia
                 className={styles.img}
                 image={require('../../public/homeContent/cannoliMenu2.png')}
-                title="Cannolis"
+                title="Cannoli"
               />
             </motion.div>
           </CardActionArea>

@@ -7,6 +7,14 @@ import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Typography from '@material-ui/core/Typography';
 
+import DateFnsUtils from '@date-io/date-fns'; // choose your lib
+import {
+  DatePicker,
+  TimePicker,
+  DateTimePicker,
+  MuiPickersUtilsProvider,
+} from '@material-ui/pickers';
+
 import { useRecoilState } from 'recoil';
 
 import { todayLater, time as timeAtom } from '../../recoil/recoil-atoms';
@@ -15,6 +23,7 @@ import styles from './OrderTime.module.css';
 export const OrderTime = () => {
   const [todayLaterLocal, setTodayLaterLocal] = useRecoilState(todayLater);
   const [time, setTime] = useRecoilState(timeAtom);
+  const [selectedDate, handleDateChange] = useState(new Date());
 
   // Handle Recoil time states.
   const handleChangeTime = (event) => {
@@ -32,6 +41,11 @@ export const OrderTime = () => {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Select Your Time</h1>
+      <MuiPickersUtilsProvider utils={DateFnsUtils}>
+        <TimePicker value={selectedDate} onChange={handleDateChange} />
+        <DateTimePicker value={selectedDate} onChange={handleDateChange} />
+      </MuiPickersUtilsProvider>
+
       <div>
         <Button
           className={

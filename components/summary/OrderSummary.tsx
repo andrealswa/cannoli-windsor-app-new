@@ -158,7 +158,7 @@ export const OrderSummary = () => {
                 )}
                 {cart.big_box_large_cannoli > 0 && (
                   <div>
-                    {cart.big_box_large_cannoli} Large Cannolis Box
+                    {cart.big_box_large_cannoli} Large Cannoli Box
                     {cart.big_box_large_cannoli >= 2 && <span>es</span>}: $
                     {25 * cart.big_box_large_cannoli}
                   </div>

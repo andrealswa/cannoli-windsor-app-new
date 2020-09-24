@@ -64,7 +64,7 @@ export const Images = ({ images }) => {
                       <CardMedia
                         style={{ height: 300, width: 300 }}
                         image={img}
-                        title="Cannolis"
+                        title="Cannoli"
                       />
                     </motion.div>
                   </CardActionArea>
