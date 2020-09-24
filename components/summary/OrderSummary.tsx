@@ -78,7 +78,7 @@ export const OrderSummary = () => {
 
         <div className={styles.pickupDelivery}>
           {pickupDelivery === 'pickup' && (
-            <h3>Pick up at: 555 Farmers Market, Windsor, Ontario, CA</h3>
+            <h3>Pick up at: Wyandotte Street E, Windsor, Ontario, CA</h3>
           )}
           {pickupDelivery === 'delivery' && (
             <h3>
