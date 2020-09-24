@@ -11,7 +11,6 @@ import Typography from '@material-ui/core/Typography';
 import confetti from 'canvas-confetti';
 import emailjs from 'emailjs-com';
 
-
 import { useRecoilValue, useRecoilState } from 'recoil';
 import {
   confirmationCodeAtom,
@@ -68,7 +67,7 @@ export const Cart = () => {
   const [hst, setHst] = useRecoilState(hstAtom);
   const [total, setTotal] = useRecoilState(totalAtom);
   const todayLater = useRecoilValue(todayLaterAtom);
-  const time = useRecoilValue(timeAtom);
+  const time: Date = useRecoilValue(timeAtom);
 
   useEffect(() => {
     let total = 0;
@@ -163,11 +162,24 @@ export const Cart = () => {
 
     setConfirmationCode(confirmationCode);
 
+    const timeString =
+      time
+        .toLocaleTimeString()
+        .substring(0, time.toLocaleTimeString().length - 6) +
+      time
+        .toLocaleTimeString()
+        .substring(
+          time.toLocaleTimeString().length - 2,
+          time.toLocaleTimeString().length
+        ) +
+      ' ' +
+      time.toLocaleDateString();
+
     const templateParams = {
       confirmationCode: confirmationCode,
       email: email,
       phone: phone,
-      time: time,
+      time: timeString,
       pickupDelivery: pickupDelivery,
       cart: finalString,
       notes: localNotes,
@@ -262,14 +274,24 @@ export const Cart = () => {
             )}
           </div>
           <div>
-            {time === '' && (
+            {time === null && (
               <CardContent className={styles.pickupOrDelivery}>
                 Please enter a time to receive cannoli
               </CardContent>
             )}
-            {time !== '' && (
+            {time !== null && (
               <CardContent className={styles.pickupOrDelivery}>
-                Time: {time}
+                Time:{' '}
+                {time
+                  .toLocaleTimeString()
+                  .substring(0, time.toLocaleTimeString().length - 6)}
+                {time
+                  .toLocaleTimeString()
+                  .substring(
+                    time.toLocaleTimeString().length - 2,
+                    time.toLocaleTimeString().length
+                  )}{' '}
+                {time.toLocaleDateString()}
               </CardContent>
             )}
           </div>
@@ -278,74 +300,74 @@ export const Cart = () => {
               cart.small_box_medium_cannoli +
               cart.small_box_large_cannoli >
               0 && (
-                <motion.div variants={fadeInUp}>
-                  <Card className={styles.cardText}>
-                    <CardContent className={styles.cardContent}>
-                      <Typography gutterBottom variant="h5" component="h2">
-                        Small Boxes
+              <motion.div variants={fadeInUp}>
+                <Card className={styles.cardText}>
+                  <CardContent className={styles.cardContent}>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      Small Boxes
                     </Typography>
-                      {cart.small_box_mini_cannoli > 0 && (
-                        <div>
-                          {cart.small_box_mini_cannoli} Mini Cannoli Box
-                          {cart.small_box_mini_cannoli >= 2 && <span>es</span>}: $
-                          {15 * cart.small_box_mini_cannoli}
-                        </div>
-                      )}
-                      {cart.small_box_medium_cannoli > 0 && (
-                        <div>
-                          {cart.small_box_medium_cannoli} Medium Cannoli Box
-                          {cart.small_box_medium_cannoli >= 2 && <span>es</span>}:
+                    {cart.small_box_mini_cannoli > 0 && (
+                      <div>
+                        {cart.small_box_mini_cannoli} Mini Cannoli Box
+                        {cart.small_box_mini_cannoli >= 2 && <span>es</span>}: $
+                        {15 * cart.small_box_mini_cannoli}
+                      </div>
+                    )}
+                    {cart.small_box_medium_cannoli > 0 && (
+                      <div>
+                        {cart.small_box_medium_cannoli} Medium Cannoli Box
+                        {cart.small_box_medium_cannoli >= 2 && <span>es</span>}:
                         ${15 * cart.small_box_medium_cannoli}
-                        </div>
-                      )}
-                      {cart.small_box_large_cannoli > 0 && (
-                        <div>
-                          {cart.small_box_large_cannoli} Large Cannoli Box
-                          {cart.small_box_large_cannoli >= 2 && <span>es</span>}:
+                      </div>
+                    )}
+                    {cart.small_box_large_cannoli > 0 && (
+                      <div>
+                        {cart.small_box_large_cannoli} Large Cannoli Box
+                        {cart.small_box_large_cannoli >= 2 && <span>es</span>}:
                         ${10 * cart.small_box_large_cannoli}
-                        </div>
-                      )}
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              )}
+                      </div>
+                    )}
+                  </CardContent>
+                </Card>
+              </motion.div>
+            )}
             {cart.big_box_mini_cannoli +
               cart.big_box_medium_cannoli +
               cart.big_box_large_cannoli >
               0 && (
-                <motion.div variants={fadeInUp}>
-                  <Card className={styles.cardText}>
-                    <CardContent className={styles.cardContent}>
-                      {
-                        <Typography gutterBottom variant="h5" component="h2">
-                          Big Boxes
+              <motion.div variants={fadeInUp}>
+                <Card className={styles.cardText}>
+                  <CardContent className={styles.cardContent}>
+                    {
+                      <Typography gutterBottom variant="h5" component="h2">
+                        Big Boxes
                       </Typography>
-                      }
-                      {cart.big_box_mini_cannoli > 0 && (
-                        <div>
-                          {cart.big_box_mini_cannoli} Mini Cannoli Box
-                          {cart.big_box_mini_cannoli >= 2 && <span>es</span>}: $
-                          {25 * cart.big_box_mini_cannoli}
-                        </div>
-                      )}
-                      {cart.big_box_medium_cannoli > 0 && (
-                        <div>
-                          {cart.big_box_medium_cannoli} Medium Cannoli Box
-                          {cart.big_box_medium_cannoli >= 2 && <span>es</span>}: $
-                          {30 * cart.big_box_medium_cannoli}
-                        </div>
-                      )}
-                      {cart.big_box_large_cannoli > 0 && (
-                        <div>
-                          {cart.big_box_large_cannoli} Large Cannoli Box
-                          {cart.big_box_large_cannoli >= 2 && <span>es</span>}: $
-                          {25 * cart.big_box_large_cannoli}
-                        </div>
-                      )}
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              )}
+                    }
+                    {cart.big_box_mini_cannoli > 0 && (
+                      <div>
+                        {cart.big_box_mini_cannoli} Mini Cannoli Box
+                        {cart.big_box_mini_cannoli >= 2 && <span>es</span>}: $
+                        {25 * cart.big_box_mini_cannoli}
+                      </div>
+                    )}
+                    {cart.big_box_medium_cannoli > 0 && (
+                      <div>
+                        {cart.big_box_medium_cannoli} Medium Cannoli Box
+                        {cart.big_box_medium_cannoli >= 2 && <span>es</span>}: $
+                        {30 * cart.big_box_medium_cannoli}
+                      </div>
+                    )}
+                    {cart.big_box_large_cannoli > 0 && (
+                      <div>
+                        {cart.big_box_large_cannoli} Large Cannoli Box
+                        {cart.big_box_large_cannoli >= 2 && <span>es</span>}: $
+                        {25 * cart.big_box_large_cannoli}
+                      </div>
+                    )}
+                  </CardContent>
+                </Card>
+              </motion.div>
+            )}
           </div>
           {pickupDelivery === 'delivery' && (
             <CardContent className={styles.deliveryChargeContainer}>

@@ -63,7 +63,7 @@ export const pickupDelivery = atom({
 
 export const time = atom({
   key: 'time',
-  default: '',
+  default: null,
 });
 
 export const todayLater = atom({

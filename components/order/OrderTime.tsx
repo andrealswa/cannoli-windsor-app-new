@@ -23,7 +23,7 @@ import styles from './OrderTime.module.css';
 export const OrderTime = () => {
   const [todayLaterLocal, setTodayLaterLocal] = useRecoilState(todayLater);
   const [time, setTime] = useRecoilState(timeAtom);
-  const [selectedDate, handleDateChange] = useState(new Date());
+  // const [selectedDate, handleDateChange] = useState(new Date());
 
   // Handle Recoil time states.
   const handleChangeTime = (event) => {
@@ -72,12 +72,12 @@ export const OrderTime = () => {
       )}
       {todayLaterLocal === 'today' && (
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
-          <TimePicker value={selectedDate} onChange={handleDateChange} />
+          <TimePicker value={time} onChange={setTime} />
         </MuiPickersUtilsProvider>
       )}
       {todayLaterLocal === 'later' && (
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
-          <DateTimePicker value={selectedDate} onChange={handleDateChange} />
+          <DateTimePicker value={time} onChange={setTime} />
         </MuiPickersUtilsProvider>
       )}
     </div>

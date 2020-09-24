@@ -94,7 +94,19 @@ export const OrderSummary = () => {
         </div>
 
         <div>
-          <h3>Time: {time}</h3>
+          <h3>
+            Time:{' '}
+            {time
+              .toLocaleTimeString()
+              .substring(0, time.toLocaleTimeString().length - 6)}
+            {time
+              .toLocaleTimeString()
+              .substring(
+                time.toLocaleTimeString().length - 2,
+                time.toLocaleTimeString().length
+              )}{' '}
+            {time.toLocaleDateString()}
+          </h3>
         </div>
         <div>
           <div className={styles.secondTextImg}>
