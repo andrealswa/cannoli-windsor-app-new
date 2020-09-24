@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -35,6 +36,8 @@ export const Navbar = () => {
 
   const [appBar, setAppBar]: any = useState('static');
 
+  const router = useRouter();
+
   useEffect(() => {
     if (inView) {
       setAppBar('static');
@@ -63,112 +66,124 @@ export const Navbar = () => {
     setState({ ...state, [anchor]: open });
   };
 
-  return (
-    <div>
-      <div className={styles.imageContainer}>
-        <img
-          ref={ref}
-          className={styles.navImage}
-          src={websiteBanner}
-          alt="cannoli windsor"
-        />
-      </div>
-      <AppBar className={styles.appbar} position={appBar}>
-        <Toolbar className={styles.toolbar}>
-          <div className={styles.toolbarBody}>
-            <IconButton
-              className={styles.hamburgerButton}
-              onClick={toggleDrawer('left', true)}
-              edge="start"
-              aria-label="order"
-            >
-              <MenuIcon />
-            </IconButton>
-            <div className={styles.mainButtons}>
+  if (router.pathname !== '/summary')
+    return (
+      <div>
+        <div className={styles.imageContainer}>
+          <img
+            ref={ref}
+            className={styles.navImage}
+            src={websiteBanner}
+            alt="cannoli windsor"
+          />
+        </div>
+        <AppBar className={styles.appbar} position={appBar}>
+          <Toolbar className={styles.toolbar}>
+            <div className={styles.toolbarBody}>
+              <IconButton
+                className={styles.hamburgerButton}
+                onClick={toggleDrawer('left', true)}
+                edge="start"
+                aria-label="order"
+              >
+                <MenuIcon />
+              </IconButton>
+              <div className={styles.mainButtons}>
+                <Link href="/">
+                  <Button disableElevation>
+                    <a>Home</a>
+                  </Button>
+                </Link>
+                <Link href="/menu">
+                  <Button disableElevation>
+                    <a>Menu</a>
+                  </Button>
+                </Link>
+                <Link href="/order">
+                  <Button disableElevation>
+                    <a>Order</a>
+                  </Button>
+                </Link>
+                <Link href="/cart">
+                  <Button disableElevation>
+                    <a>Cart</a>
+                    <Badge badgeContent={localCartCount} color="error">
+                      <ShoppingCartSharpIcon className={styles.cartIcon} />
+                    </Badge>
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </Toolbar>
+        </AppBar>
+
+        <div>
+          <SwipeableDrawer
+            anchor={'left'}
+            open={state['left']}
+            onClose={toggleDrawer('left', false)}
+            onOpen={toggleDrawer('left', true)}
+            className={styles.drawerShadowBackground}
+          >
+            <div className={styles.drawerMenu}>
               <Link href="/">
-                <Button disableElevation>
-                  <a>Home</a>
-                </Button>
+                <ListItem button onClick={toggleDrawer('left', false)}>
+                  <ListItemIcon>
+                    <HomeRoundedIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Cannoli Windsor" />
+                </ListItem>
               </Link>
+
               <Link href="/menu">
-                <Button disableElevation>
-                  <a>Menu</a>
-                </Button>
+                <ListItem button onClick={toggleDrawer('left', false)}>
+                  <ListItemIcon>
+                    <LibraryBooksSharpIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Menu" />
+                </ListItem>
               </Link>
+
               <Link href="/order">
-                <Button disableElevation>
-                  <a>Order</a>
-                </Button>
+                <ListItem button onClick={toggleDrawer('left', false)}>
+                  <ListItemIcon>
+                    <StoreIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Order" />
+                </ListItem>
               </Link>
+
               <Link href="/cart">
-                <Button disableElevation>
-                  <a>Cart</a>
-                  <Badge badgeContent={localCartCount} color="error">
-                    <ShoppingCartSharpIcon className={styles.cartIcon} />
-                  </Badge>
-                </Button>
+                <ListItem button onClick={toggleDrawer('left', false)}>
+                  <ListItemIcon>
+                    <ShoppingCartSharpIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Cart" />
+                </ListItem>
+              </Link>
+
+              <Link href="/contact">
+                <ListItem button onClick={toggleDrawer('left', false)}>
+                  <ListItemIcon>
+                    <PhoneIphoneSharpIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Contact Us" />
+                </ListItem>
               </Link>
             </div>
-          </div>
-        </Toolbar>
-      </AppBar>
-
-      <div>
-        <SwipeableDrawer
-          anchor={'left'}
-          open={state['left']}
-          onClose={toggleDrawer('left', false)}
-          onOpen={toggleDrawer('left', true)}
-          className={styles.drawerShadowBackground}
-        >
-          <div className={styles.drawerMenu}>
-            <Link href="/">
-              <ListItem button onClick={toggleDrawer('left', false)}>
-                <ListItemIcon>
-                  <HomeRoundedIcon />
-                </ListItemIcon>
-                <ListItemText primary="Cannoli Windsor" />
-              </ListItem>
-            </Link>
-
-            <Link href="/menu">
-              <ListItem button onClick={toggleDrawer('left', false)}>
-                <ListItemIcon>
-                  <LibraryBooksSharpIcon />
-                </ListItemIcon>
-                <ListItemText primary="Menu" />
-              </ListItem>
-            </Link>
-
-            <Link href="/order">
-              <ListItem button onClick={toggleDrawer('left', false)}>
-                <ListItemIcon>
-                  <StoreIcon />
-                </ListItemIcon>
-                <ListItemText primary="Order" />
-              </ListItem>
-            </Link>
-
-            <Link href="/cart">
-              <ListItem button onClick={toggleDrawer('left', false)}>
-                <ListItemIcon>
-                  <ShoppingCartSharpIcon />
-                </ListItemIcon>
-                <ListItemText primary="Cart" />
-              </ListItem>
-            </Link>
-
-            <Link href="/contact">
-              <ListItem button onClick={toggleDrawer('left', false)}>
-                <ListItemIcon>
-                  <PhoneIphoneSharpIcon />
-                </ListItemIcon>
-                <ListItemText primary="Contact Us" />
-              </ListItem>
-            </Link>
-          </div>
-        </SwipeableDrawer>
+          </SwipeableDrawer>
+        </div>
       </div>
+    );
+
+  return (
+    <div className={styles.imageContainer}>
+      <img
+        ref={ref}
+        className={styles.navImage}
+        src={websiteBanner}
+        alt="cannoli windsor"
+      />
     </div>
   );
 };
