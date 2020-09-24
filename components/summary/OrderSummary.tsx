@@ -195,7 +195,12 @@ export const OrderSummary = () => {
       <div className={styles.refreshButton}>
         <Link href="/">
           <a>
-            <Button onClick={() => router.reload()}>Back to Home Page</Button>
+            <Button
+              className={styles.submitButton}
+              onClick={() => router.reload()}
+            >
+              Back to Home Page
+            </Button>
           </a>
         </Link>
       </div>
