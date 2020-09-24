@@ -62,12 +62,6 @@ export const OrderSummary = () => {
   const [hst, setHst] = useRecoilState(hstAtom);
   const [total, setTotal] = useRecoilState(totalAtom);
 
-  useEffect(() => {
-    () => {
-      setEmail('');
-    };
-  }, []);
-
   return (
     <div>
       <Card className={styles.container}>
@@ -95,7 +89,7 @@ export const OrderSummary = () => {
 
         <div>
           <h3>
-            Time:{' '}
+            Time:
             {time
               .toLocaleTimeString()
               .substring(0, time.toLocaleTimeString().length - 6)}

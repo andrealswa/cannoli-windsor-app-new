@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button, CardContent } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import Select from '@material-ui/core/Select';
@@ -24,6 +24,11 @@ export const OrderTime = () => {
   const [todayLaterLocal, setTodayLaterLocal] = useRecoilState(todayLater);
   const [time, setTime] = useRecoilState(timeAtom);
   // const [selectedDate, handleDateChange] = useState(new Date());
+
+  useEffect(() => {
+    const newTime = new Date(time.setHours(time.getHours() + 2));
+    setTime(newTime);
+  }, []);
 
   // Handle Recoil time states.
   const handleChangeTime = (event) => {
