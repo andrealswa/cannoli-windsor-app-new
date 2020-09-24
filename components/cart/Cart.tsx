@@ -89,7 +89,6 @@ export const Cart = () => {
 
   useEffect(
     () => () => {
-      console.log('Reset Cart');
       useResetRecoilState(confirmationCodeAtom);
       useResetRecoilState(cartState);
       useResetRecoilState(notes);
