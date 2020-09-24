@@ -20,3 +20,8 @@
     width: 300px;
   }
 }
+
+.blueLink {
+  color: blue;
+  text-decoration: underline;
+}

@@ -180,6 +180,8 @@ export const Cart = () => {
       phone: phone,
       time: timeString,
       pickupDelivery: pickupDelivery,
+      address: address,
+      city: city,
       cart: finalString,
       notes: localNotes,
       paymentMethod: paymentOption,
@@ -422,6 +424,12 @@ export const Cart = () => {
             Debit / Credit
           </Button>
         </div>
+
+        {/* {paymentOption === 'card' && (
+          <Typography gutterBottom variant="h6" component="h2">
+            Payment in person??????
+          </Typography>
+        )} */}
 
         {paymentOption === 'etransfer' && (
           <div className={styles.etransferContainer}>

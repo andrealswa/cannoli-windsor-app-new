@@ -4,6 +4,8 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
+import Typography from '@material-ui/core/Typography';
 
 import styles from './MenuPicture.module.css';
 
@@ -35,6 +37,17 @@ const stagger = {
 export const MenuPicture = () => {
   return (
     <motion.div variants={fadeInUp}>
+      <Typography
+        style={{ textAlign: 'center' }}
+        gutterBottom
+        variant="h5"
+        component="h2"
+      >
+        For large orders please{' '}
+        <Link href="/contact">
+          <a className={styles.blueLink}>Contact Us</a>
+        </Link>
+      </Typography>
       <div className={styles.imgContainer}>
         <Card>
           <CardActionArea>

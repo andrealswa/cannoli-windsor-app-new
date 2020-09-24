@@ -194,20 +194,23 @@ export const OrderSummary = () => {
               Debit / Credit
             </Typography>
           )}
+          {paymentMethod === 'etransfer' && (
+            <Typography gutterBottom variant="h5" component="h2">
+              Etransfer
+            </Typography>
+          )}
         </div>
         <h2>HST: ${hst.toFixed(2)}</h2>
         <h2>Total: ${total.toFixed(2)}</h2>
       </Card>
       <div className={styles.refreshButton}>
         <Link href="/">
-          <a>
-            <Button
-              className={styles.submitButton}
-              onClick={() => router.reload()}
-            >
-              Back to Home Page
-            </Button>
-          </a>
+          <Button
+            className={styles.submitButton}
+            onClick={() => router.reload()}
+          >
+            <a>Back to Home Page</a>
+          </Button>
         </Link>
       </div>
     </div>
