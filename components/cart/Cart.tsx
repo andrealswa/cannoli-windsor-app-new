@@ -27,11 +27,17 @@ import {
   time as timeAtom,
   emailAtom,
   phoneAtom,
+  callTextAtom,
   totalAtom,
 } from '../../recoil/recoil-atoms';
 import styles from './Cart.module.css';
 import { motion } from 'framer-motion';
-import { TextField } from '@material-ui/core';
+import {
+  FormControlLabel,
+  Radio,
+  RadioGroup,
+  TextField,
+} from '@material-ui/core';
 
 const easing = [0.6, -0.05, 0.01, 0.99];
 
@@ -68,6 +74,7 @@ export const Cart = () => {
   const [total, setTotal] = useRecoilState(totalAtom);
   const todayLater = useRecoilValue(todayLaterAtom);
   const time: Date = useRecoilValue(timeAtom);
+  const callText = useRecoilValue(callTextAtom);
 
   useEffect(() => {
     let total = 0;
@@ -178,6 +185,7 @@ export const Cart = () => {
       confirmationCode: confirmationCode,
       email: email,
       phone: phone,
+      callText: callText,
       time: timeString,
       pickupDelivery: pickupDelivery,
       address: address,
@@ -482,6 +490,14 @@ export const Cart = () => {
             />
           </div>
         </div>
+        {phone !== '' && (
+          <RadioGroup>
+            <span>
+              <FormControlLabel value="call" control={<Radio />} label="Call" />
+              <FormControlLabel value="text" control={<Radio />} label="Text" />
+            </span>
+          </RadioGroup>
+        )}
 
         <div className={styles.submitButtonContainer}>
           {(email !== '' || phone !== '') && (

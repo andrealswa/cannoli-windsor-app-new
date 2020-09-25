@@ -81,6 +81,11 @@ export const phoneAtom = atom({
   default: '',
 });
 
+export const callTextAtom = atom({
+  key: 'callTextAtom',
+  default: '',
+});
+
 export const cartCount = selector({
   key: 'cartCount',
   get: ({ get }) => {
