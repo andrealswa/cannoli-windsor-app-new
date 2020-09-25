@@ -112,7 +112,7 @@ export const FlipCard = () => {
 
   return (
     <div className={styles.cardFlip}>
-      <ReactCardFlip isFlipped={!side}>
+      <ReactCardFlip isFlipped={side}>
         <div key="front">
           <Card className={styles.card}>
             <CardMedia

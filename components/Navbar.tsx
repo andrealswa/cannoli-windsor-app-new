@@ -23,6 +23,7 @@ import Badge from '@material-ui/core/Badge';
 import LibraryBooksSharpIcon from '@material-ui/icons/LibraryBooksSharp';
 import PhoneIphoneSharpIcon from '@material-ui/icons/PhoneIphoneSharp';
 import StoreIcon from '@material-ui/icons/Store';
+import EventAvailableIcon from '@material-ui/icons/EventAvailable';
 
 import { useEffect, useState } from 'react';
 import styles from './Navbar.module.css';
@@ -147,7 +148,7 @@ export const Navbar = () => {
               <Link href="/bigevents">
                 <ListItem button onClick={toggleDrawer('left', false)}>
                   <ListItemIcon>
-                    <LibraryBooksSharpIcon />
+                    <EventAvailableIcon />
                   </ListItemIcon>
                   <ListItemText primary="Big Events" />
                 </ListItem>
