@@ -21,7 +21,7 @@ export const ClientNotes = () => {
         rowsMin={10}
         rowsMax={50}
         placeholder={
-          'ie.\nNo Toasted Almond, \n2 Vanilla Sugar, \n1 Glacé Cherry, \n2 Chocolate Chip, \n1 Vegan'
+          'ie.\nNo Glacé Cherry, \n2 Toasted Almond, \n2 Chocolate Chip, \n2 Vanilla Sugar \n'
         }
       />
       <Button className={styles.buttonSubmit}>Save</Button>

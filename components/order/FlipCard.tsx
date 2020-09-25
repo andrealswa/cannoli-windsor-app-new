@@ -134,8 +134,8 @@ export const FlipCard = () => {
                 color="textSecondary"
                 component="p"
               >
-                All boxes are assorted by default. For custom orders, please
-                request preferred flavours in notes
+                All boxes are assorted with Classic flavours by default. For
+                custom orders, please request preferred flavours in notes
               </Typography>
             </CardContent>
 

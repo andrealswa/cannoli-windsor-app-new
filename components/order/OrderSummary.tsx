@@ -28,13 +28,13 @@ const fadeInUp = {
 
 export const OrderSummary = () => {
   return (
-    <div className={styles.mainContainer}>
-      <Card className={styles.bigCard}>
-        <div className={styles.heroText}>
-          <h1>Prices</h1>
-        </div>
-        <div className={styles.secondTextImg}>
-          <motion.div variants={fadeInUp}>
+    <motion.div variants={fadeInUp}>
+      <div className={styles.mainContainer}>
+        <Card className={styles.bigCard}>
+          <div className={styles.heroText}>
+            <h1>Prices</h1>
+          </div>
+          <div className={styles.secondTextImg}>
             <Card className={styles.cardText}>
               <CardContent>
                 <Typography gutterBottom variant="h5" component="h2">
@@ -74,8 +74,7 @@ export const OrderSummary = () => {
                 </div>
               </CardContent>
             </Card>
-          </motion.div>
-          <motion.div variants={fadeInUp}>
+
             <Card className={styles.cardText}>
               <CardContent>
                 <Typography gutterBottom variant="h5" component="h2">
@@ -104,49 +103,87 @@ export const OrderSummary = () => {
                 </Typography>
               </CardContent>
             </Card>
-          </motion.div>
 
-          <Card className={styles.cardText}>
-            <CardContent>
-              <Typography
-                style={{ textAlign: 'center' }}
-                gutterBottom
-                variant="h5"
-                component="h2"
-              >
-                Classic Flavours
-              </Typography>
-              <div className={styles.flavoursText}>
-                <Typography variant="body2" color="textSecondary" component="p">
-                  <span>
-                    <b>Chocolate Chip</b>
-                  </span>
-                  &nbsp;&bull;&nbsp;
-                  <span>
-                    <b>Vanilla Sugar</b>
-                  </span>
-                  &nbsp;&bull;&nbsp;
-                  <span>
-                    <b>Toasted Almond</b>
-                  </span>
-                  &nbsp;&bull;&nbsp;
-                  <span>
-                    <b>Glacé Cherry</b>
-                  </span>
-                  &nbsp;&bull;&nbsp;
-                  <span>
-                    <b>Candied Orange</b>
-                  </span>
-                  &nbsp;&bull;&nbsp;
-                  <span>
-                    <b>Pumpkin Spice</b>
-                  </span>
-                </Typography>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </Card>
-    </div>
+            <div className={styles.flavoursContainer}>
+              <Card className={styles.cardText}>
+                <CardContent>
+                  <Typography
+                    style={{ textAlign: 'center' }}
+                    gutterBottom
+                    variant="h5"
+                    component="h2"
+                  >
+                    Classic Flavours
+                  </Typography>
+                  <div className={styles.flavoursText}>
+                    <Typography
+                      variant="body2"
+                      color="textSecondary"
+                      component="p"
+                    >
+                      <span>
+                        <b>Chocolate Chip</b>
+                      </span>
+                      &nbsp;&bull;&nbsp;
+                      <span>
+                        <b>Vanilla Sugar</b>
+                      </span>
+                      &nbsp;&bull;&nbsp;
+                      <span>
+                        <b>Toasted Almond</b>
+                      </span>
+                      &nbsp;&bull;&nbsp;
+                      <span>
+                        <b>Glacé Cherry</b>
+                      </span>
+                      &nbsp;&bull;&nbsp;
+                      <span>
+                        <b>Candied Orange</b>
+                      </span>
+                      &nbsp;&bull;&nbsp;
+                      <span>
+                        <b>Pumpkin Spice</b>
+                      </span>
+                    </Typography>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className={styles.cardText}>
+                <CardContent>
+                  <Typography
+                    style={{ textAlign: 'center' }}
+                    gutterBottom
+                    variant="h5"
+                    component="h2"
+                  >
+                    Vegan Flavours
+                  </Typography>
+                  <div className={styles.flavoursText}>
+                    <Typography
+                      variant="body2"
+                      color="textSecondary"
+                      component="p"
+                    >
+                      <span>
+                        <b>Strawberries & Creamed Coconut</b>
+                      </span>
+                      &nbsp;&bull;&nbsp;
+                      <span>
+                        <b>Custard & Chocolate</b>
+                      </span>
+                      &nbsp;&bull;&nbsp;
+                      <span>
+                        <b>Toasted Almond</b>
+                      </span>
+                    </Typography>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </Card>
+      </div>
+    </motion.div>
   );
 };

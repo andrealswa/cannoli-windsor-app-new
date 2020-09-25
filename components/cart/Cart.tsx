@@ -230,7 +230,7 @@ export const Cart = () => {
       <div className={styles.mainContainer}>
         <Card className={styles.bigCard}>
           <div className={styles.heroText}>
-            <h1>To place an order, click order now</h1>
+            <h1>Click below to place your order</h1>
           </div>
           <div className={styles.secondTextImg}>
             <motion.div variants={fadeInUp}></motion.div>
