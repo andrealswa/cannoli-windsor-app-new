@@ -211,10 +211,11 @@ export const Cart = () => {
     } else if (buttonType === 'card') {
       setSubmitButton(false);
       setPaymentOption('card');
-    } else if (buttonType === 'etransfer') {
-      setSubmitButton(false);
-      setPaymentOption('etransfer');
     }
+    // } else if (buttonType === 'etransfer') {
+    //   setSubmitButton(false);
+    //   setPaymentOption('etransfer');
+    // }
   };
 
   const handleChangeEmail = (event) => {
@@ -403,16 +404,7 @@ export const Cart = () => {
           >
             Cash
           </Button>
-          <Button
-            className={
-              paymentOption === 'etransfer'
-                ? styles.paymentButtonSelected
-                : styles.paymentButton
-            }
-            onClick={() => handlePayment('etransfer')}
-          >
-            Etransfer
-          </Button>
+
           <Button
             className={
               paymentOption === 'card'
@@ -471,7 +463,7 @@ export const Cart = () => {
           </div>
         )}
 
-        <h1 className={styles.textCenter}>Enter Email or Phone Number</h1>
+        <h1 className={styles.textCenter}>Enter Preferred Communication</h1>
 
         <div className={styles.emailPhoneContainer}>
           <div className={styles.emailPhone}>
@@ -505,7 +497,7 @@ export const Cart = () => {
                     }
                     disabled={submitButton || city === '' || address === ''}
                   >
-                    Submit Your Order
+                    Submit Order Request
                   </Button>
                 </Link>
               )}
@@ -521,7 +513,7 @@ export const Cart = () => {
                     }
                     disabled={submitButton}
                   >
-                    Submit Your Order
+                    Submit Order Request
                   </Button>
                 </Link>
               )}
@@ -529,7 +521,7 @@ export const Cart = () => {
               {pickupDelivery === '' && (
                 <Link href="/summary">
                   <Button onClick={handleSubmit} disabled={true}>
-                    Submit Your Order
+                    Submit Order Request
                   </Button>
                 </Link>
               )}
@@ -538,7 +530,7 @@ export const Cart = () => {
           {email === '' && phone === '' && (
             <Link href="/summary">
               <Button onClick={handleSubmit} disabled={true}>
-                Submit Your Order
+                Submit Order Request
               </Button>
             </Link>
           )}
@@ -547,3 +539,16 @@ export const Cart = () => {
     </motion.div>
   );
 };
+
+{
+  /* <Button
+  className={
+    paymentOption === 'etransfer'
+      ? styles.paymentButtonSelected
+      : styles.paymentButton
+  }
+  onClick={() => handlePayment('etransfer')}
+>
+  Etransfer
+</Button>; */
+}

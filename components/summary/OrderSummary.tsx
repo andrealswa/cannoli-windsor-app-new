@@ -71,9 +71,20 @@ export const OrderSummary = () => {
           variant="h5"
           component="h2"
         >
-          Please screenshot this page for your records
+          Your order request has been received!
         </Typography>
-        <h1>Order Confirmation: {confirmationCode}</h1>
+        <Typography
+          className={styles.screenshotWarning}
+          gutterBottom
+          variant="h5"
+          component="h2"
+        >
+          We will contact you shortly to confirm your order. Please keep your
+          order number for reference. Talk soon!
+        </Typography>
+        <h1 className={styles.h1Styles}>
+          Order Confirmation Request: {confirmationCode}
+        </h1>
         <h3>{email !== '' ? email : phone}</h3>
 
         <div className={styles.pickupDelivery}>

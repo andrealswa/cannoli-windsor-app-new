@@ -13,10 +13,16 @@
   padding-bottom: 20px !important;
 }
 
+.h1Styles {
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
 .screenshotWarning {
   color: rgba(85, 82, 82, 0.774) !important;
   margin-top: 15px !important;
   margin-bottom: 0px !important;
+  text-align: center;
 }
 
 .secondTextImg {
