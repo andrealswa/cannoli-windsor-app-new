@@ -144,6 +144,15 @@ export const Navbar = () => {
                 </ListItem>
               </Link>
 
+              <Link href="/bigevents">
+                <ListItem button onClick={toggleDrawer('left', false)}>
+                  <ListItemIcon>
+                    <LibraryBooksSharpIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Big Events" />
+                </ListItem>
+              </Link>
+
               <Link href="/order">
                 <ListItem button onClick={toggleDrawer('left', false)}>
                   <ListItemIcon>

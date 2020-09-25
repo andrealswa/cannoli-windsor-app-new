@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Typography from '@material-ui/core/Typography';
 
-import styles from './MenuPicture.module.css';
+import styles from './BigEvents.module.css';
 
 const easing = [0.6, -0.05, 0.01, 0.99];
 
@@ -34,7 +34,7 @@ const stagger = {
   },
 };
 
-export const MenuPicture = () => {
+export const BigEvents = () => {
   return (
     <motion.div variants={fadeInUp}>
       <div className={styles.imgContainer}>
@@ -47,7 +47,7 @@ export const MenuPicture = () => {
             >
               <CardMedia
                 className={styles.img}
-                image={require('../../public/homeContent/cannoliMenu2.png')}
+                image={require('../../public/homeContent/bigEvents.png')}
                 title="Cannoli"
               />
             </motion.div>
@@ -61,11 +61,11 @@ export const MenuPicture = () => {
         variant="h5"
         component="h2"
       >
-        For large orders, see our{' '}
-        <Link href="/bigevents">
-          <a className={styles.blueLink}>Big Events</a>
+        Please{' '}
+        <Link href="/contact">
+          <a className={styles.blueLink}>Contact Us</a>
         </Link>{' '}
-        menu
+        for large orders
       </Typography>
     </motion.div>
   );
