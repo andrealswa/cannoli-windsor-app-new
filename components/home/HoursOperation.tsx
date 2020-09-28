@@ -58,10 +58,10 @@ export const HoursOperation = () => {
                   'CLOSED',
                   '8am - 11am & 4pm - 6pm',
                   '8am - 11am & 4pm - 6pm',
-                  '8am - 11am & 4pm - 6pm',
-                  '8am - 10am & 5pm - 7pm',
-                  '2pm - 7pm',
-                  '11am - 4pm',
+                  '10am - 6pm',
+                  '10am - 6pm',
+                  '10am - 6pm',
+                  '10am - 4pm',
                 ].map((times) => {
                   return <Typography>{times}</Typography>;
                 })}
