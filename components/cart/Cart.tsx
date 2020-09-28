@@ -37,7 +37,9 @@ import {
   Radio,
   RadioGroup,
   TextField,
+  withStyles,
 } from '@material-ui/core';
+import { green, orange } from '@material-ui/core/colors';
 
 const easing = [0.6, -0.05, 0.01, 0.99];
 
@@ -55,6 +57,16 @@ const fadeInUp = {
     },
   },
 };
+
+const OrangeRadio = withStyles({
+  root: {
+    color: orange[400],
+    '&$checked': {
+      color: orange[600],
+    },
+  },
+  checked: {},
+})((props) => <Radio color="default" {...props} />);
 
 export const Cart = () => {
   const [confirmationCode, setConfirmationCode] = useRecoilState(
@@ -74,7 +86,11 @@ export const Cart = () => {
   const [total, setTotal] = useRecoilState(totalAtom);
   const todayLater = useRecoilValue(todayLaterAtom);
   const time: Date = useRecoilValue(timeAtom);
-  const callText = useRecoilValue(callTextAtom);
+  const [callText, setCallText] = useRecoilState(callTextAtom);
+
+  const handleChange = (event) => {
+    setCallText(event.target.value);
+  };
 
   useEffect(() => {
     let total = 0;
@@ -491,10 +507,20 @@ export const Cart = () => {
           </div>
         </div>
         {phone !== '' && (
-          <RadioGroup>
+          <RadioGroup value={callText} onChange={handleChange}>
             <span>
-              <FormControlLabel value="call" control={<Radio />} label="Call" />
-              <FormControlLabel value="text" control={<Radio />} label="Text" />
+              <FormControlLabel
+                className={styles.checkRadio}
+                value="Call"
+                control={<OrangeRadio />}
+                label="Call"
+              />
+              <FormControlLabel
+                className={styles.checkRadio}
+                value="Text"
+                control={<OrangeRadio />}
+                label="Text"
+              />
             </span>
           </RadioGroup>
         )}
