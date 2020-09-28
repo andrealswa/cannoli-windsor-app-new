@@ -1,6 +1,6 @@
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import styles from './ClientNotes.module.css';
-import { Button } from '@material-ui/core';
+import { Button, Link } from '@material-ui/core';
 import { useRecoilState } from 'recoil';
 import { notes } from '../../recoil/recoil-atoms';
 
@@ -24,7 +24,11 @@ export const ClientNotes = () => {
           'ie.\nNo Glacé Cherry, \n2 Toasted Almond, \n2 Chocolate Chip, \n2 Vanilla Sugar \n'
         }
       />
-      <Button className={styles.buttonSubmit}>Save</Button>
+      <Link href="/cart">
+        <a className={styles.blueLink}>
+          <Button className={styles.buttonSubmit}>Take Me To Cart</Button>
+        </a>
+      </Link>
     </div>
   );
 };
