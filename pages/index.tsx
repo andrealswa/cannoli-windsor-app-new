@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { HomeContent } from '../components/home/HomeContent';
 import { Images } from '../components/home/Images';
 import { Stepper } from '../components/home/Stepper';
+import { HoursOperation } from '../components/home/HoursOperation';
 
 const Home = () => {
   const pictureSet1 = [
@@ -18,6 +19,7 @@ const Home = () => {
 
   return (
     <motion.div exit={{ opacity: 0 }} initial="initial" animate="animate">
+      <HoursOperation />
       <Images images={pictureSet1} />
       <Stepper images={pictureSet1} />
       <HomeContent />

@@ -1,0 +1,25 @@
+.containerWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.accordion {
+  width: 100%;
+  max-width: 600px;
+}
+
+.accordionDetails {
+  display: flex;
+  justify-content: center !important;
+  width: 100%;
+}
+
+.hoursOperation {
+  width: 100%;
+  text-align: center;
+}
+
+.times {
+  padding-left: 15px;
+}
