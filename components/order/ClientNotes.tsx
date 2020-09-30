@@ -1,8 +1,9 @@
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import styles from './ClientNotes.module.css';
-import { Button, Link } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 import { useRecoilState } from 'recoil';
 import { notes } from '../../recoil/recoil-atoms';
+import Link from 'next/link';
 
 export const ClientNotes = () => {
   const [note, setNote] = useRecoilState(notes);
