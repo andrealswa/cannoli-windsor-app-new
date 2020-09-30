@@ -80,10 +80,10 @@ export const OrderSummary = () => {
           component="h2"
         >
           We will contact you shortly to confirm your order. Please keep your
-          order number for reference. Talk soon!
+          order request code for reference. Talk soon!
         </Typography>
         <h1 className={styles.h1Styles}>
-          Order Confirmation Request: {confirmationCode}
+          Order Confirmation Request Code: {confirmationCode}
         </h1>
         <h3>{email !== '' ? email : phone}</h3>
 
@@ -97,121 +97,125 @@ export const OrderSummary = () => {
             </h3>
           )}
         </div>
-
         <div>
-          <h3>
-            Time:
-            {time
-              .toLocaleTimeString()
-              .substring(0, time.toLocaleTimeString().length - 6)}
-            {time
-              .toLocaleTimeString()
-              .substring(
-                time.toLocaleTimeString().length - 2,
-                time.toLocaleTimeString().length
-              )}{' '}
-            {time.toLocaleDateString()}
-          </h3>
-        </div>
-        <div>
-          <div className={styles.secondTextImg}>
-            <motion.div variants={fadeInUp}>
-              {cart.small_box_large_cannoli +
-                cart.small_box_medium_cannoli +
-                cart.small_box_mini_cannoli >
-                0 && (
-                <CardContent className={styles.orderSmall}>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    Small Boxes
-                  </Typography>
+          <div>
+            <h3>
+              Time:{' '}
+              {time
+                .toLocaleTimeString()
+                .substring(0, time.toLocaleTimeString().length - 6)}
+              {time
+                .toLocaleTimeString()
+                .substring(
+                  time.toLocaleTimeString().length - 2,
+                  time.toLocaleTimeString().length
+                )}{' '}
+              {time.toLocaleDateString()}
+            </h3>
+          </div>
+          <div>
+            <div className={styles.secondTextImg}>
+              <motion.div variants={fadeInUp}>
+                {cart.small_box_large_cannoli +
+                  cart.small_box_medium_cannoli +
+                  cart.small_box_mini_cannoli >
+                  0 && (
+                  <CardContent className={styles.orderSmall}>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      Small Boxes
+                    </Typography>
 
-                  {cart.small_box_mini_cannoli > 0 && (
+                    {cart.small_box_mini_cannoli > 0 && (
+                      <div>
+                        {cart.small_box_mini_cannoli} Mini Cannoli Box
+                        {cart.small_box_mini_cannoli >= 2 && <span>es</span>}: $
+                        {15 * cart.small_box_mini_cannoli}
+                      </div>
+                    )}
+                    {cart.small_box_medium_cannoli > 0 && (
+                      <div>
+                        {cart.small_box_medium_cannoli} Medium Cannoli Box
+                        {cart.small_box_medium_cannoli >= 2 && <span>es</span>}:
+                        ${15 * cart.small_box_medium_cannoli}
+                      </div>
+                    )}
+                    {cart.small_box_large_cannoli > 0 && (
+                      <div>
+                        {cart.small_box_large_cannoli} Large Cannoli Box
+                        {cart.small_box_large_cannoli >= 2 && <span>es</span>}:
+                        ${10 * cart.small_box_large_cannoli}
+                      </div>
+                    )}
+                  </CardContent>
+                )}
+              </motion.div>
+              <motion.div variants={fadeInUp}>
+                <CardContent className={styles.order}>
+                  {cart.big_box_large_cannoli +
+                    cart.big_box_medium_cannoli +
+                    cart.big_box_mini_cannoli >
+                    0 && (
+                    <Typography gutterBottom variant="h5" component="h2">
+                      Big Boxes
+                    </Typography>
+                  )}
+                  {cart.big_box_mini_cannoli > 0 && (
                     <div>
-                      {cart.small_box_mini_cannoli} Mini Cannoli Box
-                      {cart.small_box_mini_cannoli >= 2 && <span>es</span>}: $
-                      {15 * cart.small_box_mini_cannoli}
+                      {cart.big_box_mini_cannoli} Mini Cannoli Box
+                      {cart.big_box_mini_cannoli >= 2 && <span>es</span>}: $
+                      {25 * cart.big_box_mini_cannoli}
                     </div>
                   )}
-                  {cart.small_box_medium_cannoli > 0 && (
+                  {cart.big_box_medium_cannoli > 0 && (
                     <div>
-                      {cart.small_box_medium_cannoli} Medium Cannoli Box
-                      {cart.small_box_medium_cannoli >= 2 && <span>es</span>}: $
-                      {15 * cart.small_box_medium_cannoli}
+                      {cart.big_box_medium_cannoli} Medium Cannoli Box
+                      {cart.big_box_medium_cannoli >= 2 && <span>es</span>}: $
+                      {30 * cart.big_box_medium_cannoli}
                     </div>
                   )}
-                  {cart.small_box_large_cannoli > 0 && (
+                  {cart.big_box_large_cannoli > 0 && (
                     <div>
-                      {cart.small_box_large_cannoli} Large Cannoli Box
-                      {cart.small_box_large_cannoli >= 2 && <span>es</span>}: $
-                      {10 * cart.small_box_large_cannoli}
+                      {cart.big_box_large_cannoli} Large Cannoli Box
+                      {cart.big_box_large_cannoli >= 2 && <span>es</span>}: $
+                      {25 * cart.big_box_large_cannoli}
                     </div>
                   )}
                 </CardContent>
-              )}
-            </motion.div>
-            <motion.div variants={fadeInUp}>
-              <CardContent className={styles.order}>
-                {cart.big_box_large_cannoli +
-                  cart.big_box_medium_cannoli +
-                  cart.big_box_mini_cannoli >
-                  0 && (
-                  <Typography gutterBottom variant="h5" component="h2">
-                    Big Boxes
-                  </Typography>
-                )}
-                {cart.big_box_mini_cannoli > 0 && (
-                  <div>
-                    {cart.big_box_mini_cannoli} Mini Cannoli Box
-                    {cart.big_box_mini_cannoli >= 2 && <span>es</span>}: $
-                    {25 * cart.big_box_mini_cannoli}
-                  </div>
-                )}
-                {cart.big_box_medium_cannoli > 0 && (
-                  <div>
-                    {cart.big_box_medium_cannoli} Medium Cannoli Box
-                    {cart.big_box_medium_cannoli >= 2 && <span>es</span>}: $
-                    {30 * cart.big_box_medium_cannoli}
-                  </div>
-                )}
-                {cart.big_box_large_cannoli > 0 && (
-                  <div>
-                    {cart.big_box_large_cannoli} Large Cannoli Box
-                    {cart.big_box_large_cannoli >= 2 && <span>es</span>}: $
-                    {25 * cart.big_box_large_cannoli}
-                  </div>
-                )}
-              </CardContent>
-            </motion.div>
+              </motion.div>
+            </div>
           </div>
-        </div>
 
-        {notes !== '' && (
-          <div>
-            <h2 className={styles.centerNotes}>Notes</h2>
-            <p>{notes}</p>
+          {notes !== '' && (
+            <div className={styles.notes}>
+              <Typography gutterBottom variant="h5" component="h2">
+                Notes: {notes}
+              </Typography>
+            </div>
+          )}
+          <div className={styles.paymentMethod}>
+            <Typography gutterBottom variant="h5" component="h2">
+              Method of Payment: &nbsp;
+            </Typography>
+            {paymentMethod === 'cash' && (
+              <Typography gutterBottom variant="h5" component="h2">
+                Cash
+              </Typography>
+            )}
+            {paymentMethod === 'card' && (
+              <Typography gutterBottom variant="h5" component="h2">
+                Debit / Credit
+              </Typography>
+            )}
+            {paymentMethod === 'etransfer' && (
+              <Typography gutterBottom variant="h5" component="h2">
+                Etransfer
+              </Typography>
+            )}
           </div>
-        )}
-        <div className={styles.paymentMethod}>
           <Typography gutterBottom variant="h5" component="h2">
-            <b>Method of Payment: &nbsp;</b>
+            HST: ${hst.toFixed(2)}
           </Typography>
-          {paymentMethod === 'cash' && (
-            <Typography gutterBottom variant="h5" component="h2">
-              Cash
-            </Typography>
-          )}
-          {paymentMethod === 'card' && (
-            <Typography gutterBottom variant="h5" component="h2">
-              Debit / Credit
-            </Typography>
-          )}
-          {paymentMethod === 'etransfer' && (
-            <Typography gutterBottom variant="h5" component="h2">
-              Etransfer
-            </Typography>
-          )}
         </div>
-        <h2>HST: ${hst.toFixed(2)}</h2>
         <h2>Total: ${total.toFixed(2)}</h2>
       </Card>
       <div className={styles.refreshButton}>

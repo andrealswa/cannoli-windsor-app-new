@@ -172,12 +172,19 @@ export const Cart = () => {
 
     for (let i = 0; i < 5; i++) {
       let value = 0;
+      const alphaNum = [0, 2, 3, 5];
+      const num = [1, 4, 6];
 
-      if (i % 2 == 0) {
-        value = random.integer(0, confirmationChars.length - 1);
-      } else {
-        value = random.integer(0, 9);
-      }
+      alphaNum.forEach((value) => {
+        if (i === value) {
+          value = random.integer(0, confirmationChars.length - 1);
+        }
+      });
+      num.forEach((value) => {
+        if (i === value) {
+          value = random.integer(0, 9);
+        }
+      });
 
       confirmationCode += confirmationChars[value];
     }
