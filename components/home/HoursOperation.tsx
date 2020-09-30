@@ -56,8 +56,8 @@ export const HoursOperation = () => {
               <div className={styles.times}>
                 {[
                   'CLOSED',
-                  '8am - 11am & 4pm - 6pm',
-                  '8am - 11am & 4pm - 6pm',
+                  '10am - 6pm',
+                  '10am - 6pm',
                   '10am - 6pm',
                   '10am - 6pm',
                   '10am - 6pm',

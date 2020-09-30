@@ -45,10 +45,14 @@ export const HomeContent = () => {
           <div className={styles.textCenter}>
             <Typography>
               Our Sicilian Cannoli starts with homemade vanilla sugar, imported
-              Sicilian shells, and local ricotta cheese. Cannoli Windsor uses
-              the freshest and highest quality ingredients, guaranteed. Cannoli
-              Windsor values quality, supporting local, and engaging with the
-              Windsor-Essex community.
+              Sicilian shells, and local ricotta cheese. Our artisan Vegan
+              Cannoli include homemade shells and nut and bean based fillings.{' '}
+            </Typography>
+            <Typography>
+              Cannoli Windsor uses the freshest and highest quality ingredients
+              in every cannoli- never using artificial flavours, chemical
+              compounds or extracts. Cannoli Windsor values quality, supporting
+              local, and engaging with the Windsor-Essex community.
             </Typography>
             <Typography>
               Find us at the Downtown Windsor Farmer’s Market or for updates be

@@ -181,6 +181,14 @@ export const OrderSummary = () => {
                 </CardContent>
               </Card>
             </div>
+            <Typography
+              className={styles.hstNotice}
+              variant="body2"
+              color="textSecondary"
+              component="p"
+            >
+              All boxes are subject to HST
+            </Typography>
           </div>
         </Card>
       </div>
