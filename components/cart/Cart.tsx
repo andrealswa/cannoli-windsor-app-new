@@ -167,26 +167,25 @@ export const Cart = () => {
     const finalString = cartStringList.join(' ');
 
     const confirmationChars = '0123456789abcdefghijklmnopqrstuvwxyz';
-    const random = new Random(); // uses the nativeMath engine
+    const random = new Random();
     let confirmationCode = '';
 
-    for (let i = 0; i < 5; i++) {
-      let value = 0;
-      const alphaNum = [0, 2, 3, 5];
-      const num = [1, 4, 6];
+    for (let i = 0; i < 6; i++) {
+      const _alphaNum = [0, 2, 3, 5];
+      const _num = [1, 4, 6];
 
-      alphaNum.forEach((value) => {
-        if (i === value) {
-          value = random.integer(0, confirmationChars.length - 1);
+      _alphaNum.forEach((element) => {
+        if (i === element) {
+          confirmationCode +=
+            confirmationChars[random.integer(0, confirmationChars.length - 1)];
         }
       });
-      num.forEach((value) => {
-        if (i === value) {
-          value = random.integer(0, 9);
+      _num.forEach((element) => {
+        if (i === element) {
+          confirmationCode +=
+            confirmationChars[random.integer(0, 9).toString()];
         }
       });
-
-      confirmationCode += confirmationChars[value];
     }
 
     setConfirmationCode(confirmationCode);
