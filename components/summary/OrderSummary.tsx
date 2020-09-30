@@ -87,17 +87,17 @@ export const OrderSummary = () => {
         </h1>
         <h3>{email !== '' ? email : phone}</h3>
 
-        <div className={styles.pickupDelivery}>
-          {pickupDelivery === 'pickup' && (
-            <h3>Pick up at: Wyandotte Street E, Windsor, Ontario, CA</h3>
-          )}
-          {pickupDelivery === 'delivery' && (
-            <h3>
-              Deliver to: {address}, {city}, Ontario, CA
-            </h3>
-          )}
-        </div>
         <div>
+          <div className={styles.pickupDelivery}>
+            {pickupDelivery === 'pickup' && (
+              <h3>Pick up at: Wyandotte Street E, Windsor, Ontario, CA</h3>
+            )}
+            {pickupDelivery === 'delivery' && (
+              <h3>
+                Deliver to: {address}, {city}, Ontario, CA
+              </h3>
+            )}
+          </div>
           <div>
             <h3>
               Time:{' '}
