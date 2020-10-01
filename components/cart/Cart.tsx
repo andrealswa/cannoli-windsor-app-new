@@ -241,11 +241,10 @@ export const Cart = () => {
     } else if (buttonType === 'card') {
       setSubmitButton(false);
       setPaymentOption('card');
+    } else if (buttonType === 'etransfer') {
+      setSubmitButton(false);
+      setPaymentOption('etransfer');
     }
-    // } else if (buttonType === 'etransfer') {
-    //   setSubmitButton(false);
-    //   setPaymentOption('etransfer');
-    // }
   };
 
   const handleChangeEmail = (event) => {
@@ -450,6 +449,17 @@ export const Cart = () => {
 
           <Button
             className={
+              paymentOption === 'etransfer'
+                ? styles.paymentButtonSelected
+                : styles.paymentButton
+            }
+            onClick={() => handlePayment('etransfer')}
+          >
+            Etransfer
+          </Button>
+
+          <Button
+            className={
               paymentOption === 'card'
                 ? styles.paymentButtonSelected
                 : styles.paymentButton
@@ -471,7 +481,7 @@ export const Cart = () => {
             <Typography gutterBottom variant="h6" component="h2">
               Send to: cannoliwindsor@gmail.com
             </Typography>
-            <div className={styles.banksContainer}>
+            {/* <div className={styles.banksContainer}>
               <a
                 href="https://onlinebanking.tdbank.com/#/authentication/login"
                 target="_blank"
@@ -502,7 +512,7 @@ export const Cart = () => {
               >
                 <Button>Scotiabank</Button>
               </a>
-            </div>
+            </div> */}
           </div>
         )}
 
