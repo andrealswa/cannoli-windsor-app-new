@@ -90,7 +90,7 @@ export const OrderSummary = () => {
         <div>
           <div className={styles.pickupDelivery}>
             {pickupDelivery === 'pickup' && (
-              <h3>Pick up at: Wyandotte Street E, Windsor, Ontario, CA</h3>
+              <h3>Pick up at: 1356 Wyandotte Street E, Windsor, Ontario, CA</h3>
             )}
             {pickupDelivery === 'delivery' && (
               <h3>

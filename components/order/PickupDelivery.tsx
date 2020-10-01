@@ -1,11 +1,17 @@
-import { useState } from 'react';
-import { Button, CardContent } from '@material-ui/core';
+import {
+  Button,
+  Card,
+  CardActionArea,
+  CardContent,
+  CardMedia,
+} from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Typography from '@material-ui/core/Typography';
+import { motion, useAnimation } from 'framer-motion';
 
 import { useRecoilState } from 'recoil';
 
@@ -15,6 +21,21 @@ import {
   city as cityAtom,
 } from '../../recoil/recoil-atoms';
 import styles from './PickupDelivery.module.css';
+
+const fadeInUp = {
+  initial: {
+    y: 60,
+    opacity: 0,
+  },
+  animate: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.6,
+      ease: [0.6, -0.05, 0.01, 0.99],
+    },
+  },
+};
 
 export const PickupDelivery = () => {
   const [pickupDeliveryLocal, setPickupDeliveryLocal] = useRecoilState(
@@ -63,6 +84,23 @@ export const PickupDelivery = () => {
           Delivery
         </Button>
       </div>
+      {pickupDeliveryLocal === 'pickup' && (
+        <Card className={styles.cardImg}>
+          <CardActionArea>
+            <motion.div
+              initial={{ x: -60, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.5 }}
+            >
+              <img
+                className={styles.map}
+                src={require('../../public/homeContent/cannoliWindsorMap.png')}
+              />
+            </motion.div>
+          </CardActionArea>
+        </Card>
+      )}
+
       {pickupDeliveryLocal === 'delivery' && (
         <Typography variant="body2" color="textSecondary" component="p">
           $7 Delivery Charge will apply*

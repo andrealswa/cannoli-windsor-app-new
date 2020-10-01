@@ -60,7 +60,7 @@ export const HoursOperation = () => {
                   '10am - 6pm',
                   '10am - 6pm',
                   '10am - 6pm',
-                  '10am - 6pm',
+                  '2pm - 8pm',
                   '10am - 4pm',
                 ].map((times) => {
                   return <Typography>{times}</Typography>;

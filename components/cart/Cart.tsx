@@ -422,6 +422,7 @@ export const Cart = () => {
             <h2>Your Total: ${total.toFixed(2)}</h2>
           </div>
         </Card>
+        <Card></Card>
         <h1 className={styles.textCenter}>Choose Method Of Payment</h1>
         <div className={styles.payment}>
           <Button
