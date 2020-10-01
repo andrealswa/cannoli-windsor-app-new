@@ -55,8 +55,9 @@ export const HomeContent = () => {
               local, and engaging with the Windsor-Essex community.
             </Typography>
             <Typography>
-              Find us at the Downtown Windsor Farmer’s Market or for updates be
-              sure to follow us on Instagram and Facebook.
+              Find us at the Downtown Windsor Farmer’s Market every Saturday
+              from 8am - 1pm or for updates be sure to follow us on Instagram
+              and Facebook.
             </Typography>
           </div>
         </div>
