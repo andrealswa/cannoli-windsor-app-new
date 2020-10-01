@@ -215,17 +215,20 @@ export const Cart = () => {
       city: city,
       cart: finalString,
       notes: localNotes,
+      total: total.toFixed(2),
       paymentMethod: paymentOption,
     };
 
     emailjs
       // .send(
+      //   // Development and Testing
       //   'service_q5i423d',
       //   'template_2xmrios',
       //   templateParams,
       //   'user_qePnePrgB1FYHUjsYaUhJ'
       // )
       .send(
+        // Production
         'service_gpd8wum',
         'template_6ygzlqy',
         templateParams,
