@@ -223,20 +223,20 @@ export const Cart = () => {
     };
 
     emailjs
-      .send(
-        // Development and Testing
-        'service_q5i423d',
-        'template_2xmrios',
-        templateParams,
-        'user_qePnePrgB1FYHUjsYaUhJ'
-      )
       // .send(
-      //   // Production
-      //   'service_gpd8wum',
-      //   'template_6ygzlqy',
+      //   // Development and Testing
+      //   'service_q5i423d',
+      //   'template_2xmrios',
       //   templateParams,
-      //   'user_gT2ZmdF7qK19TiuvYlJM9'
+      //   'user_qePnePrgB1FYHUjsYaUhJ'
       // )
+      .send(
+        // Production
+        'service_gpd8wum',
+        'template_6ygzlqy',
+        templateParams,
+        'user_gT2ZmdF7qK19TiuvYlJM9'
+      )
       .then(
         (response) => {
           console.log('SUCCESS!', response.status, response.text);
