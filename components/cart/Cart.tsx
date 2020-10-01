@@ -25,6 +25,7 @@ import {
   pickupDelivery as pickupDeliveryAtom,
   todayLater as todayLaterAtom,
   time as timeAtom,
+  nameAtom,
   emailAtom,
   phoneAtom,
   callTextAtom,
@@ -80,6 +81,7 @@ export const Cart = () => {
   const address = useRecoilValue(addressAtom);
   const city = useRecoilValue(cityAtom);
   const pickupDelivery = useRecoilValue(pickupDeliveryAtom);
+  const [name, setName] = useRecoilState(nameAtom);
   const [email, setEmail] = useRecoilState(emailAtom);
   const [phone, setPhone] = useRecoilState(phoneAtom);
   const [hst, setHst] = useRecoilState(hstAtom);
@@ -205,6 +207,7 @@ export const Cart = () => {
       time.toLocaleDateString();
 
     const templateParams = {
+      name: name,
       confirmationCode: confirmationCode,
       email: email,
       phone: phone,
@@ -220,20 +223,20 @@ export const Cart = () => {
     };
 
     emailjs
-      // .send(
-      //   // Development and Testing
-      //   'service_q5i423d',
-      //   'template_2xmrios',
-      //   templateParams,
-      //   'user_qePnePrgB1FYHUjsYaUhJ'
-      // )
       .send(
-        // Production
-        'service_gpd8wum',
-        'template_6ygzlqy',
+        // Development and Testing
+        'service_q5i423d',
+        'template_2xmrios',
         templateParams,
-        'user_gT2ZmdF7qK19TiuvYlJM9'
+        'user_qePnePrgB1FYHUjsYaUhJ'
       )
+      // .send(
+      //   // Production
+      //   'service_gpd8wum',
+      //   'template_6ygzlqy',
+      //   templateParams,
+      //   'user_gT2ZmdF7qK19TiuvYlJM9'
+      // )
       .then(
         (response) => {
           console.log('SUCCESS!', response.status, response.text);
@@ -255,6 +258,10 @@ export const Cart = () => {
       setSubmitButton(false);
       setPaymentOption('etransfer');
     }
+  };
+
+  const handleChangeName = (event) => {
+    setName(event.target.value);
   };
 
   const handleChangeEmail = (event) => {
@@ -545,6 +552,15 @@ export const Cart = () => {
             </div> */}
           </div>
         )}
+
+        <h1 className={styles.textCenter}>Enter Name</h1>
+        <div className={styles.emailPhone}>
+          <TextField
+            onChange={(event) => handleChangeName(event)}
+            value={name}
+            label="Full Name"
+          />
+        </div>
 
         <h1 className={styles.textCenter}>Enter Preferred Communication</h1>
 

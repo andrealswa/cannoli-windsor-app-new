@@ -2,6 +2,7 @@ import { useRecoilState } from 'recoil';
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import {
+  nameAtom,
   confirmationCodeAtom,
   emailAtom,
   phoneAtom,
@@ -45,6 +46,7 @@ const fadeInUp = {
 
 export const OrderSummary = () => {
   const router = useRouter();
+  const [name, setName] = useRecoilState(nameAtom);
   const [confirmationCode, setConfirmationCode] = useRecoilState(
     confirmationCodeAtom
   );

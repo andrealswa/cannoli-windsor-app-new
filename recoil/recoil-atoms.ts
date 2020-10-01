@@ -72,6 +72,11 @@ export const todayLater = atom({
   default: '',
 });
 
+export const nameAtom = atom({
+  key: 'nameAtom',
+  default: '',
+});
+
 export const emailAtom = atom({
   key: 'emailAtom',
   default: '',
