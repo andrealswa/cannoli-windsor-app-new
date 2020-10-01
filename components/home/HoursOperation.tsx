@@ -45,26 +45,16 @@ export const HoursOperation = () => {
           <AccordionDetails>
             <div className={styles.accordionDetails}>
               <div>
-                {['Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun'].map(
-                  (day) => {
-                    return (
-                      <Typography color="textSecondary">{day}:</Typography>
-                    );
-                  }
-                )}
+                {['Thurs', 'Fri', 'Sat', 'Sun'].map((day) => {
+                  return <Typography color="textSecondary">{day}:</Typography>;
+                })}
               </div>
               <div className={styles.times}>
-                {[
-                  'CLOSED',
-                  '10am - 6pm',
-                  '10am - 6pm',
-                  '10am - 6pm',
-                  '10am - 6pm',
-                  '2pm - 8pm',
-                  '10am - 4pm',
-                ].map((times) => {
-                  return <Typography>{times}</Typography>;
-                })}
+                {['10am - 6pm', '10am - 6pm', '2pm - 8pm', '10am - 4pm'].map(
+                  (times) => {
+                    return <Typography>{times}</Typography>;
+                  }
+                )}
               </div>
             </div>
           </AccordionDetails>
@@ -73,3 +63,11 @@ export const HoursOperation = () => {
     </motion.div>
   );
 };
+
+// 'CLOSED',
+// '10am - 6pm',
+// '10am - 6pm',
+// '10am - 6pm',
+// '10am - 6pm',
+// '2pm - 8pm',
+// '10am - 4pm',
