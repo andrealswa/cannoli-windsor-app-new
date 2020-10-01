@@ -104,13 +104,13 @@ export const Cart = () => {
     total += cart.big_box_large_cannoli * 25;
     total += cart.vegan_cannoli * 10;
 
+    // Calculate taxes
+    setHst(total * 0.13);
+    total *= 1.13;
     if (pickupDelivery === 'delivery') {
       total += 7;
     }
-
-    // Calculate taxes
-    setHst(total * 0.13);
-    setTotal(total * 1.13);
+    setTotal(total);
   }, []);
 
   const handleSubmit = () => {
