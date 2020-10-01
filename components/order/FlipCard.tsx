@@ -58,6 +58,12 @@ export const FlipCard = () => {
         big_box_large_cannoli: cartItems.big_box_large_cannoli + 1,
       };
       setCartItems({ ...cartItemsNew });
+    } else if (boxAndCannoliSize === 7) {
+      const cartItemsNew = {
+        ...cartItems,
+        vegan_cannoli: cartItems.vegan_cannoli + 1,
+      };
+      setCartItems({ ...cartItemsNew });
     }
   };
 
@@ -107,6 +113,12 @@ export const FlipCard = () => {
         big_box_large_cannoli: cartItems.big_box_large_cannoli - 1,
       };
       setCartItems({ ...cartItemsNew });
+    } else if (boxAndCannoliSize === 7 && cartItems.big_box_large_cannoli > 0) {
+      const cartItemsNew = {
+        ...cartItems,
+        vegan_cannoli: cartItems.vegan_cannoli - 1,
+      };
+      setCartItems({ ...cartItemsNew });
     }
   };
 
@@ -138,7 +150,7 @@ export const FlipCard = () => {
                 custom orders, please request preferred flavours in notes
               </Typography>
             </CardContent>
-
+            <div className={styles.grow}></div>
             <Button className={styles.buttonFlip} onClick={handleCardFlip}>
               Click Here To View Options
             </Button>
@@ -204,6 +216,24 @@ export const FlipCard = () => {
                     &nbsp;Large (2)
                   </Button>
                 </div>
+              </div>
+              <Typography variant="h6" color="textSecondary" component="p">
+                Vegan
+              </Typography>
+              <div className={styles.addRemoveSizes}>
+                <Button
+                  className={styles.subButton}
+                  onClick={() => handleRemoveBox(7)}
+                >
+                  <RemoveIcon />
+                </Button>
+                <Button
+                  className={styles.sizeButton}
+                  onClick={() => handleAddBox(7)}
+                >
+                  <AddIcon />
+                  &nbsp;Vegan (3)
+                </Button>
               </div>
               <Typography variant="h6" color="textSecondary" component="p">
                 Big Box

@@ -27,7 +27,7 @@
 
 .secondTextImg {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
   width: 100%;
   max-width: 1200px;
@@ -38,13 +38,10 @@
   text-align: center;
 }
 
-.orderSmall {
-  padding: 0px !important;
-  margin-right: 30px !important;
-}
-
 .order {
   padding: 0px !important;
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
 
 .paymentMethod {

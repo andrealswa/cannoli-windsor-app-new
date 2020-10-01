@@ -78,6 +78,26 @@ export const OrderSummary = () => {
             <Card className={styles.cardText}>
               <CardContent>
                 <Typography gutterBottom variant="h5" component="h2">
+                  Vegan
+                </Typography>
+                <div>
+                  <Typography
+                    variant="body2"
+                    color="textSecondary"
+                    component="p"
+                  >
+                    Vegan (3):{' '}
+                    <span className={styles.shiftRight}>
+                      <b>$10</b>
+                    </span>
+                  </Typography>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className={styles.cardText}>
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="h2">
                   Big Boxes
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">

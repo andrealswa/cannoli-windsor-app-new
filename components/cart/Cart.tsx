@@ -100,6 +100,7 @@ export const Cart = () => {
     total += cart.big_box_mini_cannoli * 25;
     total += cart.big_box_medium_cannoli * 30;
     total += cart.big_box_large_cannoli * 25;
+    total += cart.vegan_cannoli * 10;
 
     if (pickupDelivery === 'delivery') {
       total += 7;
@@ -218,11 +219,17 @@ export const Cart = () => {
     };
 
     emailjs
+      // .send(
+      //   'service_q5i423d',
+      //   'template_2xmrios',
+      //   templateParams,
+      //   'user_qePnePrgB1FYHUjsYaUhJ'
+      // )
       .send(
-        'service_q5i423d',
-        'template_2xmrios',
+        'service_gpd8wum',
+        'template_6ygzlqy',
         templateParams,
-        'user_qePnePrgB1FYHUjsYaUhJ'
+        'user_gT2ZmdF7qK19TiuvYlJM9'
       )
       .then(
         (response) => {
@@ -353,6 +360,26 @@ export const Cart = () => {
                         {cart.small_box_large_cannoli} Large Cannoli Box
                         {cart.small_box_large_cannoli >= 2 && <span>es</span>}:
                         ${10 * cart.small_box_large_cannoli}
+                      </div>
+                    )}
+                  </CardContent>
+                </Card>
+              </motion.div>
+            )}
+            {cart.vegan_cannoli > 0 && (
+              <motion.div variants={fadeInUp}>
+                <Card className={styles.cardText}>
+                  <CardContent className={styles.cardContent}>
+                    {
+                      <Typography gutterBottom variant="h5" component="h2">
+                        Vegan
+                      </Typography>
+                    }
+                    {cart.vegan_cannoli > 0 && (
+                      <div>
+                        {cart.vegan_cannoli} Vegan Cannoli Box
+                        {cart.vegan_cannoli >= 2 && <span>es</span>}: $
+                        {10 * cart.vegan_cannoli}
                       </div>
                     )}
                   </CardContent>

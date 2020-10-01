@@ -120,7 +120,7 @@ export const OrderSummary = () => {
                   cart.small_box_medium_cannoli +
                   cart.small_box_mini_cannoli >
                   0 && (
-                  <CardContent className={styles.orderSmall}>
+                  <CardContent className={styles.order}>
                     <Typography gutterBottom variant="h5" component="h2">
                       Small Boxes
                     </Typography>
@@ -144,6 +144,24 @@ export const OrderSummary = () => {
                         {cart.small_box_large_cannoli} Large Cannoli Box
                         {cart.small_box_large_cannoli >= 2 && <span>es</span>}:
                         ${10 * cart.small_box_large_cannoli}
+                      </div>
+                    )}
+                  </CardContent>
+                )}
+              </motion.div>
+              <motion.div variants={fadeInUp}>
+                {cart.vegan_cannoli + cart.vegan_cannoli + cart.vegan_cannoli >
+                  0 && (
+                  <CardContent className={styles.order}>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      Vegan Boxes
+                    </Typography>
+
+                    {cart.vegan_cannoli > 0 && (
+                      <div>
+                        {cart.vegan_cannoli} Vegan Cannoli Box
+                        {cart.vegan_cannoli >= 2 && <span>es</span>}: $
+                        {10 * cart.vegan_cannoli}
                       </div>
                     )}
                   </CardContent>

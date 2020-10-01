@@ -30,7 +30,7 @@
 .cardText {
   display: flex;
   max-width: 500px;
-  min-width: 300px;
+  min-width: 200px;
   align-items: center;
   justify-content: center;
   box-shadow: none !important;

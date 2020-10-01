@@ -18,12 +18,13 @@
   width: 100%;
   max-width: 1200px;
   margin: auto !important;
+  align-items: flex-start;
 }
 
 .cardText {
   display: flex;
   max-width: 500px;
-  min-width: 300px;
+  min-width: 200px;
   align-items: center;
   box-shadow: none !important;
   justify-content: center;
