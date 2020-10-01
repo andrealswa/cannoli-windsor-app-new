@@ -287,12 +287,6 @@ export const Cart = () => {
             <h1>Cart</h1>
           </div>
           <div>
-            {pickupDelivery === 'pickup' && (
-              <CardContent className={styles.pickupOrDelivery}>
-                Curbside Pickup location is at: 1356 Wyandotte Street East,
-                Windsor, Ontario, CA
-              </CardContent>
-            )}
             {pickupDelivery === 'delivery' && address !== '' && city !== '' && (
               <CardContent className={styles.pickupOrDelivery}>
                 Delivered to: {address}, {city}, Ontario, CA
@@ -422,7 +416,25 @@ export const Cart = () => {
             <h2>Your Total: ${total.toFixed(2)}</h2>
           </div>
         </Card>
-        <Card></Card>
+        {pickupDelivery === 'pickup' && (
+          <Card className={styles.cardImg}>
+            <h2 className={styles.mapTitle}>
+              Pickup Location At Corner of Moy Avenue & Wyandotte St. E
+            </h2>
+            <CardActionArea>
+              <motion.div
+                initial={{ x: -60, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: 0.5 }}
+              >
+                <img
+                  className={styles.map}
+                  src={require('../../public/homeContent/cannoliWindsorMap.png')}
+                />
+              </motion.div>
+            </CardActionArea>
+          </Card>
+        )}
         <h1 className={styles.textCenter}>Choose Method Of Payment</h1>
         <div className={styles.payment}>
           <Button

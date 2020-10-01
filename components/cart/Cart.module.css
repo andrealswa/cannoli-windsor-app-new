@@ -122,3 +122,15 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.cardImg {
+  margin: 30px 0 !important;
+}
+.mapTitle {
+  text-align: center;
+}
+
+.map {
+  width: 100%;
+  max-width: 700px;
+}
