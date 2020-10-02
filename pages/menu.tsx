@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
-import { Flavours } from '../components/order/Flavours';
-import { ClientNotes } from '../components/order/ClientNotes';
+import { Flavours } from '../components/Order/Flavours';
+import { ClientNotes } from '../components/Order/ClientNotes';
 import styles from './order.module.css';
-import { PickupDelivery } from '../components/order/PickupDelivery';
+import { PickupDelivery } from '../components/Order/PickupDelivery';
 import { useRecoilValue } from 'recoil';
 import { pickupDelivery } from '../recoil/recoil-atoms';
 import { MenuPicture } from '../components/menu/MenuPicture';

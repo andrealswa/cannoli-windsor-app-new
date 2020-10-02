@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Cart } from '../components/cart/Cart';
+import { Cart } from '../components/Cart';
 
 const CartPage = () => {
   return (

@@ -31,7 +31,7 @@ import {
   callTextAtom,
   totalAtom,
 } from '../../recoil/recoil-atoms';
-import styles from './Cart.module.css';
+
 import { motion } from 'framer-motion';
 import {
   FormControlLabel,
@@ -41,6 +41,8 @@ import {
   withStyles,
 } from '@material-ui/core';
 import { green, orange } from '@material-ui/core/colors';
+
+import styles from './index.module.css';
 
 const easing = [0.6, -0.05, 0.01, 0.99];
 

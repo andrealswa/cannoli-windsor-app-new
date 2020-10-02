@@ -1,0 +1,37 @@
+.card {
+  border-radius: 15px !important;
+  box-shadow: rgba(0, 0, 0, 0.26) 0px 5px 15px !important;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.centerTitle {
+  text-align: center;
+}
+
+.sizeChoices {
+  display: flex;
+  flex-direction: column;
+}
+
+.subButton {
+  min-width: 10px !important;
+}
+
+.sizeButton {
+  justify-content: left !important;
+}
+
+.grow {
+  flex-grow: 1;
+}
+
+.buttonFlip {
+  padding: 15px 0px !important;
+  width: 100%;
+  background-color: rgb(233, 180, 123) !important;
+  border-radius: 0px 0px 15px 15px !important;
+  margin-top: auto;
+  align-self: flex-end !important;
+}

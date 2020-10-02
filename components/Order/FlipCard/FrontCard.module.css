@@ -1,17 +1,9 @@
-.cardFlip {
-  width: 300px !important;
-}
-
 .card {
   border-radius: 15px !important;
   box-shadow: rgba(0, 0, 0, 0.26) 0px 5px 15px !important;
   height: 500px;
   display: flex;
   flex-direction: column;
-}
-
-.card:hover {
-  box-shadow: rgba(0, 0, 0, 0.575) 0px 5px 15px !important;
 }
 
 .grow {
@@ -25,21 +17,4 @@
   border-radius: 0px 0px 15px 15px !important;
   margin-top: auto;
   align-self: flex-end !important;
-}
-
-.centerTitle {
-  text-align: center;
-}
-
-.sizeChoices {
-  display: flex;
-  flex-direction: column;
-}
-
-.sizeButton {
-  justify-content: left !important;
-}
-
-.subButton {
-  min-width: 10px !important;
 }
