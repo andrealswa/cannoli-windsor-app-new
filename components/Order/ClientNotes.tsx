@@ -25,11 +25,6 @@ export const ClientNotes = () => {
           'ie.\nNo Glacé Cherry, \n2 Toasted Almond, \n2 Chocolate Chip, \n2 Vanilla Sugar \n'
         }
       />
-      <Link href="/cart">
-        <a className={styles.blueLink}>
-          <Button className={styles.buttonSubmit}>Take Me To Cart</Button>
-        </a>
-      </Link>
     </div>
   );
 };

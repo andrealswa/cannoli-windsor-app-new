@@ -105,6 +105,8 @@ export const Cart = () => {
     total += cart.big_box_medium_cannoli * 30;
     total += cart.big_box_large_cannoli * 25;
     total += cart.vegan_cannoli * 10;
+    total += cart.i_cannoli_love_you * 1;
+    total += cart.have_a_sweet_birthday * 1;
 
     // Calculate taxes
     setHst(total * 0.13);
@@ -156,12 +158,21 @@ export const Cart = () => {
       if (value > 0) {
         cartString =
           cartString + key.split('_').join(' ') + ': ' + value + ', ';
+
         const xPos = cartString.indexOf('x');
-        cartString =
-          cartString.substring(0, xPos + 1) +
-          ' of ' +
-          cartString.substring(xPos + 1);
-        cartStringList.push(cartString);
+        let result = '';
+        if (xPos !== -1) {
+          result +=
+            cartString.substring(0, xPos + 1) +
+            ' of ' +
+            cartString.substring(xPos + 1);
+        }
+
+        if (result !== '') {
+          cartStringList.push(result);
+        } else {
+          cartStringList.push(cartString);
+        }
       }
     }
     if (cartStringList.length >= 1) {
@@ -435,6 +446,46 @@ export const Cart = () => {
                 </Card>
               </motion.div>
             )}
+
+            {cart.i_cannoli_love_you > 0 && (
+              <motion.div variants={fadeInUp}>
+                <Card className={styles.cardText}>
+                  <CardContent className={styles.cardContent}>
+                    {
+                      <Typography gutterBottom variant="h5" component="h2">
+                        Card
+                      </Typography>
+                    }
+                    {cart.i_cannoli_love_you > 0 && (
+                      <div>
+                        {cart.i_cannoli_love_you} "I Cannoli Love You" : $
+                        {1 * cart.i_cannoli_love_you}
+                      </div>
+                    )}
+                  </CardContent>
+                </Card>
+              </motion.div>
+            )}
+
+            {cart.have_a_sweet_birthday > 0 && (
+              <motion.div variants={fadeInUp}>
+                <Card className={styles.cardText}>
+                  <CardContent className={styles.cardContent}>
+                    {
+                      <Typography gutterBottom variant="h5" component="h2">
+                        Card
+                      </Typography>
+                    }
+                    {cart.i_cannoli_love_you > 0 && (
+                      <div>
+                        {cart.have_a_sweet_birthday} "Have a Sweet Birthday" : $
+                        {1 * cart.have_a_sweet_birthday}
+                      </div>
+                    )}
+                  </CardContent>
+                </Card>
+              </motion.div>
+            )}
           </div>
           {pickupDelivery === 'delivery' && (
             <CardContent className={styles.deliveryChargeContainer}>
@@ -560,7 +611,7 @@ export const Cart = () => {
           <TextField
             onChange={(event) => handleChangeName(event)}
             value={name}
-            label="Full Name"
+            label="First and Last Name"
           />
         </div>
 

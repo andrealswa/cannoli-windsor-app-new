@@ -62,6 +62,18 @@ export const PickupDelivery = () => {
 
   return (
     <div className={styles.container}>
+      <Typography
+        style={{ textAlign: 'center' }}
+        className={styles.notice}
+        gutterBottom
+        variant="h6"
+        component="h2"
+      >
+        Your order needs to be placed minimum 2 hours from now. If order time
+        selected is NOT 2 hours from now, your order WILL NOT be confirmed.
+        Vegan cannoli are not available for same day ordering. If you are
+        ordering Vegan Boxes, please note that a 48 hour notice is required.
+      </Typography>
       <div>
         <Button
           className={

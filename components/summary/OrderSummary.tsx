@@ -1,6 +1,7 @@
 import { useRecoilState } from 'recoil';
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import {
   nameAtom,
   confirmationCodeAtom,
@@ -25,7 +26,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { motion } from 'framer-motion';
-import { Link } from '@material-ui/core';
+import { Link as MatLink } from '@material-ui/core';
 
 const easing = [0.6, -0.05, 0.01, 0.99];
 
@@ -66,30 +67,45 @@ export const OrderSummary = () => {
 
   return (
     <div>
+      <div className={styles.textWrapper}>
+        <div className={styles.textContainer}>
+          <Typography
+            className={styles.screenshotWarning}
+            gutterBottom
+            variant="h5"
+            component="h2"
+          >
+            Congrats on completing an order request for Cannoli Windsor!
+          </Typography>
+          <Typography
+            className={styles.screenshotWarning}
+            gutterBottom
+            variant="h5"
+            component="h2"
+          >
+            Please note that your order request has been sent to us for review.
+            You have submitted an order REQUEST. You will be contacted via your
+            preferred method of communication within 2 hours. Orders will be
+            accepted while supplies last.
+          </Typography>
+          <Typography
+            className={styles.screenshotWarning}
+            gutterBottom
+            variant="h5"
+            component="h2"
+          >
+            Keep your confirmation number for your records. If you'd like to
+            modify or cancel an order request please contact us.
+          </Typography>
+        </div>
+      </div>
       <Card className={styles.container}>
-        <Typography
-          className={styles.screenshotWarning}
-          gutterBottom
-          variant="h5"
-          component="h2"
-        >
-          Your order request has been received!
-        </Typography>
-        <Typography
-          className={styles.screenshotWarning}
-          gutterBottom
-          variant="h5"
-          component="h2"
-        >
-          We will contact you shortly to confirm your order. Please keep your
-          order request code for reference. Talk soon!
-        </Typography>
         <h1 className={styles.h1Styles}>
           Order Confirmation Request Code: {confirmationCode}
         </h1>
         <h3>{email !== '' ? email : phone}</h3>
 
-        <div>
+        <div className={styles.orderSummaryColumnContainer}>
           <div className={styles.pickupDelivery}>
             {pickupDelivery === 'pickup' && (
               <h3>Pickup At Corner of Moy Avenue & Wyandotte St. E</h3>
@@ -116,7 +132,7 @@ export const OrderSummary = () => {
             </h3>
           </div>
           <div>
-            <div className={styles.secondTextImg}>
+            <div className={styles.orderSummaryContainer}>
               <motion.div variants={fadeInUp}>
                 {cart.small_box_large_cannoli +
                   cart.small_box_medium_cannoli +
@@ -203,6 +219,27 @@ export const OrderSummary = () => {
                 </CardContent>
               </motion.div>
             </div>
+            <motion.div variants={fadeInUp}>
+              {cart.i_cannoli_love_you + cart.have_a_sweet_birthday > 0 && (
+                <CardContent className={styles.order}>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    Cards
+                  </Typography>
+                  {cart.i_cannoli_love_you > 0 && (
+                    <div>
+                      {cart.i_cannoli_love_you} "I Cannoli Love You" : $
+                      {1 * cart.i_cannoli_love_you}
+                    </div>
+                  )}
+                  {cart.have_a_sweet_birthday > 0 && (
+                    <div>
+                      {cart.have_a_sweet_birthday} "Have A Sweet Birthday" : $
+                      {1 * cart.have_a_sweet_birthday}
+                    </div>
+                  )}
+                </CardContent>
+              )}
+            </motion.div>
           </div>
 
           {notes !== '' && (
@@ -239,14 +276,14 @@ export const OrderSummary = () => {
         <h2>Total: ${total.toFixed(2)}</h2>
       </Card>
       <div className={styles.refreshButton}>
-        <Link href="/">
+        <MatLink href="/">
           <Button
             className={styles.submitButton}
             onClick={() => router.reload()}
           >
             <a>Back to Home Page</a>
           </Button>
-        </Link>
+        </MatLink>
       </div>
     </div>
   );

@@ -14,6 +14,8 @@ export const cart = atom({
     big_box_medium_cannoli: 0,
     big_box_large_cannoli: 0,
     vegan_cannoli: 0,
+    i_cannoli_love_you: 0,
+    have_a_sweet_birthday: 0,
   },
 });
 
@@ -104,6 +106,8 @@ export const cartCount = selector({
     count += cartItems.big_box_medium_cannoli;
     count += cartItems.big_box_large_cannoli;
     count += cartItems.vegan_cannoli;
+    count += cartItems.i_cannoli_love_you;
+    count += cartItems.have_a_sweet_birthday;
     return count;
   },
 });

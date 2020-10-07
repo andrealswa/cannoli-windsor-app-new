@@ -15,3 +15,18 @@
 .title {
   text-align: center;
 }
+
+.blueLink {
+  text-decoration: none !important;
+}
+
+.buttonSubmit {
+  background-color: rgb(233, 180, 123) !important;
+  width: 150px;
+}
+
+.cartButton {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}

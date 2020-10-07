@@ -6,9 +6,12 @@ import { OrderTime } from './OrderTime';
 import { ClientNotes } from './ClientNotes';
 import { PickupDelivery } from './PickupDelivery';
 import { pickupDelivery } from '../../recoil/recoil-atoms';
+import { FlipCard } from './FlipCard';
+import { ExtrasCard } from './ExtrasCard';
 
 import styles from './index.module.css';
-import { FlipCard } from './FlipCard';
+import Link from 'next/link';
+import { Button } from '@material-ui/core';
 
 export const Order = () => {
   const pickupDeliveryLocal = useRecoilValue(pickupDelivery);
@@ -31,8 +34,18 @@ export const Order = () => {
                   <FlipCard />
                 </div>
               </div>
-              <ClientNotes />
+              <div>
+                <ClientNotes />
+                <ExtrasCard />
+              </div>
             </div>
+          </div>
+          <div className={styles.cartButton}>
+            <Link href="/cart">
+              <a className={styles.blueLink}>
+                <Button className={styles.buttonSubmit}>Take Me To Cart</Button>
+              </a>
+            </Link>
           </div>
         </div>
       )}

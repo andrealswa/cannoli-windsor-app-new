@@ -19,6 +19,7 @@ import { useRecoilState } from 'recoil';
 
 import { todayLater, time as timeAtom } from '../../recoil/recoil-atoms';
 import styles from './OrderTime.module.css';
+import { HoursOperation } from '../home/HoursOperation';
 
 export const OrderTime = () => {
   const [todayLaterLocal, setTodayLaterLocal] = useRecoilState(todayLater);
@@ -46,7 +47,7 @@ export const OrderTime = () => {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Select Your Time</h1>
-
+      <HoursOperation />
       <div>
         <Button
           className={

@@ -80,6 +80,7 @@ export const OrderSummary = () => {
                 <Typography gutterBottom variant="h5" component="h2">
                   Vegan
                 </Typography>
+
                 <div>
                   <Typography
                     variant="body2"
@@ -196,6 +197,11 @@ export const OrderSummary = () => {
                       <span>
                         <b>Toasted Almond</b>
                       </span>
+                    </Typography>
+                    <Typography gutterBottom variant="body2" component="p">
+                      <b>
+                        (Please give us a 48 hour notice for all vegan orders)
+                      </b>
                     </Typography>
                   </div>
                 </CardContent>
