@@ -104,7 +104,7 @@ export const BackCard = ({ handleCardFlip }) => {
         big_box_large_cannoli: cartItems.big_box_large_cannoli - 1,
       };
       setCartItems({ ...cartItemsNew });
-    } else if (boxAndCannoliSize === 7 && cartItems.big_box_large_cannoli > 0) {
+    } else if (boxAndCannoliSize === 7 && cartItems.vegan_cannoli > 0) {
       const cartItemsNew = {
         ...cartItems,
         vegan_cannoli: cartItems.vegan_cannoli - 1,
