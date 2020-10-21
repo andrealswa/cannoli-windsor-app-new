@@ -50,7 +50,7 @@ export const HoursOperation = () => {
                 })}
               </div>
               <div className={styles.times}>
-                {['10am - 6pm', '10am - 6pm', '2pm - 8pm', '10am - 4pm'].map(
+                {['1pm - 6pm', '1pm - 6pm', '1pm - 4pm', '10am - 4pm'].map(
                   (times) => {
                     return <Typography>{times}</Typography>;
                   }
