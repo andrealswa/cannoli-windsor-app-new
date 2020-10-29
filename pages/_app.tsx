@@ -6,16 +6,26 @@ import { AnimatePresence } from 'framer-motion';
 
 import styles from './_app.module.css';
 
+import Head from 'next/head';
 const MyApp = ({ Component, pageProps, router }) => {
   return (
-    <RecoilRoot>
-      <Navbar />
-      <AnimatePresence exitBeforeEnter>
-        <Component {...pageProps} key={router.route} />
-      </AnimatePresence>
-      <div className={styles.spacer}></div>
-      <Footer />
-    </RecoilRoot>
+    <div>
+      <Head>
+        <title>Cannoli Windsor</title>
+        <meta
+          name="description"
+          content="The best cannoli in Windsor Essex, freshly made Sicilian cannoli."
+        />
+      </Head>
+      <RecoilRoot>
+        <Navbar />
+        <AnimatePresence exitBeforeEnter>
+          <Component {...pageProps} key={router.route} />
+        </AnimatePresence>
+        <div className={styles.spacer}></div>
+        <Footer />
+      </RecoilRoot>
+    </div>
   );
 };
 
