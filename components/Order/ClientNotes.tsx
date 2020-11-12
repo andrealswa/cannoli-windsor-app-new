@@ -11,6 +11,7 @@ export const ClientNotes = () => {
     console.log(text);
     setNote(() => text);
   };
+
   return (
     <div className={styles.notesContainer}>
       <h1>Notes</h1>
