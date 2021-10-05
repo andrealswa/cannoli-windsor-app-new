@@ -12,13 +12,12 @@ import Head from 'next/head';
 const MyApp = ({ Component, pageProps, router }) => {
   return (
     <RecoilRoot>
-      <AlternatePage />
-      {/* <Navbar />
+      <Navbar />
       <AnimatePresence exitBeforeEnter>
         <Component {...pageProps} key={router.route} />
       </AnimatePresence>
       <div className={styles.spacer}></div>
-      <Footer /> */}
+      <Footer />
     </RecoilRoot>
   );
 };

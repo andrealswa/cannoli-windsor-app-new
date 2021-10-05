@@ -38,7 +38,7 @@ export const Contact = () => {
           <h1>Contact Us</h1>
         </div>
         <div className={styles.contactContainer}>
-          <a href="mailto:cannoliwindsor@gmail.com">
+          <a href="mailto:swartz8@uwindsor.ca">
             <Typography
               className={styles.contactUnit}
               gutterBottom
@@ -48,7 +48,7 @@ export const Contact = () => {
               <MailOutlineIcon className={styles.iconsEmail} />
               <div className={styles.email}>
                 <Typography gutterBottom variant="h6" component="h2">
-                  cannoliwindsor@gmail.com
+                  swartz8@uwindsor.ca
                 </Typography>
               </div>
             </Typography>
